@@ -1,1 +1,7 @@
 config.codekit
+.Python
+/bin
+/include
+/lib
+/output
+*.pyc

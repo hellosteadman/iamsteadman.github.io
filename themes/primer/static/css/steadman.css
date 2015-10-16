@@ -1,0 +1,35 @@
+.masthead {
+    background: #333;
+    color: #fff;
+    padding: 15px 0;
+    margin-bottom: 15px;
+}
+
+.about {
+    background: #e2eef9;
+    margin-top: -15px;
+    margin-bottom: 15px;
+}
+
+.masthead a {
+    color: #fff;
+}
+
+.masthead .avatar {
+    float: left;
+    margin-right: 15px;
+}
+
+abbr[title] {
+    border-bottom-width: 0;
+}
+
+address {
+    display: inline;
+}
+
+footer.body {
+    background: #efefef;
+    color: #666;
+    padding: 15px 0;
+}

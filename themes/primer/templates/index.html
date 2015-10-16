@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block after_header %}
+    <div class="about">
+        <div class="container">
+            <p class="lead">
+                I&rsquo;m Mark Steadman, a professional full-stack web developer
+                from Birmingham, with a love for Django.<br>
+                Find me on
+                <a href="https://github.com/iamsteadman">GitHub</a> or
+                <a href="https://twitter.com/iamsteadman">Twitter</a>.
+            </p>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <section id="content">
+        <div class="articles">
+            {% for article in articles_page.object_list %}
+            <article class="hentry">
+                <header>
+                    <h2 class="entry-title">
+                        <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a>
+                        <small><abbr class="published" title="{{ article.date.isoformat() }}"> {{ article.locale_date }} </abbr></small>
+                    </h2>
+                </header>
+
+                <div class="entry-content markdown-body">
+                    {{ article.content }}
+                </div>
+            </article>
+            {% if not loop.last %}<hr>{% endif %}
+            {% endfor %}
+        </div>
+
+        {% if articles_page.has_other_pages() %}
+            {% include 'pagination.html' %}
+        {% endif %}
+    </section>
+{% endblock content %}

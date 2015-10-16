@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="{{ DEFAULT_LANG }}">
+    <head>
+        {% block head %}
+            <title>{% block title %}{{ SITENAME }}{% endblock title %}</title>
+            <meta charset="utf-8">
+            {% if FEED_ALL_ATOM %}<link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Full Atom Feed" />{% endif %}
+            {% if FEED_ALL_RSS %}<link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_RSS }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Full RSS Feed" />{% endif %}
+            {% if FEED_ATOM %}<link href="{{ FEED_DOMAIN }}/{{ FEED_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Atom Feed" />{% endif %}
+            {% if FEED_RSS %}<link href="{{ FEED_DOMAIN }}/{{ FEED_RSS }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} RSS Feed" />{% endif %}
+            {% if CATEGORY_FEED_ATOM and category %}<link href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_ATOM|format(category.slug) }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Categories Atom Feed" />{% endif %}
+            {% if CATEGORY_FEED_RSS and category %}<link href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_RSS|format(category.slug) }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Categories RSS Feed" />{% endif %}
+            {% if TAG_FEED_ATOM and tag %}<link href="{{ FEED_DOMAIN }}/{{ TAG_FEED_ATOM|format(tag.slug) }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Tags Atom Feed" />{% endif %}
+            {% if TAG_FEED_RSS and tag %}<link href="{{ FEED_DOMAIN }}/{{ TAG_FEED_RSS|format(tag.slug) }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Tags RSS Feed" />{% endif %}
+        {% endblock head %}
+        <link rel="stylesheet" href="{{ SITEURL }}/theme/css/primer.css">
+        <link rel="stylesheet" href="{{ SITEURL }}/theme/css/octicons/octicons.css">
+        <link rel="stylesheet" href="{{ SITEURL }}/theme/css/steadman.css">
+    </head>
+
+    <body>
+        <header class="masthead">
+            <div class="container">
+                <img class="avatar" src="https://avatars1.githubusercontent.com/u/3310393?v=3&s=72" width="72" height="72">
+                <h1><a href="{{ SITEURL }}/">{{ SITENAME }} <strong>{{ SITESUBTITLE }}</strong></a></h1>
+            </div>
+        </header>
+
+        {% block after_header %}{% endblock %}
+
+        <div class="container">
+            <div class="columns">
+                <div class="one-fourth column">
+                    <nav class="menu">
+                        {% for title, link in MENUITEMS %}
+                        <a class="menu-item" href="{{ link }}">{{ title }}</a>
+                        {% endfor %}
+
+                        {% if DISPLAY_PAGES_ON_MENU %}
+                            {% for p in pages %}
+                            <a class="menu-item {% if p == page %}selected{% endif %}" href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a>
+                            {% endfor %}
+                        {% endif %}
+
+                        {% if DISPLAY_CATEGORIES_ON_MENU %}
+                            {% for cat, null in categories %}
+                            <a class="menu-item {% if cat == category %}selected{% endif %}" href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a>
+                            {% endfor %}
+                        {% endif %}
+                    </nav>
+
+                    {% if LINKS %}
+                        <nav class="blogroll menu">
+                            {% for link in LINKS %}
+                            <a class="menu-item" href="{{ link.1 }}" target="_blank">{{ link.0 }}</a>
+                            {% endfor %}
+                        </nav>
+                    {% endif %}
+
+                    {% if SOCIAL %}
+                        <nav class="social menu">
+                            {% for link in SOCIAL %}
+                            <a class="menu-item" href="{{ link.1 }}" target="_blank">{{ link.0 }}</a>
+                            {% endfor %}
+                        </nav>
+                    {% endif %}
+                </div>
+
+                <div class="three-fourths column">
+                    {% block content %}{% endblock %}
+                </div>
+            </div>
+        </div>
+
+        <footer class="body">
+            <div class="container">
+                <address class="vcard body">
+                    Proudly powered by <a href="http://getpelican.com/">Pelican</a>,
+                    which takes great advantage of <a href="http://python.org">Python</a>.
+                </address>
+            </div>
+        </footer>
+    </body>
+</html>
