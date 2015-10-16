@@ -16,17 +16,6 @@
             </div>
         </header>
 
-    <div class="about">
-        <div class="container">
-            <p class="lead">
-                I&rsquo;m Mark Steadman, a professional full-stack web developer
-                from Birmingham, with a love for Django.<br>
-                Find me on
-                <a href="https://github.com/iamsteadman">GitHub</a> or
-                <a href="https://twitter.com/iamsteadman">Twitter</a>.
-            </p>
-        </div>
-    </div>
 
         <div class="container">
             <div class="columns">
@@ -63,113 +52,6 @@
 
                 <div class="entry-content markdown-body">
                     <iframe src="https://player.vimeo.com/video/135740367" width="730" height="455" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-                </div>
-            </article>
-<hr>            <article class="hentry">
-                <header>
-                    <h2 class="entry-title">
-                        <a href="/telestrap.html" rel="bookmark" title="Permalink to Telestrap">Telestrap</a>
-                        <small><abbr class="published" title="2015-04-09T00:00:00+01:00"> Thu 09 April 2015 </abbr></small>
-                    </h2>
-                </header>
-
-                <div class="entry-content markdown-body">
-                    <p>This is a Bootstrap theme with a <a href="http://www.fonts2u.com/teletext-regular-regular.font">Teletext-style font</a>,
-inspired by the text services we used to get before the Web and digital TV
-ruined everything.</p>
-<p>It's pretty much just a novely project, so don't expect much support :)</p>
-<p><a class="btn" href="https://github.com/iamsteadman/telestrap">
-    <span class="octicon octicon-git-branch"></span>
-    Fork it on GitHub
-</a></p>
-                </div>
-            </article>
-<hr>            <article class="hentry">
-                <header>
-                    <h2 class="entry-title">
-                        <a href="/django-data-provisioner.html" rel="bookmark" title="Permalink to Django data provisioner">Django data provisioner</a>
-                        <small><abbr class="published" title="2014-07-14T00:00:00+01:00"> Mon 14 July 2014 </abbr></small>
-                    </h2>
-                </header>
-
-                <div class="entry-content markdown-body">
-                    <p>I need to do a bunch of frontend development for a site I'm working on, and I
-needed a simple way to generate sample data that is sane.</p>
-<p>So, inspired by <a href="http://ansible.com/">Ansible</a> I knocked up a data provisioning
-system as a Django management command, that takes a YAML file defining the data
-I want to generate.</p>
-<p>It can take data from a JSON resource, likt the Random User API, and turn that
-into User objects with Profile objects attached, to carry things like the
-profile image, gender, date-of-birth and so on.</p>
-<p>It needn't be used to generate users; that's just the first thing I needed it to
-do. It's intelligently nested, so if you need to create a foreign key
-relationship, you just nest the two model statements and the management command
-figures out the relationship.</p>
-<p>The same goes for linking models via many-to-many relationships, but in reverse.
-Here you specify the fieldname you want, and tell the provisioner how many items
-you want to use, and whether you want to pick the items starting at a row
-number, or just choose them at random. You can also filter and exclude which
-items are taken from the database.</p>
-<p>It automatically detects file fields and downloads remote images or picks files
-from the filesystem. It does this intelligently, as it knows which model you're referencing, so looks in that app's directory to find the relevant file.</p>
-<p><a class="btn" href="https://github.com/iamsteadman/bambu-gensite">
-    <span class="octicon octicon-git-branch"></span>
-    Fork it on GitHub
-</a></p>
-                </div>
-            </article>
-<hr>            <article class="hentry">
-                <header>
-                    <h2 class="entry-title">
-                        <a href="/plunjajs.html" rel="bookmark" title="Permalink to Plunja.js">Plunja.js</a>
-                        <small><abbr class="published" title="2014-07-01T00:00:00+01:00"> Tue 01 July 2014 </abbr></small>
-                    </h2>
-                </header>
-
-                <div class="entry-content markdown-body">
-                    <p>Plunja is a simple JavaScript templating system that takes blocks of HTML stored
-in <code>&lt;script&gt;</code> tags and renders them with context objects. It was inspired by
-<a href="http://jinja.pocoo.org/docs/">Jinja2</a>.</p>
-<p>You don’t need a JavaScript framework to use it, as you can define your own
-custom locator (ie: a way of finding the template from the DOM). The built-in
-locator uses jQuery, but it’s really simple to define your own.</p>
-<p><a class="btn" href="https://github.com/iamsteadman/plunja">
-    <span class="octicon octicon-git-branch"></span>
-    Fork it on GitHub
-</a></p>
-                </div>
-            </article>
-<hr>            <article class="hentry">
-                <header>
-                    <h2 class="entry-title">
-                        <a href="/primus.html" rel="bookmark" title="Permalink to Primus">Primus</a>
-                        <small><abbr class="published" title="2013-09-30T00:00:00+01:00"> Mon 30 September 2013 </abbr></small>
-                    </h2>
-                </header>
-
-                <div class="entry-content markdown-body">
-                    <p>Features:</p>
-<ul>
-<li>Customise the header image, background colours and navbar</li>
-<li>Converts WordPress menu classes into Bootstrap classes, rather than fiddle with Bootstrap's CSS</li>
-<li>Uses <a href="http://fortawesome.github.io/Font-Awesome/">Font Awesome</a> icons</li>
-</ul>
-<p><a class="btn" href="https://github.com/iamsteadman/primus">
-    <span class="octicon octicon-git-branch"></span>
-    Fork it on GitHub
-</a></p>
-                </div>
-            </article>
-<hr>            <article class="hentry">
-                <header>
-                    <h2 class="entry-title">
-                        <a href="/mvc-structures-in-wordpress-plugins.html" rel="bookmark" title="Permalink to MVC structures in WordPress plugins">MVC structures in WordPress plugins</a>
-                        <small><abbr class="published" title="2013-06-14T00:00:00+01:00"> Fri 14 June 2013 </abbr></small>
-                    </h2>
-                </header>
-
-                <div class="entry-content markdown-body">
-                    <iframe src="https://player.vimeo.com/video/68363968" width="730" height="455" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
                 </div>
             </article>
 <hr>            <article class="hentry">
