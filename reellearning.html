@@ -5,8 +5,7 @@
             <meta charset="utf-8">
 
 
-        <meta name="tags" content="bootstrap" />
-        <meta name="tags" content="teletext" />
+        <meta name="tags" content="django" />
         <link rel="stylesheet" href="/theme/css/primer.css">
         <link rel="stylesheet" href="/theme/css/octicons/octicons.css">
         <link rel="stylesheet" href="/theme/css/steadman.css">
@@ -22,9 +21,9 @@
 
     <div class="about">
         <div class="container">
-            <h1><a href="/telestrap.html">Telestrap</a></h1>
+            <h1><a href="/reellearning.html">ReelLearning</a></h1>
             <div class="lead">
-                <p>Bootstrap for the Teletext generation</p>
+                <p>A video catalogue, CMS and sharing platform written in Django</p>
             </div>
         </div>
     </div>
@@ -35,8 +34,8 @@
                     <nav class="menu">
 
 
-                            <a class="menu-item " href="/category/portfolio.html">Portfolio</a>
-                            <a class="menu-item selected" href="/category/projects.html">Projects</a>
+                            <a class="menu-item selected" href="/category/portfolio.html">Portfolio</a>
+                            <a class="menu-item " href="/category/projects.html">Projects</a>
                             <a class="menu-item " href="/category/snippets.html">Snippets</a>
                             <a class="menu-item " href="/category/talks.html">Talks</a>
                     </nav>
@@ -59,19 +58,41 @@
                 <div class="three-fourths column">
     <section id="content" class="body">
         <div class="entry-content">
-            <p>This is a Bootstrap theme with a <a href="http://www.fonts2u.com/teletext-regular-regular.font">Teletext-style font</a>,
-inspired by the text services we used to get before the Web and digital TV
-ruined everything.</p>
-<p>It's pretty much just a novely project, so don't expect much support :)</p>
-<p><a class="btn" href="https://github.com/iamsteadman/telestrap">
-    <span class="octicon octicon-git-branch"></span>
-    Fork it on GitHub
+            <p>ReelLearning is a video training project for primary school teachers,
+built by me at <a href="http://substrakt.com/">Substrakt</a> in Django, using Bootstrap.</p>
+<p>Originally a Drupal website, I was asked to rebuild it, first running on a
+Rackspace Red Hat server, then in 2014 we moved it to Amazon Web Services, using
+Elastic Beanstalk.</p>
+<p>Schools sign up to ReelLearning to provide training for their teachers. While
+the app doesn't handle the payment side, it does manage all of the account
+creation, trial signups and user-created content. The catalogue is managed via
+the Django admin, using the Grappelli skin. Videos uploaded via the site are
+passed to Amazon S3 and served via CloudFront.</p>
+<h2>Browse, search and view</h2>
+<iframe src="https://player.vimeo.com/video/114352311" width="730" height="455" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+<p>This video shows how users can browse the video catalogue and search it (via
+the Haystack Django app).</p>
+<h2>Playlists</h2>
+<iframe src="https://player.vimeo.com/video/114352310" width="730" height="455" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+<p>This video demonstrates how playlists are created and managed. They can be
+shared with other members of a school, and also created by ReelLearning staff
+and shared amongst all of the schools using the platform.</p>
+<h2>Groups</h2>
+<iframe src="https://player.vimeo.com/video/114965612" width="730" height="455" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+<p>This video shows how users create and manage groups. These can be used to group
+other users together, such as teachers in a specific year or subject.</p>
+<p><a class="btn" href="http://reellearning.co.uk/" target="_blank">
+    <span class="octicon octicon-eye"></span>
+    Find out more about ReelLearning
 </a></p>
         </div>
 
         <footer class="post-info">
-            Published on <abbr class="published" title="2015-04-09T00:00:00+01:00">
-                Thu 09 April 2015            </abbr>
+            Published on <abbr class="published" title="2013-09-15T00:00:00+01:00">
+                Sun 15 September 2013            </abbr>
 
                 by <address class="vcard author">
                         <a class="url fn" href="/author/steadman.html">Steadman</a>

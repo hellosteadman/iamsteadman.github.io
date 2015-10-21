@@ -23,7 +23,9 @@
                     <nav class="menu">
 
 
+                            <a class="menu-item " href="/category/portfolio.html">Portfolio</a>
                             <a class="menu-item " href="/category/projects.html">Projects</a>
+                            <a class="menu-item " href="/category/snippets.html">Snippets</a>
                             <a class="menu-item " href="/category/talks.html">Talks</a>
                     </nav>
 
@@ -37,6 +39,9 @@
                             <a class="menu-item" href="https://github.com/iamsteadman/" target="_blank">GitHub</a>
                             <a class="menu-item" href="https://twitter.com/iamsteadman/" target="_blank">Twitter</a>
                         </nav>
+
+                    <span class="octicon octicon-mail"></span>
+                    <a href='mai&#108;to&#58;m%61&#37;7&#50;k%40%73te%&#54;1dman&#46;io'>mark&#64;steadman&#46;i&#111;</a>
                 </div>
 
                 <div class="three-fourths column">
@@ -51,7 +56,7 @@
                 </header>
 
                 <div class="entry-content markdown-body">
-                    <iframe src="https://player.vimeo.com/video/135740367" width="730" height="455" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                    <p>A talk I gave at DjangoCon Europe 2015 in Cardiff</p>
                 </div>
             </article>
 <hr>            <article class="hentry">
@@ -63,14 +68,31 @@
                 </header>
 
                 <div class="entry-content markdown-body">
-                    <p>This is a Bootstrap theme with a <a href="http://www.fonts2u.com/teletext-regular-regular.font">Teletext-style font</a>,
-inspired by the text services we used to get before the Web and digital TV
-ruined everything.</p>
-<p>It's pretty much just a novely project, so don't expect much support :)</p>
-<p><a class="btn" href="https://github.com/iamsteadman/telestrap">
-    <span class="octicon octicon-git-branch"></span>
-    Fork it on GitHub
-</a></p>
+                    <p>Bootstrap for the Teletext generation</p>
+                </div>
+            </article>
+<hr>            <article class="hentry">
+                <header>
+                    <h2 class="entry-title">
+                        <a href="/ansible-ffmpeg.html" rel="bookmark" title="Permalink to ansible-ffmpeg">ansible-ffmpeg</a>
+                        <small><abbr class="published" title="2015-01-30T00:00:00+00:00"> Fri 30 January 2015 </abbr></small>
+                    </h2>
+                </header>
+
+                <div class="entry-content markdown-body">
+                    <p>An Ansible playbook include for installing ffmpeg on Ubuntu</p>
+                </div>
+            </article>
+<hr>            <article class="hentry">
+                <header>
+                    <h2 class="entry-title">
+                        <a href="/trace.html" rel="bookmark" title="Permalink to Trace">Trace</a>
+                        <small><abbr class="published" title="2014-09-02T00:00:00+01:00"> Tue 02 September 2014 </abbr></small>
+                    </h2>
+                </header>
+
+                <div class="entry-content markdown-body">
+                    <p>A complex assessment and reporting app for the education sector, written in Django</p>
                 </div>
             </article>
 <hr>            <article class="hentry">
@@ -82,29 +104,7 @@ ruined everything.</p>
                 </header>
 
                 <div class="entry-content markdown-body">
-                    <p>I need to do a bunch of frontend development for a site I'm working on, and I
-needed a simple way to generate sample data that is sane.</p>
-<p>So, inspired by <a href="http://ansible.com/">Ansible</a> I knocked up a data provisioning
-system as a Django management command, that takes a YAML file defining the data
-I want to generate.</p>
-<p>It can take data from a JSON resource, likt the Random User API, and turn that
-into User objects with Profile objects attached, to carry things like the
-profile image, gender, date-of-birth and so on.</p>
-<p>It needn't be used to generate users; that's just the first thing I needed it to
-do. It's intelligently nested, so if you need to create a foreign key
-relationship, you just nest the two model statements and the management command
-figures out the relationship.</p>
-<p>The same goes for linking models via many-to-many relationships, but in reverse.
-Here you specify the fieldname you want, and tell the provisioner how many items
-you want to use, and whether you want to pick the items starting at a row
-number, or just choose them at random. You can also filter and exclude which
-items are taken from the database.</p>
-<p>It automatically detects file fields and downloads remote images or picks files
-from the filesystem. It does this intelligently, as it knows which model you're referencing, so looks in that app's directory to find the relevant file.</p>
-<p><a class="btn" href="https://github.com/iamsteadman/bambu-gensite">
-    <span class="octicon octicon-git-branch"></span>
-    Fork it on GitHub
-</a></p>
+                    <p>A tool for generating sample site content quickly, from a YAML file</p>
                 </div>
             </article>
 <hr>            <article class="hentry">
@@ -116,16 +116,19 @@ from the filesystem. It does this intelligently, as it knows which model you're 
                 </header>
 
                 <div class="entry-content markdown-body">
-                    <p>Plunja is a simple JavaScript templating system that takes blocks of HTML stored
-in <code>&lt;script&gt;</code> tags and renders them with context objects. It was inspired by
-<a href="http://jinja.pocoo.org/docs/">Jinja2</a>.</p>
-<p>You don’t need a JavaScript framework to use it, as you can define your own
-custom locator (ie: a way of finding the template from the DOM). The built-in
-locator uses jQuery, but it’s really simple to define your own.</p>
-<p><a class="btn" href="https://github.com/iamsteadman/plunja">
-    <span class="octicon octicon-git-branch"></span>
-    Fork it on GitHub
-</a></p>
+                    <p>A JavaScript templating framework</p>
+                </div>
+            </article>
+<hr>            <article class="hentry">
+                <header>
+                    <h2 class="entry-title">
+                        <a href="/twopy.html" rel="bookmark" title="Permalink to twopy">twopy</a>
+                        <small><abbr class="published" title="2014-03-04T00:00:00+00:00"> Tue 04 March 2014 </abbr></small>
+                    </h2>
+                </header>
+
+                <div class="entry-content markdown-body">
+                    <p>Add your Twitter friends' RSS feeds to a single OPML file</p>
                 </div>
             </article>
 <hr>            <article class="hentry">
@@ -137,16 +140,19 @@ locator uses jQuery, but it’s really simple to define your own.</p>
                 </header>
 
                 <div class="entry-content markdown-body">
-                    <p>Features:</p>
-<ul>
-<li>Customise the header image, background colours and navbar</li>
-<li>Converts WordPress menu classes into Bootstrap classes, rather than fiddle with Bootstrap's CSS</li>
-<li>Uses <a href="http://fortawesome.github.io/Font-Awesome/">Font Awesome</a> icons</li>
-</ul>
-<p><a class="btn" href="https://github.com/iamsteadman/primus">
-    <span class="octicon octicon-git-branch"></span>
-    Fork it on GitHub
-</a></p>
+                    <p>A WordPress theme</p>
+                </div>
+            </article>
+<hr>            <article class="hentry">
+                <header>
+                    <h2 class="entry-title">
+                        <a href="/reellearning.html" rel="bookmark" title="Permalink to ReelLearning">ReelLearning</a>
+                        <small><abbr class="published" title="2013-09-15T00:00:00+01:00"> Sun 15 September 2013 </abbr></small>
+                    </h2>
+                </header>
+
+                <div class="entry-content markdown-body">
+                    <p>A video catalogue, CMS and sharing platform written in Django</p>
                 </div>
             </article>
 <hr>            <article class="hentry">
@@ -158,77 +164,15 @@ locator uses jQuery, but it’s really simple to define your own.</p>
                 </header>
 
                 <div class="entry-content markdown-body">
-                    <iframe src="https://player.vimeo.com/video/68363968" width="730" height="455" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-                </div>
-            </article>
-<hr>            <article class="hentry">
-                <header>
-                    <h2 class="entry-title">
-                        <a href="/a-deer-on-ice.html" rel="bookmark" title="Permalink to A deer on ice">A deer on ice</a>
-                        <small><abbr class="published" title="2013-05-17T00:00:00+01:00"> Fri 17 May 2013 </abbr></small>
-                    </h2>
-                </header>
-
-                <div class="entry-content markdown-body">
-                    <iframe src="https://player.vimeo.com/video/66555533" width="730" height="455" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-
-<h3>Transcript</h3>
-<p>Hello.</p>
-<p>Um.</p>
-<p>My name is Mark Steadman, and sometimes I feel - like certainly now - like a
-deer on ice, just kind of panicking, scrabbling around.</p>
-<p>I'm on my own here in Poland, I'm blind, so this is all quite a fun little
-experience trying to get my head around the place, and I'm going to try and
-battle through this really quickly as time is of the essence.</p>
-<p>One of the really nice things I've discovered about Poland is that I really like
-pierogis. And this is a cat that looks like a pierogi.</p>
-<p><img alt="Pierogi cat" src="http://www.highplainssigh.com/images/pierogi.jpg" /></p>
-<p>So obviously that's got to be done.</p>
-<p>Don't clap, you're eating up my time!</p>
-<p>But I have a problem, obviously. I suck at people stuff. I'm really bad; I can
-sort of manage like a group of 5, 10 people maybe, and after that I just start
-to panic and everything just becomes "huh?" and I'm really frightened and geeky
-and scared and shy.</p>
-<p>And that also means that I kind of suck at communities. I've been doing a fair
-bit on the web for ages and have never really been part of anything. So to give
-you a little bit of background: I've been using Django since around 2009. In
-2010 I was number 6 in Django Dash, and that was a project that I was basically
-the sort of lead solo guy; all the other guys were teams. And also I built in
-2008 and refactored something called TweetPaste which got used by the Guardian
-in the UK and was recognised by Twitter.</p>
-<p>So I say this not as some kind of boasting thing. I'm merely trying to say that
-I do stuff, but I'm sort of really crap at being... at joining in.</p>
-<p>The thing I'm doing at the moment is something called Nymbol, and it's a mobile
-CMS for physical objects. And I've got a toolset that I've built called Bambu
-Tools, and it's basically just this gargantuan list of reusable apps that do
-basically... I had a raft of ideas for ages, of stuff that I wanted to build and
-I would have all these little ideas, and I started building up this massive
-toolset that meant I could just go bang out an idea and all I had to build was
-the idea itself. And if I wanted to productise that or commoditise it, I could
-really easily, because I had everything, theoretically in place without much
-configuration.</p>
-<p>And the problem is, I'm kind of a nice guy, right? I try and do things the right
-way. But we have some issues. So please don't attack me when I say that I've got
-these things, there's no internationalisation which means there's no
-localisation, there's no documentation, there aren't any tests; there's all
-these things wrong with it, and that's simply because I haven't yet been at the
-stage where I'm thinking I want to contribute to the community; this is just
-stuff that's run for me.</p>
-<p>Now I know that that's kind of unacceptable, but what I'm sort of trying to do
-now is to stop doing it wrong and to start making a promise, and so I wanted to
-make a little promise.</p>
-<p>This is a little video I made ages ago and it incapsulated this feeling of hope
-and if you give hope a helping hand, then it can achieve some awesome things. So
-there's been a lot of talk at this conference about how the Django community and
-Python communities are fantastic and inclusive and there are great things we
-can do and I want to really be a part of that, so obviously I've signed up for
-the introduction to committing tomorrow, at the sprints, so I'm going to do my
-utmost to be a real, functioning, valuable member of the community. So thank you
-very much.</p>
+                    <p>A conceptual look at developing WordPress plugins using the Model View Controller architecture, given at WordPress Birmingham in June 2013</p>
                 </div>
             </article>
         </div>
 
+<p class="paginator">
+    Page 1 / 2
+        <a href="/author/steadman2.html">&raquo;</a>
+</p>
     </section>
                 </div>
             </div>

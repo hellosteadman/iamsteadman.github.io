@@ -23,7 +23,9 @@
                     <nav class="menu">
 
 
+                            <a class="menu-item " href="/category/portfolio.html">Portfolio</a>
                             <a class="menu-item " href="/category/projects.html">Projects</a>
+                            <a class="menu-item " href="/category/snippets.html">Snippets</a>
                             <a class="menu-item " href="/category/talks.html">Talks</a>
                     </nav>
 
@@ -37,6 +39,9 @@
                             <a class="menu-item" href="https://github.com/iamsteadman/" target="_blank">GitHub</a>
                             <a class="menu-item" href="https://twitter.com/iamsteadman/" target="_blank">Twitter</a>
                         </nav>
+
+                    <span class="octicon octicon-mail"></span>
+                    <a href='mai&#108;to&#58;m%61&#37;7&#50;k%40%73te%&#54;1dman&#46;io'>mark&#64;steadman&#46;i&#111;</a>
                 </div>
 
                 <div class="three-fourths column">
@@ -51,29 +56,7 @@
                 </header>
 
                 <div class="entry-content markdown-body">
-                    <p>I need to do a bunch of frontend development for a site I'm working on, and I
-needed a simple way to generate sample data that is sane.</p>
-<p>So, inspired by <a href="http://ansible.com/">Ansible</a> I knocked up a data provisioning
-system as a Django management command, that takes a YAML file defining the data
-I want to generate.</p>
-<p>It can take data from a JSON resource, likt the Random User API, and turn that
-into User objects with Profile objects attached, to carry things like the
-profile image, gender, date-of-birth and so on.</p>
-<p>It needn't be used to generate users; that's just the first thing I needed it to
-do. It's intelligently nested, so if you need to create a foreign key
-relationship, you just nest the two model statements and the management command
-figures out the relationship.</p>
-<p>The same goes for linking models via many-to-many relationships, but in reverse.
-Here you specify the fieldname you want, and tell the provisioner how many items
-you want to use, and whether you want to pick the items starting at a row
-number, or just choose them at random. You can also filter and exclude which
-items are taken from the database.</p>
-<p>It automatically detects file fields and downloads remote images or picks files
-from the filesystem. It does this intelligently, as it knows which model you're referencing, so looks in that app's directory to find the relevant file.</p>
-<p><a class="btn" href="https://github.com/iamsteadman/bambu-gensite">
-    <span class="octicon octicon-git-branch"></span>
-    Fork it on GitHub
-</a></p>
+                    <p>A tool for generating sample site content quickly, from a YAML file</p>
                 </div>
             </article>
         </div>

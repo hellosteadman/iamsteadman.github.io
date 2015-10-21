@@ -5,19 +5,46 @@
     margin-bottom: 15px;
 }
 
-.about {
-    background: #e2eef9;
-    margin-top: -15px;
-    margin-bottom: 15px;
+body.home .masthead {
+    background: #333 url('../images/header.png');
+    background-size: cover;
+    background-attachment: fixed;
+    height: 200px;
+    padding: 115px 0 0 0;
+}
+
+.masthead .avatar {
+    float: left;
+    margin-right: 15px;
 }
 
 .masthead a {
     color: #fff;
 }
 
-.masthead .avatar {
-    float: left;
-    margin-right: 15px;
+.about {
+    background: #e2eef9;
+    margin-top: -15px;
+    margin-bottom: 15px;
+}
+
+.about h1 {
+    margin-bottom: 0;
+}
+
+.about h1 + .lead {
+    margin-top: -15px;
+}
+
+.about h1 a {
+    color: #333;
+}
+
+body.single .entry-content p:first-child {
+    margin-top: 0;
+    font-size: 20px;
+    font-weight: 300;
+    color: #555;
 }
 
 abbr[title] {
@@ -26,6 +53,14 @@ abbr[title] {
 
 address {
     display: inline;
+}
+
+.home-column h2 {
+    margin: 0;
+}
+
+.home-column h2 small {
+    font-size: .75em;
 }
 
 footer.body {
