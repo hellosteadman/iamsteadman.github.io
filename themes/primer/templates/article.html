@@ -1,5 +1,4 @@
 {% extends "base.html" %}
-{% block after_header %}{% endblock %}
 
 {% block head %}
     {{ super() }}
@@ -15,9 +14,12 @@
 {% block content %}
     <section id="content" class="body">
         <header>
+            {% if not 'feature' in article.tags %}
             <h2 class="entry-title">
                 <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a>
             </h2>
+            {% endif %}
+            
             {% import 'translations.html' as translations with context %}
             {{ translations.translations_for(article) }}
         </header>

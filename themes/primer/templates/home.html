@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% block body_attrs %} class="home"{% endblock %}
+{% block after_header %}
+    <div class="about">
+        <div class="container">
+            <p class="lead">
+                I&rsquo;m Mark Steadman, a professional full-stack web developer
+                from Birmingham, with a love for Django.<br>
+                Find me on
+                <a href="https://github.com/iamsteadman">GitHub</a> or
+                <a href="https://twitter.com/iamsteadman">Twitter</a>.
+            </p>
+        </div>
+    </div>
+{% endblock %}
+
+{% block title %}{{ page.title }}{%endblock%}
+
+{% block content %}
+    <h1>{{ page.title }}</h1>
+    {% import 'translations.html' as translations with context %}
+
+    {{ translations.translations_for(page) }}
+
+    <div class="lead">
+        {{ page.content }}
+    </div>
+
+    <hr>
+
+    <div class="columns">
+        <div class="one-third column home-column">
+            {% for project in articles if project.category.name == 'Portfolio' %}
+            {% if loop.index == 1 %}
+            <div class="inner">
+                <h2>
+                    <small>Latest in portfolio</small><br>
+                    <a href="{{ SITEURL }}/{{ project.url }}">{{ project.title }}</a>
+                </h2>
+
+                {{ project.summary }}
+            </div>
+
+            {% endif %}
+            {% endfor %}
+        </div>
+
+        <div class="one-third column home-column">
+            {% for talk in articles if talk.category.name == 'Talks' %}
+            {% if loop.index == 1 %}
+            <div class="inner">
+                <h2>
+                    <small>Latest talk</small><br>
+                    <a href="{{ SITEURL }}/{{ talk.url }}">{{ talk.title }}</a>
+                </h2>
+
+                {{ talk.summary }}
+            </div>
+
+            {% endif %}
+            {% endfor %}
+        </div>
+
+        <div class="one-third column home-column">
+            {% for project in articles if project.category.name == 'Snippets' or project.category.name == 'Projects' %}
+            {% if loop.index == 1 %}
+            <div class="inner">
+                <h2>
+                    <small>Latest code</small><br>
+                    <a href="{{ SITEURL }}/{{ project.url }}">{{ project.title }}</a>
+                </h2>
+
+                {{ project.summary }}
+            </div>
+
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+{% endblock content %}

@@ -5,6 +5,14 @@
     margin-bottom: 15px;
 }
 
+body.home .masthead {
+    background: #333 url('../images/header.png');
+    background-size: cover;
+    background-attachment: fixed;
+    height: 200px;
+    padding: 115px 0 0 0;
+}
+
 .about {
     background: #e2eef9;
     margin-top: -15px;
@@ -26,6 +34,14 @@ abbr[title] {
 
 address {
     display: inline;
+}
+
+.home-column h2 {
+    margin: 0;
+}
+
+.home-column h2 small {
+    font-size: .75em;
 }
 
 footer.body {

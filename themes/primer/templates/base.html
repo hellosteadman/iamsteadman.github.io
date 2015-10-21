@@ -18,7 +18,7 @@
         <link rel="stylesheet" href="{{ SITEURL }}/theme/css/steadman.css">
     </head>
 
-    <body>
+    <body{% block body_attrs %}{% endblock %}>
         <header class="masthead">
             <div class="container">
                 <img class="avatar" src="https://avatars1.githubusercontent.com/u/3310393?v=3&s=72" width="72" height="72">
@@ -37,7 +37,7 @@
                         {% endfor %}
 
                         {% if DISPLAY_PAGES_ON_MENU %}
-                            {% for p in pages %}
+                            {% for p in pages if p.url %}
                             <a class="menu-item {% if p == page %}selected{% endif %}" href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a>
                             {% endfor %}
                         {% endif %}
