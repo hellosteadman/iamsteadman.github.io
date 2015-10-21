@@ -2,7 +2,7 @@ Title: Django data provisioner
 Date: 2014-07-14
 Tags: django, ansible
 Category: Projects
-Subject: A tool for generating sample site content quickly, from a YAML file
+Summary: A tool for generating sample site content quickly, from a YAML file
 
 I need to do a bunch of frontend development for a site I'm working on, and I
 needed a simple way to generate sample data that is sane.
