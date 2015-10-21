@@ -13,19 +13,38 @@ body.home .masthead {
     padding: 115px 0 0 0;
 }
 
-.about {
-    background: #e2eef9;
-    margin-top: -15px;
-    margin-bottom: 15px;
+.masthead .avatar {
+    float: left;
+    margin-right: 15px;
 }
 
 .masthead a {
     color: #fff;
 }
 
-.masthead .avatar {
-    float: left;
-    margin-right: 15px;
+.about {
+    background: #e2eef9;
+    margin-top: -15px;
+    margin-bottom: 15px;
+}
+
+.about h1 {
+    margin-bottom: 0;
+}
+
+.about h1 + .lead {
+    margin-top: -15px;
+}
+
+.about h1 a {
+    color: #333;
+}
+
+body.single .entry-content p:first-child {
+    margin-top: 0;
+    font-size: 20px;
+    font-weight: 300;
+    color: #555;
 }
 
 abbr[title] {
