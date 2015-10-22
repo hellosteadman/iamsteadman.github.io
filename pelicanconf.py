@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 
 AUTHOR = u'Steadman'
 SITENAME = u'code.steadman.io'
-SITEURL = ''
+SITEURL = 'http://code.steadman.io'
 
 PATH = 'content'
 TIMEZONE = 'Europe/London'
