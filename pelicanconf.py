@@ -46,3 +46,6 @@ EXTRA_PATH_METADATA = {
         'path': 'CNAME'
     }
 }
+
+# Google Analytics
+GOOGLE_ANALYTICS = 'UA-29554105-19'
