@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>code.steadman.io</title><link href="http://code.steadman.io/" rel="alternate"></link><link href="http://code.steadman.io/feeds/portfolio.xml" rel="self"></link><id>http://code.steadman.io/</id><updated>2014-09-02T00:00:00+01:00</updated><entry><title>Trace</title><link href="http://code.steadman.io/trace.html" rel="alternate"></link><updated>2014-09-02T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:code.steadman.io,2014-09-02:trace.html</id><summary type="html">&lt;p&gt;Services for Education commissioned &lt;a href="http://substrakt.com/"&gt;Substrakt&lt;/a&gt;, my
+employer to build a SaaS platform for the education sector, following changes in
+legislation.&lt;/p&gt;
+&lt;p&gt;The curriculum design, assessment and reporting tool allows teachers to create a
+sequence of work for pupils and track their progress through the National
+Curriculum. Headteachers and auditors can see reports of pupil, cohort and
+whole-school progress in realtime.&lt;/p&gt;
+&lt;p&gt;The site runs Django 1.6 on AWS, using Elastic Beanstalk to provision and deploy
+servers in a scalable architecture.&lt;/p&gt;
+&lt;p&gt;This is one of the most complex projects I've worked on, and has tested my maths
+skills to the limit. The reports require complex calculations which have to be
+performed quickly. This means a lot of raw SQL as well as parsing data within
+Python... and knowing when such jobs should be performed at the database or
+business-logic level.&lt;/p&gt;
+&lt;p&gt;The Python code is written entirely by me, with 99% of the interface built by me
+using Twitter Bootstrap, with design and user-interface work provided almost
+entirely by Substrakt's Creative Director, Jim Braithwaite.&lt;/p&gt;
+&lt;h2&gt;Design&lt;/h2&gt;
+&lt;iframe src="https://player.vimeo.com/video/111732346" width="730" height="455" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;This video shows how sequences of work are designed, by picking statements from
+the National Curriculum, and grouping them together, ordering them and providing
+notes as teaching aids.&lt;/p&gt;
+&lt;h2&gt;Assessment&lt;/h2&gt;
+&lt;iframe src="https://player.vimeo.com/video/111762755" width="730" height="455" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;This video demonstrates the assessment area, where pupils' progress is marked.
+Completed assessments can be audited by another person, internal or external to
+the school.&lt;/p&gt;
+&lt;h2&gt;Reporting&lt;/h2&gt;
+&lt;iframe src="https://player.vimeo.com/video/111767419" width="730" height="455" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;This video shows the reports that can be generated via the system, which queries
+data in realtime, via raw SQL queries that have been finely-tuned after months
+of iteration.&lt;/p&gt;
+&lt;p&gt;&lt;a class="btn" href="https://s4etrace.co.uk/" target="_blank"&gt;
+    &lt;span class="octicon octicon-eye"&gt;&lt;/span&gt;
+    Find out more about Trace
+&lt;/a&gt;&lt;/p&gt;</summary><category term="django"></category></entry><entry><title>ReelLearning</title><link href="http://code.steadman.io/reellearning.html" rel="alternate"></link><updated>2013-09-15T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:code.steadman.io,2013-09-15:reellearning.html</id><summary type="html">&lt;p&gt;ReelLearning is a video training project for primary school teachers,
+built by me at &lt;a href="http://substrakt.com/"&gt;Substrakt&lt;/a&gt; in Django, using Bootstrap.&lt;/p&gt;
+&lt;p&gt;Originally a Drupal website, I was asked to rebuild it, first running on a
+Rackspace Red Hat server, then in 2014 we moved it to Amazon Web Services, using
+Elastic Beanstalk.&lt;/p&gt;
+&lt;p&gt;Schools sign up to ReelLearning to provide training for their teachers. While
+the app doesn't handle the payment side, it does manage all of the account
+creation, trial signups and user-created content. The catalogue is managed via
+the Django admin, using the Grappelli skin. Videos uploaded via the site are
+passed to Amazon S3 and served via CloudFront.&lt;/p&gt;
+&lt;h2&gt;Browse, search and view&lt;/h2&gt;
+&lt;iframe src="https://player.vimeo.com/video/114352311" width="730" height="455" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;This video shows how users can browse the video catalogue and search it (via
+the Haystack Django app).&lt;/p&gt;
+&lt;h2&gt;Playlists&lt;/h2&gt;
+&lt;iframe src="https://player.vimeo.com/video/114352310" width="730" height="455" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;This video demonstrates how playlists are created and managed. They can be
+shared with other members of a school, and also created by ReelLearning staff
+and shared amongst all of the schools using the platform.&lt;/p&gt;
+&lt;h2&gt;Groups&lt;/h2&gt;
+&lt;iframe src="https://player.vimeo.com/video/114965612" width="730" height="455" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;This video shows how users create and manage groups. These can be used to group
+other users together, such as teachers in a specific year or subject.&lt;/p&gt;
+&lt;p&gt;&lt;a class="btn" href="http://reellearning.co.uk/" target="_blank"&gt;
+    &lt;span class="octicon octicon-eye"&gt;&lt;/span&gt;
+    Find out more about ReelLearning
+&lt;/a&gt;&lt;/p&gt;</summary><category term="django"></category></entry></feed>

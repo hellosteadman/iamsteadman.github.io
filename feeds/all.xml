@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>code.steadman.io</title><link href="http://code.steadman.io/" rel="alternate"></link><link href="http://code.steadman.io/feeds/all.xml" rel="self"></link><id>http://code.steadman.io/</id><updated>2015-05-31T00:00:00+01:00</updated><entry><title>A web framework for the creative mind</title><link href="http://code.steadman.io/a-web-framework-for-the-creative-mind.html" rel="alternate"></link><updated>2015-05-31T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:code.steadman.io,2015-05-31:a-web-framework-for-the-creative-mind.html</id><summary type="html">&lt;iframe src="https://player.vimeo.com/video/135740367" width="730" height="455" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;</summary><category term="django"></category><category term="djangocon"></category></entry><entry><title>Telestrap</title><link href="http://code.steadman.io/telestrap.html" rel="alternate"></link><updated>2015-04-09T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:code.steadman.io,2015-04-09:telestrap.html</id><summary type="html">&lt;p&gt;This is a Bootstrap theme with a &lt;a href="http://www.fonts2u.com/teletext-regular-regular.font"&gt;Teletext-style font&lt;/a&gt;,
+inspired by the text services we used to get before the Web and digital TV
+ruined everything.&lt;/p&gt;
+&lt;p&gt;It's pretty much just a novely project, so don't expect much support :)&lt;/p&gt;
+&lt;p&gt;&lt;a class="btn" href="https://github.com/iamsteadman/telestrap"&gt;
+    &lt;span class="octicon octicon-git-branch"&gt;&lt;/span&gt;
+    Fork it on GitHub
+&lt;/a&gt;&lt;/p&gt;</summary><category term="bootstrap"></category><category term="teletext"></category></entry><entry><title>ansible-ffmpeg</title><link href="http://code.steadman.io/ansible-ffmpeg.html" rel="alternate"></link><updated>2015-01-30T00:00:00+00:00</updated><author><name>Steadman</name></author><id>tag:code.steadman.io,2015-01-30:ansible-ffmpeg.html</id><summary type="html">&lt;script src="https://gist.github.com/iamsteadman/1072bcd768e967cf66f3.js"&gt;&lt;/script&gt;</summary></entry><entry><title>Trace</title><link href="http://code.steadman.io/trace.html" rel="alternate"></link><updated>2014-09-02T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:code.steadman.io,2014-09-02:trace.html</id><summary type="html">&lt;p&gt;Services for Education commissioned &lt;a href="http://substrakt.com/"&gt;Substrakt&lt;/a&gt;, my
+employer to build a SaaS platform for the education sector, following changes in
+legislation.&lt;/p&gt;
+&lt;p&gt;The curriculum design, assessment and reporting tool allows teachers to create a
+sequence of work for pupils and track their progress through the National
+Curriculum. Headteachers and auditors can see reports of pupil, cohort and
+whole-school progress in realtime.&lt;/p&gt;
+&lt;p&gt;The site runs Django 1.6 on AWS, using Elastic Beanstalk to provision and deploy
+servers in a scalable architecture.&lt;/p&gt;
+&lt;p&gt;This is one of the most complex projects I've worked on, and has tested my maths
+skills to the limit. The reports require complex calculations which have to be
+performed quickly. This means a lot of raw SQL as well as parsing data within
+Python... and knowing when such jobs should be performed at the database or
+business-logic level.&lt;/p&gt;
+&lt;p&gt;The Python code is written entirely by me, with 99% of the interface built by me
+using Twitter Bootstrap, with design and user-interface work provided almost
+entirely by Substrakt's Creative Director, Jim Braithwaite.&lt;/p&gt;
+&lt;h2&gt;Design&lt;/h2&gt;
+&lt;iframe src="https://player.vimeo.com/video/111732346" width="730" height="455" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;This video shows how sequences of work are designed, by picking statements from
+the National Curriculum, and grouping them together, ordering them and providing
+notes as teaching aids.&lt;/p&gt;
+&lt;h2&gt;Assessment&lt;/h2&gt;
+&lt;iframe src="https://player.vimeo.com/video/111762755" width="730" height="455" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;This video demonstrates the assessment area, where pupils' progress is marked.
+Completed assessments can be audited by another person, internal or external to
+the school.&lt;/p&gt;
+&lt;h2&gt;Reporting&lt;/h2&gt;
+&lt;iframe src="https://player.vimeo.com/video/111767419" width="730" height="455" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;This video shows the reports that can be generated via the system, which queries
+data in realtime, via raw SQL queries that have been finely-tuned after months
+of iteration.&lt;/p&gt;
+&lt;p&gt;&lt;a class="btn" href="https://s4etrace.co.uk/" target="_blank"&gt;
+    &lt;span class="octicon octicon-eye"&gt;&lt;/span&gt;
+    Find out more about Trace
+&lt;/a&gt;&lt;/p&gt;</summary><category term="django"></category></entry><entry><title>Django data provisioner</title><link href="http://code.steadman.io/django-data-provisioner.html" rel="alternate"></link><updated>2014-07-14T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:code.steadman.io,2014-07-14:django-data-provisioner.html</id><summary type="html">&lt;p&gt;I need to do a bunch of frontend development for a site I'm working on, and I
+needed a simple way to generate sample data that is sane.&lt;/p&gt;
+&lt;p&gt;So, inspired by &lt;a href="http://ansible.com/"&gt;Ansible&lt;/a&gt; I knocked up a data provisioning
+system as a Django management command, that takes a YAML file defining the data
+I want to generate.&lt;/p&gt;
+&lt;p&gt;It can take data from a JSON resource, likt the Random User API, and turn that
+into User objects with Profile objects attached, to carry things like the
+profile image, gender, date-of-birth and so on.&lt;/p&gt;
+&lt;p&gt;It needn't be used to generate users; that's just the first thing I needed it to
+do. It's intelligently nested, so if you need to create a foreign key
+relationship, you just nest the two model statements and the management command
+figures out the relationship.&lt;/p&gt;
+&lt;p&gt;The same goes for linking models via many-to-many relationships, but in reverse.
+Here you specify the fieldname you want, and tell the provisioner how many items
+you want to use, and whether you want to pick the items starting at a row
+number, or just choose them at random. You can also filter and exclude which
+items are taken from the database.&lt;/p&gt;
+&lt;p&gt;It automatically detects file fields and downloads remote images or picks files
+from the filesystem. It does this intelligently, as it knows which model you're referencing, so looks in that app's directory to find the relevant file.&lt;/p&gt;
+&lt;p&gt;&lt;a class="btn" href="https://github.com/iamsteadman/bambu-gensite"&gt;
+    &lt;span class="octicon octicon-git-branch"&gt;&lt;/span&gt;
+    Fork it on GitHub
+&lt;/a&gt;&lt;/p&gt;</summary><category term="django"></category><category term="ansible"></category></entry><entry><title>Plunja.js</title><link href="http://code.steadman.io/plunjajs.html" rel="alternate"></link><updated>2014-07-01T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:code.steadman.io,2014-07-01:plunjajs.html</id><summary type="html">&lt;p&gt;Plunja is a simple JavaScript templating system that takes blocks of HTML stored
+in &lt;code&gt;&amp;lt;script&amp;gt;&lt;/code&gt; tags and renders them with context objects. It was inspired by
+&lt;a href="http://jinja.pocoo.org/docs/"&gt;Jinja2&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;You don’t need a JavaScript framework to use it, as you can define your own
+custom locator (ie: a way of finding the template from the DOM). The built-in
+locator uses jQuery, but it’s really simple to define your own.&lt;/p&gt;
+&lt;p&gt;&lt;a class="btn" href="https://github.com/iamsteadman/plunja"&gt;
+    &lt;span class="octicon octicon-git-branch"&gt;&lt;/span&gt;
+    Fork it on GitHub
+&lt;/a&gt;&lt;/p&gt;</summary><category term="javascript"></category></entry><entry><title>twopy</title><link href="http://code.steadman.io/twopy.html" rel="alternate"></link><updated>2014-03-04T00:00:00+00:00</updated><author><name>Steadman</name></author><id>tag:code.steadman.io,2014-03-04:twopy.html</id><summary type="html">&lt;script src="https://gist.github.com/iamsteadman/9343536.js"&gt;&lt;/script&gt;</summary></entry><entry><title>Primus</title><link href="http://code.steadman.io/primus.html" rel="alternate"></link><updated>2013-09-30T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:code.steadman.io,2013-09-30:primus.html</id><summary type="html">&lt;p&gt;Features:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Customise the header image, background colours and navbar&lt;/li&gt;
+&lt;li&gt;Converts WordPress menu classes into Bootstrap classes, rather than fiddle with Bootstrap's CSS&lt;/li&gt;
+&lt;li&gt;Uses &lt;a href="http://fortawesome.github.io/Font-Awesome/"&gt;Font Awesome&lt;/a&gt; icons&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a class="btn" href="https://github.com/iamsteadman/primus"&gt;
+    &lt;span class="octicon octicon-git-branch"&gt;&lt;/span&gt;
+    Fork it on GitHub
+&lt;/a&gt;&lt;/p&gt;</summary><category term="wordpress"></category><category term="bootstrap"></category></entry><entry><title>ReelLearning</title><link href="http://code.steadman.io/reellearning.html" rel="alternate"></link><updated>2013-09-15T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:code.steadman.io,2013-09-15:reellearning.html</id><summary type="html">&lt;p&gt;ReelLearning is a video training project for primary school teachers,
+built by me at &lt;a href="http://substrakt.com/"&gt;Substrakt&lt;/a&gt; in Django, using Bootstrap.&lt;/p&gt;
+&lt;p&gt;Originally a Drupal website, I was asked to rebuild it, first running on a
+Rackspace Red Hat server, then in 2014 we moved it to Amazon Web Services, using
+Elastic Beanstalk.&lt;/p&gt;
+&lt;p&gt;Schools sign up to ReelLearning to provide training for their teachers. While
+the app doesn't handle the payment side, it does manage all of the account
+creation, trial signups and user-created content. The catalogue is managed via
+the Django admin, using the Grappelli skin. Videos uploaded via the site are
+passed to Amazon S3 and served via CloudFront.&lt;/p&gt;
+&lt;h2&gt;Browse, search and view&lt;/h2&gt;
+&lt;iframe src="https://player.vimeo.com/video/114352311" width="730" height="455" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;This video shows how users can browse the video catalogue and search it (via
+the Haystack Django app).&lt;/p&gt;
+&lt;h2&gt;Playlists&lt;/h2&gt;
+&lt;iframe src="https://player.vimeo.com/video/114352310" width="730" height="455" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;This video demonstrates how playlists are created and managed. They can be
+shared with other members of a school, and also created by ReelLearning staff
+and shared amongst all of the schools using the platform.&lt;/p&gt;
+&lt;h2&gt;Groups&lt;/h2&gt;
+&lt;iframe src="https://player.vimeo.com/video/114965612" width="730" height="455" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;This video shows how users create and manage groups. These can be used to group
+other users together, such as teachers in a specific year or subject.&lt;/p&gt;
+&lt;p&gt;&lt;a class="btn" href="http://reellearning.co.uk/" target="_blank"&gt;
+    &lt;span class="octicon octicon-eye"&gt;&lt;/span&gt;
+    Find out more about ReelLearning
+&lt;/a&gt;&lt;/p&gt;</summary><category term="django"></category></entry><entry><title>MVC structures in WordPress plugins</title><link href="http://code.steadman.io/mvc-structures-in-wordpress-plugins.html" rel="alternate"></link><updated>2013-06-14T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:code.steadman.io,2013-06-14:mvc-structures-in-wordpress-plugins.html</id><summary type="html">&lt;iframe src="https://player.vimeo.com/video/68363968" width="730" height="455" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;</summary><category term="wordpress"></category><category term="mvc"></category></entry><entry><title>A deer on ice</title><link href="http://code.steadman.io/a-deer-on-ice.html" rel="alternate"></link><updated>2013-05-17T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:code.steadman.io,2013-05-17:a-deer-on-ice.html</id><summary type="html">&lt;iframe src="https://player.vimeo.com/video/66555533" width="730" height="455" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;h3&gt;Transcript&lt;/h3&gt;
+&lt;p&gt;Hello.&lt;/p&gt;
+&lt;p&gt;Um.&lt;/p&gt;
+&lt;p&gt;My name is Mark Steadman, and sometimes I feel - like certainly now - like a
+deer on ice, just kind of panicking, scrabbling around.&lt;/p&gt;
+&lt;p&gt;I'm on my own here in Poland, I'm blind, so this is all quite a fun little
+experience trying to get my head around the place, and I'm going to try and
+battle through this really quickly as time is of the essence.&lt;/p&gt;
+&lt;p&gt;One of the really nice things I've discovered about Poland is that I really like
+pierogis. And this is a cat that looks like a pierogi.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Pierogi cat" src="http://www.highplainssigh.com/images/pierogi.jpg" /&gt;&lt;/p&gt;
+&lt;p&gt;So obviously that's got to be done.&lt;/p&gt;
+&lt;p&gt;Don't clap, you're eating up my time!&lt;/p&gt;
+&lt;p&gt;But I have a problem, obviously. I suck at people stuff. I'm really bad; I can
+sort of manage like a group of 5, 10 people maybe, and after that I just start
+to panic and everything just becomes "huh?" and I'm really frightened and geeky
+and scared and shy.&lt;/p&gt;
+&lt;p&gt;And that also means that I kind of suck at communities. I've been doing a fair
+bit on the web for ages and have never really been part of anything. So to give
+you a little bit of background: I've been using Django since around 2009. In
+2010 I was number 6 in Django Dash, and that was a project that I was basically
+the sort of lead solo guy; all the other guys were teams. And also I built in
+2008 and refactored something called TweetPaste which got used by the Guardian
+in the UK and was recognised by Twitter.&lt;/p&gt;
+&lt;p&gt;So I say this not as some kind of boasting thing. I'm merely trying to say that
+I do stuff, but I'm sort of really crap at being... at joining in.&lt;/p&gt;
+&lt;p&gt;The thing I'm doing at the moment is something called Nymbol, and it's a mobile
+CMS for physical objects. And I've got a toolset that I've built called Bambu
+Tools, and it's basically just this gargantuan list of reusable apps that do
+basically... I had a raft of ideas for ages, of stuff that I wanted to build and
+I would have all these little ideas, and I started building up this massive
+toolset that meant I could just go bang out an idea and all I had to build was
+the idea itself. And if I wanted to productise that or commoditise it, I could
+really easily, because I had everything, theoretically in place without much
+configuration.&lt;/p&gt;
+&lt;p&gt;And the problem is, I'm kind of a nice guy, right? I try and do things the right
+way. But we have some issues. So please don't attack me when I say that I've got
+these things, there's no internationalisation which means there's no
+localisation, there's no documentation, there aren't any tests; there's all
+these things wrong with it, and that's simply because I haven't yet been at the
+stage where I'm thinking I want to contribute to the community; this is just
+stuff that's run for me.&lt;/p&gt;
+&lt;p&gt;Now I know that that's kind of unacceptable, but what I'm sort of trying to do
+now is to stop doing it wrong and to start making a promise, and so I wanted to
+make a little promise.&lt;/p&gt;
+&lt;p&gt;This is a little video I made ages ago and it incapsulated this feeling of hope
+and if you give hope a helping hand, then it can achieve some awesome things. So
+there's been a lot of talk at this conference about how the Django community and
+Python communities are fantastic and inclusive and there are great things we
+can do and I want to really be a part of that, so obviously I've signed up for
+the introduction to committing tomorrow, at the sprints, so I'm going to do my
+utmost to be a real, functioning, valuable member of the community. So thank you
+very much.&lt;/p&gt;</summary><category term="django"></category><category term="djangocon"></category></entry></feed>

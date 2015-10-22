@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>code.steadman.io</title><link href="http://code.steadman.io/" rel="alternate"></link><link href="http://code.steadman.io/feeds/projects.xml" rel="self"></link><id>http://code.steadman.io/</id><updated>2015-04-09T00:00:00+01:00</updated><entry><title>Telestrap</title><link href="http://code.steadman.io/telestrap.html" rel="alternate"></link><updated>2015-04-09T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:code.steadman.io,2015-04-09:telestrap.html</id><summary type="html">&lt;p&gt;This is a Bootstrap theme with a &lt;a href="http://www.fonts2u.com/teletext-regular-regular.font"&gt;Teletext-style font&lt;/a&gt;,
+inspired by the text services we used to get before the Web and digital TV
+ruined everything.&lt;/p&gt;
+&lt;p&gt;It's pretty much just a novely project, so don't expect much support :)&lt;/p&gt;
+&lt;p&gt;&lt;a class="btn" href="https://github.com/iamsteadman/telestrap"&gt;
+    &lt;span class="octicon octicon-git-branch"&gt;&lt;/span&gt;
+    Fork it on GitHub
+&lt;/a&gt;&lt;/p&gt;</summary><category term="bootstrap"></category><category term="teletext"></category></entry><entry><title>Django data provisioner</title><link href="http://code.steadman.io/django-data-provisioner.html" rel="alternate"></link><updated>2014-07-14T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:code.steadman.io,2014-07-14:django-data-provisioner.html</id><summary type="html">&lt;p&gt;I need to do a bunch of frontend development for a site I'm working on, and I
+needed a simple way to generate sample data that is sane.&lt;/p&gt;
+&lt;p&gt;So, inspired by &lt;a href="http://ansible.com/"&gt;Ansible&lt;/a&gt; I knocked up a data provisioning
+system as a Django management command, that takes a YAML file defining the data
+I want to generate.&lt;/p&gt;
+&lt;p&gt;It can take data from a JSON resource, likt the Random User API, and turn that
+into User objects with Profile objects attached, to carry things like the
+profile image, gender, date-of-birth and so on.&lt;/p&gt;
+&lt;p&gt;It needn't be used to generate users; that's just the first thing I needed it to
+do. It's intelligently nested, so if you need to create a foreign key
+relationship, you just nest the two model statements and the management command
+figures out the relationship.&lt;/p&gt;
+&lt;p&gt;The same goes for linking models via many-to-many relationships, but in reverse.
+Here you specify the fieldname you want, and tell the provisioner how many items
+you want to use, and whether you want to pick the items starting at a row
+number, or just choose them at random. You can also filter and exclude which
+items are taken from the database.&lt;/p&gt;
+&lt;p&gt;It automatically detects file fields and downloads remote images or picks files
+from the filesystem. It does this intelligently, as it knows which model you're referencing, so looks in that app's directory to find the relevant file.&lt;/p&gt;
+&lt;p&gt;&lt;a class="btn" href="https://github.com/iamsteadman/bambu-gensite"&gt;
+    &lt;span class="octicon octicon-git-branch"&gt;&lt;/span&gt;
+    Fork it on GitHub
+&lt;/a&gt;&lt;/p&gt;</summary><category term="django"></category><category term="ansible"></category></entry><entry><title>Plunja.js</title><link href="http://code.steadman.io/plunjajs.html" rel="alternate"></link><updated>2014-07-01T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:code.steadman.io,2014-07-01:plunjajs.html</id><summary type="html">&lt;p&gt;Plunja is a simple JavaScript templating system that takes blocks of HTML stored
+in &lt;code&gt;&amp;lt;script&amp;gt;&lt;/code&gt; tags and renders them with context objects. It was inspired by
+&lt;a href="http://jinja.pocoo.org/docs/"&gt;Jinja2&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;You don’t need a JavaScript framework to use it, as you can define your own
+custom locator (ie: a way of finding the template from the DOM). The built-in
+locator uses jQuery, but it’s really simple to define your own.&lt;/p&gt;
+&lt;p&gt;&lt;a class="btn" href="https://github.com/iamsteadman/plunja"&gt;
+    &lt;span class="octicon octicon-git-branch"&gt;&lt;/span&gt;
+    Fork it on GitHub
+&lt;/a&gt;&lt;/p&gt;</summary><category term="javascript"></category></entry><entry><title>Primus</title><link href="http://code.steadman.io/primus.html" rel="alternate"></link><updated>2013-09-30T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:code.steadman.io,2013-09-30:primus.html</id><summary type="html">&lt;p&gt;Features:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Customise the header image, background colours and navbar&lt;/li&gt;
+&lt;li&gt;Converts WordPress menu classes into Bootstrap classes, rather than fiddle with Bootstrap's CSS&lt;/li&gt;
+&lt;li&gt;Uses &lt;a href="http://fortawesome.github.io/Font-Awesome/"&gt;Font Awesome&lt;/a&gt; icons&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a class="btn" href="https://github.com/iamsteadman/primus"&gt;
+    &lt;span class="octicon octicon-git-branch"&gt;&lt;/span&gt;
+    Fork it on GitHub
+&lt;/a&gt;&lt;/p&gt;</summary><category term="wordpress"></category><category term="bootstrap"></category></entry></feed>
