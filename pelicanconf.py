@@ -36,6 +36,18 @@ DEFAULT_PAGINATION = 10
 USE_FOLDER_AS_CATEGORY = True
 DEFAULT_CATEGORY = 'blog'
 
+# URLs
+CATEGORY_URL = '{slug}'
+CATEGORY_SAVE_AS = '{slug}/index.html'
+TAG_URL = 'tags/{slug}'
+TAG_SAVE_AS = 'tags/{slug}/index.html'
+ARTICLE_URL = '{category}/{slug}'
+ARTICLE_SAVE_AS = '{category}/{slug}/index.html'
+AUTHOR_URL = '@{slug}'
+AUTHOR_SAVE_AS = '@{slug}/index.html'
+PAGE_URL = '{slug}'
+PAGE_SAVE_AS = '{slug}/index.html'
+
 # Theme
 THEME = 'themes/primer'
 
