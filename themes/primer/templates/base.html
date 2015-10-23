@@ -14,6 +14,7 @@
             {% if TAG_FEED_RSS and tag %}<link href="{{ FEED_DOMAIN }}/{{ TAG_FEED_RSS|format(tag.slug) }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Tags RSS Feed" />{% endif %}
         {% endblock head %}
         <link rel="stylesheet" href="{{ SITEURL }}/theme/css/primer.css">
+        <link rel="stylesheet" href="{{ SITEURL }}/theme/css/pygments.css">
         <link rel="stylesheet" href="{{ SITEURL }}/theme/css/octicons/octicons.css">
         <link rel="stylesheet" href="{{ SITEURL }}/theme/css/steadman.css">
     </head>
