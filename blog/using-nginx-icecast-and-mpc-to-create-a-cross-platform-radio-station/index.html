@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+                <title>code.steadman.io</title>
+            <meta charset="utf-8">
+<link href="http://code.steadman.io/feeds/all.xml" type="application/atom+xml" rel="alternate" title="code.steadman.io Full Atom Feed" /><link href="http://code.steadman.io/feeds/blog.xml" type="application/atom+xml" rel="alternate" title="code.steadman.io Categories Atom Feed" />
+
+        <link rel="stylesheet" href="http://code.steadman.io/theme/css/primer.css">
+        <link rel="stylesheet" href="http://code.steadman.io/theme/css/pygments.css">
+        <link rel="stylesheet" href="http://code.steadman.io/theme/css/octicons/octicons.css">
+        <link rel="stylesheet" href="http://code.steadman.io/theme/css/steadman.css">
+    </head>
+
+    <body class="single">
+        <header class="masthead">
+            <div class="container">
+                <img class="avatar" src="https://avatars1.githubusercontent.com/u/3310393?v=3&s=72" width="72" height="72">
+                <h1><a href="http://code.steadman.io/">code.steadman.io <strong></strong></a></h1>
+            </div>
+        </header>
+
+    <div class="about">
+        <div class="container">
+            <h1><a href="http://code.steadman.io/blog/using-nginx-icecast-and-mpc-to-create-a-cross-platform-radio-station">Using nginx, Icecast and MPC to create a cross-platform radio station</a></h1>
+            <div class="lead">
+                <p>How I setup my Poddle server to handle live broadcasts with an off-air fallback stream, in a manner that works on desktop and mobile.</p>
+            </div>
+        </div>
+    </div>
+
+        <div class="container">
+            <div class="columns">
+                <div class="one-fourth column">
+                    <nav class="menu">
+
+
+                            <a class="menu-item selected" href="http://code.steadman.io/blog">Blog</a>
+                            <a class="menu-item " href="http://code.steadman.io/portfolio">Portfolio</a>
+                            <a class="menu-item " href="http://code.steadman.io/projects">Projects</a>
+                            <a class="menu-item " href="http://code.steadman.io/snippets">Snippets</a>
+                            <a class="menu-item " href="http://code.steadman.io/talks">Talks</a>
+                    </nav>
+
+                        <nav class="blogroll menu">
+                            <a class="menu-item" href="http://journal.steadman.io/" target="_blank">My journal</a>
+                            <a class="menu-item" href="http://substrakt.com/" target="_blank">My dayjob</a>
+                            <a class="menu-item" href="https://poddle.io/" target="_blank">My side project</a>
+                        </nav>
+
+                        <nav class="social menu">
+                            <a class="menu-item" href="https://github.com/iamsteadman/" target="_blank">GitHub</a>
+                            <a class="menu-item" href="https://twitter.com/iamsteadman/" target="_blank">Twitter</a>
+                        </nav>
+
+                    <span class="octicon octicon-mail"></span>
+                    <a href='mai&#108;to&#58;m%61&#37;7&#50;k%40%73te%&#54;1dman&#46;io'>mark&#64;steadman&#46;i&#111;</a>
+                </div>
+
+                <div class="three-fourths column">
+    <section id="content" class="body">
+        <div class="entry-content">
+            <h2>What is Poddle?</h2>
+<p><a href="https://poddle.io/">Poddle is my podcasting network</a>. I want it to look, feel and work awesome...ly? Anyway, I'm proud of what we've built so far and want to continue to make a platform that people can enjoy being a part of, and that feels frictionless to interact with.</p>
+<p>Hence I spend too much time setting things up and hosting them myself so that I can control the user experience. But hey-ho, here we go.</p>
+<h2>Icecast</h2>
+<p>I've used Icecast since my first live show, <a href="https://poddle.io/2014/">The 2014 Show</a> last year. I hooked up the server, got the <a href="https://www.rogueamoeba.com/nicecast/">Nicecast</a> app for Mac for broadcast and used <a href="http://jplayer.org">jPlayer</a> to handle playback on the desktop. For mobile I hooked up with <a href="http://tunein.com/">TuneIn</a>.</p>
+<p>All worked fine until I started to want to host video podcasts (not even considering the live aspect). I wanted a player that would work well, looked good and was again cross-platform. jPlayer's OK but I really like <a href="http://www.videojs.com">VideoJS</a> as a nice, out-of-the-box sexy player.</p>
+<p>What's great about VideoJS is that it supports RTMP, which for me means that if someone wants to watch 5 seconds of a half-hour video, they haven't had to download more than they've watched, as the video is streamed (not progressively-downloaded).</p>
+<p>I hooked that up by installing a specific version of nginx, which comes bundled with the necessary RTMP module.</p>
+<p>I do it via Ansible, but basically it's a matter of downloading the <a href="http://nginx.org/download/nginx-1.5.2.tar.gz">nginx source</a> and the <a href="https://github.com/arut/nginx-rtmp-module/archive/master.zip">RTMP module source</a>, and running this to compile them:</p>
+<div class="highlight"><pre>./configure --with-http_ssl_module --add-module=./nginx-rtmp-module-master &amp;&amp; make &amp;&amp; make install
+</pre></div>
+
+
+<p>I then deploy my custom nginx script which has all the settings I need (they're very simple, and I'll go thorugh the audio ones in a bit).</p>
+<p>nginx is then installed at <code>/usr/local/nginx/sbin/nginx</code> and you can stop it by adding <code>-s stop</code> to the end of that command.</p>
+<h3>But what about Icecast?</h3>
+<p>I'm on Ubuntu, so I can just run <code>apt-get install icecast2</code> to install the Icecast server (or set it up via Ansible as I have). I then have a config that looks like this:</p>
+<div class="highlight"><pre><span class="nt">&lt;icecast&gt;</span>
+    ...
+    <span class="nt">&lt;hostname&gt;</span>clover.cloud.steadman.io<span class="nt">&lt;/hostname&gt;</span>
+    <span class="nt">&lt;listen-socket&gt;</span>
+        <span class="nt">&lt;port&gt;</span>8100<span class="nt">&lt;/port&gt;</span>
+    <span class="nt">&lt;/listen-socket&gt;</span>
+    <span class="nt">&lt;fileserve&gt;</span>1<span class="nt">&lt;/fileserve&gt;</span>
+    ...
+
+    <span class="nt">&lt;mount&gt;</span>
+        <span class="nt">&lt;mount-name&gt;</span>/stream<span class="nt">&lt;/mount-name&gt;</span>
+        <span class="nt">&lt;fallback-mount&gt;</span>/onair<span class="nt">&lt;/fallback-mount&gt;</span>
+        <span class="nt">&lt;fallback-override&gt;</span>1<span class="nt">&lt;/fallback-override&gt;</span>
+        <span class="nt">&lt;hidden&gt;</span>0<span class="nt">&lt;/hidden&gt;</span>
+        <span class="nt">&lt;public&gt;</span>1<span class="nt">&lt;/public&gt;</span>
+    <span class="nt">&lt;/mount&gt;</span>
+
+    <span class="nt">&lt;mount&gt;</span>
+        <span class="nt">&lt;mount-name&gt;</span>/onair<span class="nt">&lt;/mount-name&gt;</span>
+        <span class="nt">&lt;password&gt;</span>...<span class="nt">&lt;/password&gt;</span>
+        <span class="nt">&lt;bitrate&gt;</span>96<span class="nt">&lt;/bitrate&gt;</span>
+        <span class="nt">&lt;type&gt;</span>audio/mp3<span class="nt">&lt;/type&gt;</span>
+        <span class="nt">&lt;subtype&gt;</span>mp3<span class="nt">&lt;/subtype&gt;</span>
+        <span class="nt">&lt;fallback-mount&gt;</span>/offair<span class="nt">&lt;/fallback-mount&gt;</span>
+        <span class="nt">&lt;fallback-override&gt;</span>1<span class="nt">&lt;/fallback-override&gt;</span>
+        <span class="nt">&lt;hidden&gt;</span>0<span class="nt">&lt;/hidden&gt;</span>
+    <span class="nt">&lt;/mount&gt;</span>
+
+    <span class="nt">&lt;mount&gt;</span>
+        <span class="nt">&lt;mount-name&gt;</span>/offair<span class="nt">&lt;/mount-name&gt;</span>
+        <span class="nt">&lt;password&gt;</span>...<span class="nt">&lt;/password&gt;</span>
+        <span class="nt">&lt;dump-file&gt;</span>/tmp/dump-offair.mp3<span class="nt">&lt;/dump-file&gt;</span>
+        <span class="nt">&lt;bitrate&gt;</span>96<span class="nt">&lt;/bitrate&gt;</span>
+        <span class="nt">&lt;type&gt;</span>audio/mp3<span class="nt">&lt;/type&gt;</span>
+        <span class="nt">&lt;subtype&gt;</span>mp3<span class="nt">&lt;/subtype&gt;</span>
+    <span class="nt">&lt;/mount&gt;</span>
+    ...
+    <span class="nt">&lt;security&gt;</span>
+        <span class="nt">&lt;chroot&gt;</span>0<span class="nt">&lt;/chroot&gt;</span>
+    <span class="nt">&lt;/security&gt;</span>
+<span class="nt">&lt;/icecast&gt;</span>
+</pre></div>
+
+
+<p>That's not exhaustive, but you should be able to mix and match with your own config. I also needed this 'defaults' file in <code>/etc/default/icecast2</code></p>
+<div class="highlight"><pre>CONFIGFILE=&quot;/etc/icecast2/icecast.xml&quot;
+USERID=icecast2
+GROUPID=icecast
+ENABLE=true
+</pre></div>
+
+
+<p>When I broadcast via Nicecast, I connect to the <code>/onair</code> mount. My players - including TuneIn - are set to use the <code>/stream</code> mount. When there's nothing being broadcast live, the <code>/offair</code> mount takes over, so <code>/stream</code> plays a selection of random archival content. But how?</p>
+<h2>MPC and MPD</h2>
+<p>MPD (<a href="http://www.musicpd.org">Music Player Daemon</a>) is an insanely convenient package. If I remember rightly, <code>mpd</code> is the player and <code>mpc</code> is the controller that you use to tell <code>mpd</code> what to play. Both are available by those names in the Ubuntu package repos, so it's super easy to install. My MPD config file looks like this:</p>
+<div class="highlight"><pre>music_directory &quot;/path/to/podcast/episodes&quot;
+
+...
+
+user &quot;mpd&quot;
+bind_to_address &quot;localhost&quot;
+
+audio_output {
+    type &quot;shout&quot;
+    encoding &quot;ogg&quot;
+    name &quot;Off-air&quot;
+    host &quot;clover.cloud.steadman.io&quot;
+    port &quot;8100&quot;
+    mount &quot;/offair&quot;
+    password ...
+    bitrate &quot;96&quot;
+    format &quot;44100:16:1&quot;
+    protocol &quot;icecast2&quot;
+    user &quot;source&quot;
+    description &quot;Currently off-air&quot;
+}
+</pre></div>
+
+
+<p>I'm not entirely sure why MPD needs to output Ogg, but I'm sure I tried it with MP3 and had no luck (at that time I may not have had the right encoder setup, but the whole system works as is).</p>
+<p>I then have a series of commands which clear the playback queue (<code>mpc clear</code>), then add my media back into it (<code>mpc add /</code>), turn on shuffle (<code>mpc random on</code>) and repeat (<code>mpc repeat on</code>), and hit play (<code>mpc play</code>).</p>
+<p>Instead of playing the music out through speakers - which don't exist becuase this is a virtual box - it plays out via Icecast. It needs broadcast permission, which you grant by giving it the right username and password.</p>
+<h3>Niggle</h3>
+<p>The one thing that I've not been able to get to work is automatically switching from off-air to on-air, without having to reload the page or restart the stream via the app. It works the other way round (falling back from on-air to off-air), but all the docs that refer to "automatic" switching are really just talking about getting the thing to play the on-air stream when a new listener connects or resets a pre-existing connection.</p>
+<h3>Back to nginx</h3>
+<p>So now I've got a radio station that works via Icecast, but I want that to be playable on the web as well as mobile. I also want to use VideoJS (which I also use to play my audio-only podcasts, because it's awesome and can do that).</p>
+<p>This is achieved by rebroadcasting the Icecast MP3 feed as RTMP (Flash), and to do it I need <a href="https://www.ffmpeg.org">ffmpeg</a>.</p>
+<h2>ffmpeg</h2>
+<p>Many of my projects use ffmpeg, and I have a really nifty set of Ansible tasks that install it on my boxes. It probably comes with a bunch of stuff I don't need, but because I use the same script on other sites that need more flexibility in terms of what users upload, I tend to leave well-enough alone.</p>
+<p>Once ffmpeg is installed, the next job is telling nginx - with the RTMP module - how to pipe Icecast content through. This took me a lot of faff, and I'm not entirely sure what I did to get it working, but here's the part of the nginx config that matters:</p>
+<div class="highlight"><pre><span class="nt">rtmp</span> <span class="p">{</span>
+    <span class="n">server</span> <span class="err">{</span>
+        <span class="n">listen</span> <span class="m">1935</span><span class="p">;</span>
+        <span class="n">chunk_size</span> <span class="m">4096</span><span class="p">;</span>
+
+        <span class="n">application</span> <span class="n">radio</span> <span class="err">{</span>
+            <span class="n">live</span> <span class="n">on</span><span class="p">;</span>
+            <span class="n">meta</span> <span class="n">off</span><span class="p">;</span>
+            <span class="n">exec_pull</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">ffmpeg</span> <span class="o">-</span><span class="n">i</span> <span class="n">http</span><span class="o">://</span><span class="n">localhost</span><span class="o">:</span><span class="m">8100</span><span class="o">/</span><span class="n">stream</span> <span class="o">-</span><span class="n">f</span> <span class="n">flv</span> <span class="n">rtmp</span><span class="o">://</span><span class="n">localhost</span><span class="o">/</span><span class="n">radio</span><span class="o">/</span><span class="n">stream</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="err">}</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>Very simply, it uses <code>exec_pull</code>, a command native to the nginx RTMP module, to stream content from Icecast, pipe it through ffmpeg and output it to a special URL. The URL has to start with <code>http://[server][app-name]/</code>, where <code>[app-name]</code> in this case is <code>radio</code>.</p>
+<p>I think some of the problem ended up being the domain name I was using. Before I was using the fully-qualified domain name of the server (I'm not quite sure why), but changing that to <code>localhost</code> and omitting all of the advised conversion options stopped my VLC player - which I was using for testing - from generating unhelpful errors about not being able to play the <code>undf</code> format (meaning "I don't know what this is, but it looks like nothing so I can't play it").</p>
+<p>The last little wrinkle was using the newest version of VideoJS, but crucially - and this is something I couldn't find anywhere else - <strong>using your own version of the SWF</strong>.</p>
+<p>When you're playing Flash content, VideoJS falls back to an SWF (Shockwave file). If you don't tell it where to look, it'll use its own hosted version. That then means your stremaing audio won't work, probably because of some weird cross-domain thing. However, using the latest version of VideoJS and specifying the version of the SWF that was on my machine (which is done when initialising the VideoJS player in JavaScript) did the trick.</p>
+<h2>Next steps?</h2>
+<p>If I got super clever I could look into how to relay my Icecast stream into HLS, so mobile listeners could hear the station without using an app. HLS is basically a series of tiny MP3s that are stitched together and played seamlessly, so it shouldn't be rocket science, and apparently is doable via the RTMP module. But right now I'm not brave enough to try.</p>
+<h2>Disclaimer</h2>
+<p>The above isn't meant as a technical or how-to guide, as I'm absolutely not qualified enough. I'm a run-of-the-mill, mediocre hacker who knows enough of what he knows to get his creative projects running. If I can be of help, you can <a href="https://twitter.com/iamsteadman/">find me on Twitter</a> and I'll happily try and answer a question about my setup, but if you try it and my advice causes your hardware to blow up, your software to recompile itself backwards or your face to melt off, firstly I'm really sorry about all those awful things happening to you, and secondly, er, what's that over there? <em><em>runs away quickly</em></em></p>
+<h2>Why do all this?</h2>
+<p>I'm not entirely sure, but I have the idea of Poddle being as friction-free for listeners as possible. I think to a degree this goes against the spit-and-sawdust mentality of the web that many older podcasters grew up using, and still use to this day.</p>
+<p>But I run the technical side of a <a href="http://substrakt.co.uk/">design-focused web agency</a>, so I care about user experience. I'd rather spend ages figuring out how to get something installed and running on a server than have an ugly, clunky button on my website that makes the radio happen.</p>
+<p>Plus, this shit makes me feel proud. It's nice to achieve something techie, even if it's largely by copying, pasting, searing and Googling.</p>
+        </div>
+
+        <footer class="post-info">
+            Published on <abbr class="published" title="2015-04-01T00:00:00+01:00">
+                Wed 01 April 2015            </abbr>
+
+                by <address class="vcard author">
+                        <a class="url fn" href="http://code.steadman.io/@steadman">Steadman</a>
+                </address>
+        </footer>
+    </section>
+                </div>
+            </div>
+        </div>
+
+        <footer class="body">
+            <div class="container">
+                <address class="vcard body">
+                    Proudly powered by <a href="http://getpelican.com/">Pelican</a>,
+                    which takes great advantage of <a href="http://python.org">Python</a>.
+                </address>
+            </div>
+        </footer>
+
+        <script>
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+        </script>
+        <script>
+            try {
+                var pageTracker = _gat._getTracker("UA-29554105-19");
+                pageTracker._trackPageview();
+            } catch(err) {}
+        </script>
+    </body>
+</html>

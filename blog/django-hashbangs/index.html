@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+                <title>code.steadman.io</title>
+            <meta charset="utf-8">
+<link href="http://code.steadman.io/feeds/all.xml" type="application/atom+xml" rel="alternate" title="code.steadman.io Full Atom Feed" /><link href="http://code.steadman.io/feeds/blog.xml" type="application/atom+xml" rel="alternate" title="code.steadman.io Categories Atom Feed" />
+
+        <meta name="tags" content="django" />
+        <meta name="tags" content="javascript" />
+        <link rel="stylesheet" href="http://code.steadman.io/theme/css/primer.css">
+        <link rel="stylesheet" href="http://code.steadman.io/theme/css/pygments.css">
+        <link rel="stylesheet" href="http://code.steadman.io/theme/css/octicons/octicons.css">
+        <link rel="stylesheet" href="http://code.steadman.io/theme/css/steadman.css">
+    </head>
+
+    <body class="single">
+        <header class="masthead">
+            <div class="container">
+                <img class="avatar" src="https://avatars1.githubusercontent.com/u/3310393?v=3&s=72" width="72" height="72">
+                <h1><a href="http://code.steadman.io/">code.steadman.io <strong></strong></a></h1>
+            </div>
+        </header>
+
+    <div class="about">
+        <div class="container">
+            <h1><a href="http://code.steadman.io/blog/django-hashbangs">Django hashbangs</a></h1>
+            <div class="lead">
+                <p>Thoughts on implementing hashbangs with Django and JavaScript</p>
+            </div>
+        </div>
+    </div>
+
+        <div class="container">
+            <div class="columns">
+                <div class="one-fourth column">
+                    <nav class="menu">
+
+
+                            <a class="menu-item selected" href="http://code.steadman.io/blog">Blog</a>
+                            <a class="menu-item " href="http://code.steadman.io/portfolio">Portfolio</a>
+                            <a class="menu-item " href="http://code.steadman.io/projects">Projects</a>
+                            <a class="menu-item " href="http://code.steadman.io/snippets">Snippets</a>
+                            <a class="menu-item " href="http://code.steadman.io/talks">Talks</a>
+                    </nav>
+
+                        <nav class="blogroll menu">
+                            <a class="menu-item" href="http://journal.steadman.io/" target="_blank">My journal</a>
+                            <a class="menu-item" href="http://substrakt.com/" target="_blank">My dayjob</a>
+                            <a class="menu-item" href="https://poddle.io/" target="_blank">My side project</a>
+                        </nav>
+
+                        <nav class="social menu">
+                            <a class="menu-item" href="https://github.com/iamsteadman/" target="_blank">GitHub</a>
+                            <a class="menu-item" href="https://twitter.com/iamsteadman/" target="_blank">Twitter</a>
+                        </nav>
+
+                    <span class="octicon octicon-mail"></span>
+                    <a href='mai&#108;to&#58;m%61&#37;7&#50;k%40%73te%&#54;1dman&#46;io'>mark&#64;steadman&#46;i&#111;</a>
+                </div>
+
+                <div class="three-fourths column">
+    <section id="content" class="body">
+        <div class="entry-content">
+            <p>Hashbangs (basically URLs starting with the #! code) are a useful way of serving
+web pages in sites where only a certain portion of a page is likely to update.
+Facebook and Twitter use them throughout their sites to update their main
+content panels, while leaving the remainder of the page unchanged. It can save
+processing time and bandwidth, as you're only ever serving the part of the page
+that changes. But the big advantage is that, unlike normal AJAX requests, you
+can save the URL as a bookmark or link to it from outside.</p>
+<p>What's vital however is making sure that hashbangs don't "break the web" as is a
+common worry among those concerned with accessibility and the semantic web (of
+which I'm one). I've now just implemented a hashbang system for Meegloo, which
+is still in a testing phase, but I though tI'd run through my workflow from a
+Django perspective.</p>
+<h3>Client-side</h3>
+<p>I use jQuery to run through all of the links in my page whose <code>href</code> attribute
+starts with a slash. That way it discounts any links to external pages, email
+addresses or in-page anchors. I then prepend the #! prefix to these links, then
+using the
+<a href="http://benalman.com/projects/jquery-hashchange-plugin/">jQuery Hashchange</a>
+plugin I can detect when the browser's address bar has updated.</p>
+<p>Any URL starting with a hash symbol is ignored by the server, and seen by the
+browser as a link to something within the page. The exclamation mark in the #!
+prefix is just a useful bit of shorthand so we can tell that we want to request
+a URL via AJAX. So now I have a link which used to point to /blog/, but which
+now points to #!/blog/.</p>
+<p>Once I detect a change in the address bar, I parse the URL so I can get the
+/blog/ portion, then request that URL via AJAX, appending a querystring value to
+tell Django we're definitely doing a hashbang request, not some other form of
+AJAX request. So my new URL is /blog/?hashbang=1.</p>
+<p>Because all of this is done in JavaScript, the original URLs are left in tact.
+I never hardcode a reference to a URL beginning with #!, but use JavaScript to
+prepend it. That way search engines and those browsing without JavaScript can
+get to the content in exactly the same way as those using JavaScript.</p>
+<p>I place a <code>div</code> with an ID of "<code>bang</code>" in my template, and wrap that around the
+blocks in my template that are most likely to change. I can still change over
+areas of the page however (like the header and footer) by means of some clever
+JavaScript, which I'll come to later.</p>
+<h3>Server-side</h3>
+<p>Django can already tell when a request has come through from an AJAX request or
+not. <code>The</code> request.is_ajax() call, combined with a querystring parameter
+silently added to the request to confirm that the request came from a hashbang,
+means we can serve only the portion of the page that's changed.</p>
+<h3>Templates</h3>
+<p>I use a piece of middleware to add a property called <code>hashbang</code> (which is set to
+<code>True</code>) to my <code>request</code> object. My site now has three base templates: base.html, base-std.html and base-bang.html.</p>
+<p>All my other templates extend base.html, which then extends either the -std
+(standard) or the -bang template. The -std template just renders the page as-is,
+but the -bang template does something a little different.</p>
+<p>My base-std.html has my <div id="bang">, but also allows me to flag up when other
+templates make use of the header or footer blocks, to change those sections. I
+use a bit of Django templating magic to wrap those changes in a string that
+JavaScript parses, then dynamically places in the relevant area (header or
+    footer). Sounds complicated, but it means that I don't have to change any of
+    my other templates to make the new hashbang system work (which also means I
+        can strip it out in a heartbeat if I find it's not working out too
+        well). A big bonus.</p>
+<p>Here's an example of what I'm referring to:</p>
+<div class="highlight"><pre><span class="nt">&lt;script&gt;</span>
+    <span class="kd">var</span> <span class="nx">nav</span> <span class="o">=</span> <span class="s1">&#39;{% filter escapejs %}{% block nav %}{% endblock %}{% endfilter %}&#39;</span><span class="p">;</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">nav</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.module.menu&#39;</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="nx">nav</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="nt">&lt;/script&gt;</span>
+</pre></div>
+
+
+<p>This code is placed in my bang template, so any subtemplates which make use of
+the <code>nav</code> block can do so normally, but their code will get turned into a
+JavaScript string, via the <code>escapejs</code> filter. If I detect that custom menu HTML
+is being used, I replace the menu that's currently there with the new one.</p>
+<p>This might be a bit overkill, but it works at the moment.</p>
+<h3>URL rewriting</h3>
+<p>To ensure that URLs don't get confused (ie: if you visit /blog/, all the
+subsequent URLs will become /blog/#!/whatever/, which is very bad form), I
+rewrite the URL in JavaScript to prepend the hashbang prefix. Again, because
+it's being done in JavaScript, this doesn't affect users who don't have that
+capability.</p>
+<h3>Conclusion</h3>
+<p>With this method, which took me a couple of hours, I can serve fast-loading,
+dynamic pages which fall back gracefully for non JavaScript users, and work
+perfectly for search engines (as they don't parse the JavaScript that changes
+the links). If you can see a hole in this methodology, or you have any
+questions, <a href="http://twitter.com/iamsteadman/">just shout</a>!</p>
+<p>Unfortunately, Twitter doesn't seem to implement hashbangs in such an accessible
+way, and actually doesn't work at all with JavaScript turned off, whereas
+Facebook does.</p>
+        </div>
+
+        <footer class="post-info">
+            Published on <abbr class="published" title="2011-08-10T00:00:00+01:00">
+                Wed 10 August 2011            </abbr>
+
+                by <address class="vcard author">
+                        <a class="url fn" href="http://code.steadman.io/@steadman">Steadman</a>
+                </address>
+        </footer>
+    </section>
+                </div>
+            </div>
+        </div>
+
+        <footer class="body">
+            <div class="container">
+                <address class="vcard body">
+                    Proudly powered by <a href="http://getpelican.com/">Pelican</a>,
+                    which takes great advantage of <a href="http://python.org">Python</a>.
+                </address>
+            </div>
+        </footer>
+
+        <script>
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+        </script>
+        <script>
+            try {
+                var pageTracker = _gat._getTracker("UA-29554105-19");
+                pageTracker._trackPageview();
+            } catch(err) {}
+        </script>
+    </body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+                <title>code.steadman.io</title>
+            <meta charset="utf-8">
+<link href="http://code.steadman.io/feeds/all.xml" type="application/atom+xml" rel="alternate" title="code.steadman.io Full Atom Feed" /><link href="http://code.steadman.io/feeds/blog.xml" type="application/atom+xml" rel="alternate" title="code.steadman.io Categories Atom Feed" />
+
+        <meta name="tags" content="appcelerator" />
+        <meta name="tags" content="titanium" />
+        <meta name="tags" content="javascript" />
+        <link rel="stylesheet" href="http://code.steadman.io/theme/css/primer.css">
+        <link rel="stylesheet" href="http://code.steadman.io/theme/css/pygments.css">
+        <link rel="stylesheet" href="http://code.steadman.io/theme/css/octicons/octicons.css">
+        <link rel="stylesheet" href="http://code.steadman.io/theme/css/steadman.css">
+    </head>
+
+    <body class="single">
+        <header class="masthead">
+            <div class="container">
+                <img class="avatar" src="https://avatars1.githubusercontent.com/u/3310393?v=3&s=72" width="72" height="72">
+                <h1><a href="http://code.steadman.io/">code.steadman.io <strong></strong></a></h1>
+            </div>
+        </header>
+
+    <div class="about">
+        <div class="container">
+            <h1><a href="http://code.steadman.io/blog/keep-calm-and-clean-all-the-things">Keep calm and clean all the things</a></h1>
+            <div class="lead">
+                <p>How I dealt with one of many blindsiding Appcelerator Titanium bugs</p>
+            </div>
+        </div>
+    </div>
+
+        <div class="container">
+            <div class="columns">
+                <div class="one-fourth column">
+                    <nav class="menu">
+
+
+                            <a class="menu-item selected" href="http://code.steadman.io/blog">Blog</a>
+                            <a class="menu-item " href="http://code.steadman.io/portfolio">Portfolio</a>
+                            <a class="menu-item " href="http://code.steadman.io/projects">Projects</a>
+                            <a class="menu-item " href="http://code.steadman.io/snippets">Snippets</a>
+                            <a class="menu-item " href="http://code.steadman.io/talks">Talks</a>
+                    </nav>
+
+                        <nav class="blogroll menu">
+                            <a class="menu-item" href="http://journal.steadman.io/" target="_blank">My journal</a>
+                            <a class="menu-item" href="http://substrakt.com/" target="_blank">My dayjob</a>
+                            <a class="menu-item" href="https://poddle.io/" target="_blank">My side project</a>
+                        </nav>
+
+                        <nav class="social menu">
+                            <a class="menu-item" href="https://github.com/iamsteadman/" target="_blank">GitHub</a>
+                            <a class="menu-item" href="https://twitter.com/iamsteadman/" target="_blank">Twitter</a>
+                        </nav>
+
+                    <span class="octicon octicon-mail"></span>
+                    <a href='mai&#108;to&#58;m%61&#37;7&#50;k%40%73te%&#54;1dman&#46;io'>mark&#64;steadman&#46;i&#111;</a>
+                </div>
+
+                <div class="three-fourths column">
+    <section id="content" class="body">
+        <div class="entry-content">
+            <p>I struggled for about three hours today, trying to build and distribute a
+Titanium project for testing. The project built and uploaded to <a href="http://hockeyapp.net/">HockeyApp</a> (the distribution platform we use at <a href="http://substrakt.co.uk/">Substrakt</a>) fine, but failed to install on every
+device I tried, every time.</p>
+<p>Incorrectly and unfairly I railed at @<a href="http://twitter.com/hockeyapp/">hockeyapp</a>
+over Twitter, mainly because I needed someone to shout at, and as the last link
+in the chain they were the most visible.</p>
+<p>I also tried more practical things, like deleting all the iOS certificates and
+provisioning profiles from my machine and the iOS portal, then recreating and
+downloading them. Still no luck. I tried the old trick of creating a new
+Titanium project and moving the old resources into it; no device. I plugged in a
+couple of iPhones and tried copying the app via Xcode, and got the unhelpful
+message:</p>
+<blockquote>
+<p>A signed resource has been added, modified, or deleted</p>
+</blockquote>
+<p>A quick Google around the issue turned up basically the same process I'd gone
+through, until I came across a <a href="http://stackoverflow.com/questions/1715253/adhoc-app-installation-failed-in-iphone-why/3179617#3179617">helpful StackOverflow answer</a>, which clued me into the problem.</p>
+<p>My hard drive is formatted for the Windows FAT system, which on a Mac means the
+operating system creates a bunch of unnecessary hidden files. These get compiled
+into the app and cause problems, and it looks like the same might also be true
+of Subversion (.svn) directories. So a quick run-through with the digital vacuum
+cleaner (via the following script) and the removal of all the .svn directories
+(and a final nail in the coffin that makes me think it's time to completely haul
+ass over to Git), followed by a rebuild made everything fine again.</p>
+<div class="highlight"><pre>find . -name <span class="s1">&#39;._*&#39;</span> -exec rm -v <span class="o">{}</span> <span class="se">\;</span>
+</pre></div>
+
+
+<p>So this serves as a reminder to me and anyone else in a similar boat. If the app won't install, keep calm and <code>./clean</code>.</p>
+        </div>
+
+        <footer class="post-info">
+            Published on <abbr class="published" title="2013-07-03T00:00:00+01:00">
+                Wed 03 July 2013            </abbr>
+
+                by <address class="vcard author">
+                        <a class="url fn" href="http://code.steadman.io/@steadman">Steadman</a>
+                </address>
+        </footer>
+    </section>
+                </div>
+            </div>
+        </div>
+
+        <footer class="body">
+            <div class="container">
+                <address class="vcard body">
+                    Proudly powered by <a href="http://getpelican.com/">Pelican</a>,
+                    which takes great advantage of <a href="http://python.org">Python</a>.
+                </address>
+            </div>
+        </footer>
+
+        <script>
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+        </script>
+        <script>
+            try {
+                var pageTracker = _gat._getTracker("UA-29554105-19");
+                pageTracker._trackPageview();
+            } catch(err) {}
+        </script>
+    </body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+                <title>code.steadman.io</title>
+            <meta charset="utf-8">
+<link href="http://code.steadman.io/feeds/all.xml" type="application/atom+xml" rel="alternate" title="code.steadman.io Full Atom Feed" /><link href="http://code.steadman.io/feeds/blog.xml" type="application/atom+xml" rel="alternate" title="code.steadman.io Categories Atom Feed" />
+
+        <meta name="tags" content="django" />
+        <meta name="tags" content="buffer" />
+        <link rel="stylesheet" href="http://code.steadman.io/theme/css/primer.css">
+        <link rel="stylesheet" href="http://code.steadman.io/theme/css/pygments.css">
+        <link rel="stylesheet" href="http://code.steadman.io/theme/css/octicons/octicons.css">
+        <link rel="stylesheet" href="http://code.steadman.io/theme/css/steadman.css">
+    </head>
+
+    <body class="single">
+        <header class="masthead">
+            <div class="container">
+                <img class="avatar" src="https://avatars1.githubusercontent.com/u/3310393?v=3&s=72" width="72" height="72">
+                <h1><a href="http://code.steadman.io/">code.steadman.io <strong></strong></a></h1>
+            </div>
+        </header>
+
+    <div class="about">
+        <div class="container">
+            <h1><a href="http://code.steadman.io/blog/i-just-built-my-own-buffer-in-an-hour">I just built my own Buffer in an hour</a></h1>
+            <div class="lead">
+                <p>How I built an alternative to Buffer using Django</p>
+            </div>
+        </div>
+    </div>
+
+        <div class="container">
+            <div class="columns">
+                <div class="one-fourth column">
+                    <nav class="menu">
+
+
+                            <a class="menu-item selected" href="http://code.steadman.io/blog">Blog</a>
+                            <a class="menu-item " href="http://code.steadman.io/portfolio">Portfolio</a>
+                            <a class="menu-item " href="http://code.steadman.io/projects">Projects</a>
+                            <a class="menu-item " href="http://code.steadman.io/snippets">Snippets</a>
+                            <a class="menu-item " href="http://code.steadman.io/talks">Talks</a>
+                    </nav>
+
+                        <nav class="blogroll menu">
+                            <a class="menu-item" href="http://journal.steadman.io/" target="_blank">My journal</a>
+                            <a class="menu-item" href="http://substrakt.com/" target="_blank">My dayjob</a>
+                            <a class="menu-item" href="https://poddle.io/" target="_blank">My side project</a>
+                        </nav>
+
+                        <nav class="social menu">
+                            <a class="menu-item" href="https://github.com/iamsteadman/" target="_blank">GitHub</a>
+                            <a class="menu-item" href="https://twitter.com/iamsteadman/" target="_blank">Twitter</a>
+                        </nav>
+
+                    <span class="octicon octicon-mail"></span>
+                    <a href='mai&#108;to&#58;m%61&#37;7&#50;k%40%73te%&#54;1dman&#46;io'>mark&#64;steadman&#46;i&#111;</a>
+                </div>
+
+                <div class="three-fourths column">
+    <section id="content" class="body">
+        <div class="entry-content">
+            <p>Quick disclaimer: I really like <a href="https://bufferapp.com/">Buffer</a>; I think it's a
+great service and I like the people behind it, so the title is kind of
+tongue-in-cheek and in no way connotes that I think Buffer can be replicated in
+next to no time. Everyone I've dealt with there, either over email or in person
+has been great, so I hope this doesn't piss anyone off.</p>
+<p>I'm starting to get the hang of this social malarky so I've been adding a lot of
+stuff to it. It really makes a difference, peppering in the interesting links I
+find with shout-outs to friends' achievements and contributions.</p>
+<p>But I'm now starting to hit the ceiling of what my free account can hold, and
+personally <a href="https://bufferapp.com/awesome">the "Awesome" plan</a> is a little too
+expensive for my taste. I totally see the value, but I feel if I can replicate
+enough of what I need it to do myself, I'd be silly not to put my skills to
+use. So I knocked up a cheap-ass equivalent in an hour or so. I'm not sharing
+the code because it's not fair on the Buffer guys to tout my inferior system as
+some kind of real-life equivalent, but here's the gist.</p>
+<h3>The backend</h3>
+<p>I already have a bunch of models for handling my social feeds, so they can be
+displayed on my <a href="http://steadman.io/live/">Live page</a>. A couple of the
+"providers" I've written can also post stuff, so I didn't have to do much work
+in that department.</p>
+<p>Also, the <a href="https://github.com/iamsteadman/bambu-tools/">Bambu Tools</a> package I
+put together gives me a basic, pluggable cron system, and in order to get posts
+that didn't look like they were mechanically shat out on the hour, I set the
+interval to 57 minutes.</p>
+<p>The job looks for the latest, unposted item, and posts it to the feeds it was
+meant for (this way I can send some stuff to a personal Twitter account, some
+    other stuff to a Facebook account or a work Twitter profile, etc). Once it's
+    done, the cron job won't run for another 57 minutes so if the very first
+    post goes out at 1pm, the next one goes at 1:57pm and the next at 2:54pm,
+    and so on.</p>
+<p>The titles are limited to 117 characters, so they'll fit alongside a shortened
+URL in a tweet (with a space in-between). The URL is shortened with a service
+also provided by Bambu Tools - in this case, <a href="https://bitly.com/">bit.ly</a> - and
+when it's sent, it's marked with a date so it doesn't get picked up again. (For
+    this kind of stuff, I prefer using dates rather than booleans as it can be
+    useful to know <em>when</em> something's happened, not just that it <em>has</em>
+    happened.)</p>
+<p>And that's it really. Very simple, mostly all using existing bits of code I have
+lying around. Like I've said, it's nowhere near as sophisticated as Buffer.
+Because it's automated, it's not yet going to care whether it's the middle of
+the night; it'll still post away if there's something to post. But - and I
+haven't yet given it a thorough testing - it appears to work.</p>
+<h3>The frontend</h3>
+<p>But how stuff is added to this "buffer" (I've called it a "dropfeed" as I liked
+the idea of a drip-feed but don't like the term "drip") is the kicker. Buffer is
+catching on more and more, so developers are including it as standard in more
+apps. Obviously that's not a luxury I have, but as long as I'm at my desk, I've
+got a handy bookmarklet that'll do most of the legwork for me. This I <em>can</em> show
+you, 'cos it's useful to know that you can make these yourself without too much
+bother, even if you're a copy-and-paste ninja:</p>
+<div class="highlight"><pre><span class="nx">javascript</span><span class="o">:</span><span class="nb">window</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s1">&#39;&lt;url&gt;/?_popup=true&amp;url=&#39;</span> <span class="o">+</span> <span class="nx">escape</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">),</span> <span class="s1">&#39;dropfeed&#39;</span><span class="p">,</span> <span class="s1">&#39;width=800,height=291&#39;</span><span class="p">);</span>
+</pre></div>
+
+
+<p>This is a standard bookmark, but instead of pointing to a webpage, it points to
+a small piece of JavaScript, that opens a window at a given URL (which Django
+    provides). You're supposed to name the windows you create so that you can
+    target them, so I've called mine <code>dropfeed</code> and I've set the parameters for
+    that window (you can set other parameters, but I've found that Chrome
+    ignores them). The <code>&lt;url&gt;</code> part I've left out just to discourage web
+    sniffers from trying their hand, even though it's obviously behind a
+username and password. The <code>_popup</code> URL parameter, along with the ability to set
+the form's properties using the querystring are already provided by Django's
+wonderful admin system.</p>
+<p>The only inelegant thing at the moment is that once I've hit Save, the window
+doesn't automatically close because it's expecting to find a parent window
+pointing to a Django admin form. But I can live with that.</p>
+<h3>The next step</h3>
+<p>I'd thought about using one of those nice email-to-URL services that can read
+emails and let you parse them. This would let me email a link from myself, as
+almost all of the kinds of apps I use have some sort of email facility. But
+that's a job for another day, if I ever feel the burning need.</p>
+<h3>Why bother?</h3>
+<p>I'm a developer. Most of what goes into my site is either about doing stuff to
+show my skills - a designer's skills can be seen on-screen; developers don't
+quite have that luxury - or just because I thought it'd be fun. I have a thing
+in my sidebar which shows the events I'm going to, not because I expect people
+to flock to me but because I thought I could write that very simply and hook it
+up to a public Google Calendar. Often the challenge is the reason, so when the
+idea came to me to build a cheap Buffer knock-off for myself, it seemed a good
+use of a little spare time.</p>
+<p>So there :)</p>
+        </div>
+
+        <footer class="post-info">
+            Published on <abbr class="published" title="2013-10-19T00:00:00+01:00">
+                Sat 19 October 2013            </abbr>
+
+                by <address class="vcard author">
+                        <a class="url fn" href="http://code.steadman.io/@steadman">Steadman</a>
+                </address>
+        </footer>
+    </section>
+                </div>
+            </div>
+        </div>
+
+        <footer class="body">
+            <div class="container">
+                <address class="vcard body">
+                    Proudly powered by <a href="http://getpelican.com/">Pelican</a>,
+                    which takes great advantage of <a href="http://python.org">Python</a>.
+                </address>
+            </div>
+        </footer>
+
+        <script>
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+        </script>
+        <script>
+            try {
+                var pageTracker = _gat._getTracker("UA-29554105-19");
+                pageTracker._trackPageview();
+            } catch(err) {}
+        </script>
+    </body>
+</html>

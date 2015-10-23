@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+                <title>code.steadman.io</title>
+            <meta charset="utf-8">
+<link href="http://code.steadman.io/feeds/all.xml" type="application/atom+xml" rel="alternate" title="code.steadman.io Full Atom Feed" /><link href="http://code.steadman.io/feeds/blog.xml" type="application/atom+xml" rel="alternate" title="code.steadman.io Categories Atom Feed" />
+
+        <meta name="tags" content="php" />
+        <meta name="tags" content="django" />
+        <meta name="tags" content="osx" />
+        <meta name="tags" content="mysql" />
+        <link rel="stylesheet" href="http://code.steadman.io/theme/css/primer.css">
+        <link rel="stylesheet" href="http://code.steadman.io/theme/css/pygments.css">
+        <link rel="stylesheet" href="http://code.steadman.io/theme/css/octicons/octicons.css">
+        <link rel="stylesheet" href="http://code.steadman.io/theme/css/steadman.css">
+    </head>
+
+    <body class="single">
+        <header class="masthead">
+            <div class="container">
+                <img class="avatar" src="https://avatars1.githubusercontent.com/u/3310393?v=3&s=72" width="72" height="72">
+                <h1><a href="http://code.steadman.io/">code.steadman.io <strong></strong></a></h1>
+            </div>
+        </header>
+
+    <div class="about">
+        <div class="container">
+            <h1><a href="http://code.steadman.io/blog/php-and-django-on-a-mac-the-easiest-way-i-know-how">PHP and Django on a Mac, the easiest way I know how</a></h1>
+            <div class="lead">
+                <p>The story of how I got PHP, Django, Apache and MySQL working natively</p>
+            </div>
+        </div>
+    </div>
+
+        <div class="container">
+            <div class="columns">
+                <div class="one-fourth column">
+                    <nav class="menu">
+
+
+                            <a class="menu-item selected" href="http://code.steadman.io/blog">Blog</a>
+                            <a class="menu-item " href="http://code.steadman.io/portfolio">Portfolio</a>
+                            <a class="menu-item " href="http://code.steadman.io/projects">Projects</a>
+                            <a class="menu-item " href="http://code.steadman.io/snippets">Snippets</a>
+                            <a class="menu-item " href="http://code.steadman.io/talks">Talks</a>
+                    </nav>
+
+                        <nav class="blogroll menu">
+                            <a class="menu-item" href="http://journal.steadman.io/" target="_blank">My journal</a>
+                            <a class="menu-item" href="http://substrakt.com/" target="_blank">My dayjob</a>
+                            <a class="menu-item" href="https://poddle.io/" target="_blank">My side project</a>
+                        </nav>
+
+                        <nav class="social menu">
+                            <a class="menu-item" href="https://github.com/iamsteadman/" target="_blank">GitHub</a>
+                            <a class="menu-item" href="https://twitter.com/iamsteadman/" target="_blank">Twitter</a>
+                        </nav>
+
+                    <span class="octicon octicon-mail"></span>
+                    <a href='mai&#108;to&#58;m%61&#37;7&#50;k%40%73te%&#54;1dman&#46;io'>mark&#64;steadman&#46;i&#111;</a>
+                </div>
+
+                <div class="three-fourths column">
+    <section id="content" class="body">
+        <div class="entry-content">
+            <p>on my Mac</p>
+<p>I work primarily with two frameworks: WordPress (if you can call it a framework)
+and Django. Therefore I want my Mac to be able to handle both, and preferably via
+the same machinery. The Django development server's pretty good, but has some
+limitations: it can only process one request at a time, which is fine if you're
+doing basic work, but if you have AJAX calls that rely on other calls to the
+same domain for example, you'll be left hanging.</p>
+<p>I have a growing multisite content management system called <a href="/projects/django/dolphy/">Dolphy</a>, which runs on Apache with mod_wsgi (still
+the best way to serve Django, via perhaps nginx, which I know next to nothing
+about). It then makes sense for me to test using Apache, so I can get as close
+to a real production environment as possible.</p>
+<p>This is how today, I setup my machine, to run Apache 2, PHP5, MySQL5,
+phpMyAdmin, Python 2.6 and some other goodies. The only downside to the
+following setup is that I can't find a GUI to do the fiddly things like creating
+new VirtualHost configs and setting the local domains in my hosts file.</p>
+<p>Before you start, make sure Web Sharing is not in use. Go to System
+Preferences &gt; Sharing, and untick Web Sharing. Also, if like me you've been
+using MAMP, delete (or move) it, then stop Apache and MySQL from running:</p>
+<div class="highlight"><pre>sudo killall httpd sudo killall mysqld
+</pre></div>
+
+
+<h3>MacPorts</h3>
+<p>Download and install MacPorts: <a href="http://www.macports.org/install.php">http://www.macports.org/install.php</a></p>
+<p>Make sure you have the latest list of ports:</p>
+<div class="highlight"><pre>sudo port self update
+</pre></div>
+
+
+<p>If any updates have been made, you can upgrade outdated packages with this
+command:</p>
+<div class="highlight"><pre>sudo port upgrade outdated
+</pre></div>
+
+
+<h3>Apache and MySQL</h3>
+<p>If you do more than just Django, and if you want an easy way to manage your
+databases, phpMyAdmin is a good way to go. For that you'll need PHP. But first,
+Apache and MySQL.</p>
+<div class="highlight"><pre>sudo port install apache2 mysql5 +server
+</pre></div>
+
+
+<p>When I did this, MacPorts didn't install MySQL 5 Server, so I ran the following,
+and within a flash, it did.</p>
+<div class="highlight"><pre>sudo port install mysql5-server
+</pre></div>
+
+
+<p>To load MySQL when the server starts:</p>
+<div class="highlight"><pre>sudo port load mysql5-server
+</pre></div>
+
+
+<p>If you already have MySQL installed - if you haven't installed it yourself, and
+you've not installed anything like MAMP, chances are you don't - you can look
+into removing it, to save confusion. I googled 'osx uninstall mysql' and
+followed some instructions, but I won't link to them as that one's up to you :)</p>
+<p>Install the necessary databases for MySQL to work:</p>
+<div class="highlight"><pre>sudo /opt/local/lib/mysql5/bin/mysql_install_db --user<span class="o">=</span>mysql
+</pre></div>
+
+
+<p>Open your bash profile in one of the in-built UNIX text editors:</p>
+<div class="highlight"><pre>nano ~/.profile
+</pre></div>
+
+
+<p>and add the following lines:</p>
+<div class="highlight"><pre><span class="nb">alias </span><span class="nv">mysqlstart</span><span class="o">=</span><span class="s1">&#39;sudo /opt/local/bin/mysqld_safe5 &amp;amp;&#39;</span> <span class="nb">alias </span><span class="nv">mysqlstop</span><span class="o">=</span><span class="s1">&#39;/opt/local/bin/mysqladmin5 -u root -p shutdown&#39;</span> <span class="nb">alias </span><span class="nv">apache2ctl</span><span class="o">=</span><span class="s1">&#39;sudo /opt/local/apache2/bin/apachectl&#39;</span>
+</pre></div>
+
+
+<p>This allows you to use the commands mysqlstart and mysqlstop to start and stop
+MySQL, and apache2ctl to start and stop Apache. Nice!</p>
+<p>Reload your bash profile:</p>
+<div class="highlight"><pre><span class="nb">source</span> ~/.profile
+</pre></div>
+
+
+<p>and with any luck, Apache should already be running and you can run the
+following to start up MySQL:</p>
+<div class="highlight"><pre>mysqlstart
+</pre></div>
+
+
+<p>Now set a root password for your MySQL installation. phpMyAdmin needs this in
+place (unless you want to configure phpMyAdmin to allow the root user to login
+    without a password, but that's out of scope):</p>
+<div class="highlight"><pre>mysqladmin5 -u root -p password &lt;your-password&gt;<span class="p">;</span>
+</pre></div>
+
+
+<p>When prompted for a password, just press Enter (you shouldn't have one already).
+Where you see the word "password" above, just after the -p, that's not a prompt,
+but a literal word. What you're doing here is telling MySQL to set a password;
+put your desired password where the bracketed bits go (removing the brackets
+aswell). Now anytime you shut down your MySQL server using mysqlstop, you'll be
+prompted for your root password. You'll also need it for phpMyAdmin.</p>
+<p>Now to load Apache when the Mac starts:</p>
+<div class="highlight"><pre>sudo port load apache2
+</pre></div>
+
+
+<h3>PHP and MySQL</h3>
+<p>At the time of writing, the MySQL extension for PHP5 would not compile, due I
+think to it not having been updated for the latest version of PHP (5.3.3). For
+now, to get around this issue, you'll need to download the latest 5.3.2 release
+of the PHP5 port.</p>
+<p>We'll use Subversion to check this in to your Downloads directory. If you don't
+have Subversion, you can use the following command to install it (it's a good
+thing to have on your machine):</p>
+<div class="highlight"><pre>sudo port install subversion
+</pre></div>
+
+
+<p>So let's check out the penultimate version of this port into a folder called
+macports-php5, within our Downloads directory (once this is all over, you can
+delete this directory).</p>
+<div class="highlight"><pre><span class="nb">cd</span> /opt/local/var/macports/sources/rsync.macports.org/release mv ports ports-bak svn co -r70350 http://svn.macports.org/repository/macports/trunk/dports ports <span class="nb">cd </span>ports sudo portindex sudo port install +apache2 +pear
+</pre></div>
+
+
+<p>This should be a temporary measure, and I hope that in a few days PHP5 will be
+updatable to the latest version, but until then, keep your eye on
+<a href="http://trac.macports.org/ticket/26000">ticket 26000</a> on the MacPorts Trac. In
+which case, I'll update this post.</p>
+<p>What you've installed is PHP 5, the Apache module and Pear, the PHP extension
+manager.</p>
+<p>Hopefully this has all worked (if not, I'm really sorry, but please feel free to
+post a comment. If I can find the answer, I will, and if you do, it'd be great
+to hear from you). Now we can install the MySQL extension for PHP, along with
+phpMyAdmin.</p>
+<p>Enable the php.ini configuration file and the PHP5 Apache module:</p>
+<div class="highlight"><pre>sudo cp /opt/local/etc/php5/php.ini-development /opt/local/etc/php5/php.ini <span class="nb">cd</span> /opt/local/apache2/modules sudo /opt/local/apache2/bin/apxs -a -e -n <span class="s2">&quot;php5&quot;</span> libphp5.so sudo port install php5-mysql
+</pre></div>
+
+
+<p>As instructed, open /opt/local/etc/php5/php.ini and set the options
+mysql.default_socket, mysqli.default_socket and pdo_mysql.default_socket to /opt/local/var/run/mysql5/mysqld.sock.</p>
+<p>I'd also recommend finding the upload_max_filesize setting, and changing it to
+something sensible. As it's a development machine, I'll go for 100M, giving me
+plenty of headroom.</p>
+<p>Now we can install phpMyAdmin.</p>
+<div class="highlight"><pre>sudo port install phpmyadmin
+</pre></div>
+
+
+<p>Open the following file in your text editor: /opt/local/apache2/conf/httpd.conf.
+Near the bottom you'll see a line which reads:</p>
+<div class="highlight"><pre>#Include conf/extra/httpd-vhosts.conf
+</pre></div>
+
+
+<p>Uncomment that line (remove the hash symbol at the front). Then look for the
+following:</p>
+<div class="highlight"><pre><span class="nt">&lt;IfModule</span> <span class="err">dir_module</span><span class="nt">&gt;</span> DirectoryIndex index.html <span class="nt">&lt;/IfModule&gt;</span>
+</pre></div>
+
+
+<p>and replace the DirectoryIndex line so it looks like this:</p>
+<div class="highlight"><pre>DirectoryIndex index.html index.php
+</pre></div>
+
+
+<p>Next, look for a block like this:</p>
+<div class="highlight"><pre><span class="nt">&lt;IfModule</span> <span class="err">mime_module</span><span class="nt">&gt;</span> ... <span class="nt">&lt;/IfModule&gt;</span>
+</pre></div>
+
+
+<p>And add the following lines, before the closing IfModule tag:</p>
+<div class="highlight"><pre>AddType application/x-httpd-php .php AddType application/x-httpd-php-source .phps
+</pre></div>
+
+
+<p>Save the file. You'll probably need to provide your password to do so.</p>
+<p>This allows us to define all our virtual hosts (our sites) in a file called httpd-vhosts.conf. In turn, you can then set that file up to include lots of
+other files if you want (a little like Ubuntu Apache's sites-enabled and
+sites-available setup), but for now we'll put the sites we need directly into
+this file. It also enables .php files to be served by the PHP module, and means
+that we can access index.php documents with the single /.</p>
+<p>Open the following in your text editor:</p>
+<div class="highlight"><pre>/opt/local/apache2/conf/extra/httpd-vhosts.conf.
+</pre></div>
+
+
+<p>Read the comments in the file, then delete (or comment out) everything bar the NameVirtualHost line.</p>
+<p>Now add the following, being careful to change the /path/to/your/sites/ bit to
+wherever you keep your websites (I presume you keep them all in one place, like
+    a good little developer):</p>
+<div class="highlight"><pre><span class="nt">&lt;Directory</span> <span class="err">&quot;/path/to/your/sites/&quot;</span><span class="nt">&gt;</span> Options All AllowOverride All Order allow,deny Allow from all <span class="nt">&lt;/Directory&gt;</span>
+</pre></div>
+
+
+<p>Also add the following, for phpMyAdmin:</p>
+<div class="highlight"><pre><span class="nt">&lt;Directory</span> <span class="err">&quot;/opt/local/www/phpmyadmin/&quot;</span><span class="nt">&gt;</span> Options All AllowOverride All Order allow,deny Allow from all <span class="nt">&lt;/Directory&gt;</span>
+</pre></div>
+
+
+<p>These two chunks of config give Apache the right to serve the contents of those directories to the outside world, so if you need more security, you can
+configure this as needed.</p>
+<p>Add this to your httpd-vhosts.conf file (feel free to change the .local bit to
+    anything you prefer):</p>
+<div class="highlight"><pre><span class="nt">&lt;VirtualHost</span> <span class="err">*:80</span><span class="nt">&gt;</span> ServerName phpmyadmin.local DocumentRoot /opt/local/www/phpmyadmin/ <span class="nt">&lt;/VirtualHost&gt;</span>
+</pre></div>
+
+
+<p>Open /etc/hosts in your text editor, and add the following line:</p>
+<div class="highlight"><pre>127.0.0.1 phpmyadmin.local
+</pre></div>
+
+
+<p>Save it, and enter your password if prompted.</p>
+<p>Now restart Apache:</p>
+<div class="highlight"><pre>apache2ctl restart
+</pre></div>
+
+
+<p>Note that there's no "sudo" at the beginning. This is important, as the call to
+apache2ctl will fail if there's a "sudo" before it (the command it aliases to
+    already contains the sudo command).</p>
+<p>Now visit <a href="http://phpmyadmin.local">http://phpmyadmin.local</a> and with any luck you'll be prompted for
+your database username (root) and password (which you set earlier). Success!
+Have a sandwich.</p>
+<p>(I hate glib lines like that when things don't work, so if you have any trouble,
+comment me up).</p>
+<h3>Python and Django</h3>
+<p>Now we can install the necessaries for Django. We'll need Python (2.6 is the
+    version I favour at the moment), and mod_wsgi. If you're more comfortable
+    with mod_python that's fine, but for production environments, WSGI is a much
+    better approach, and as we're after mirroring our production environment as
+    much as possible, this makes sense. (If you really want mod_python, replace
+        the mod_wsgi bit below with mod_python26.)</p>
+<div class="highlight"><pre>sudo port install python26 mod_wsgi py26-mysql
+</pre></div>
+
+
+<p>Go back to /opt/local/apache2/conf/httpd.conf, find the last LoadModule line and
+add the following after it:</p>
+<div class="highlight"><pre>LoadModule wsgi_module modules/mod_wsgi.so
+</pre></div>
+
+
+<p>Get Django, along with some useful packages (setuptools and PIL are a must;
+ElementTree and BeautifulSoup are good for XML and HTML parsing):</p>
+<div class="highlight"><pre>sudo port install py26-setuptools py26-pil py26-lxml py26-elementtree py26-beautifulsoup py26-markdown py26-django
+</pre></div>
+
+
+<p>You can of course remove any or all of the above (including Django), and install
+the framework from SVN or a .gz download. I just like the fact that the latest
+stable version of the framework can be installed and updated really easily, and
+I don't have to worry about where it's all going; it just slots nicely into
+place.</p>
+<h3>Conclusion</h3>
+<p>I wrote this a while ago and have only got round to publishing it now, so there
+may be inaccuracies, missing steps and outdated advice. But if you have any
+trouble, please leave me a comment, as it's likely something I've missed that
+I'll remember fairly quickly, and can add to the guide for future readers.</p>
+        </div>
+
+        <footer class="post-info">
+            Published on <abbr class="published" title="2010-10-03T00:00:00+01:00">
+                Sun 03 October 2010            </abbr>
+
+                by <address class="vcard author">
+                        <a class="url fn" href="http://code.steadman.io/@steadman">Steadman</a>
+                </address>
+        </footer>
+    </section>
+                </div>
+            </div>
+        </div>
+
+        <footer class="body">
+            <div class="container">
+                <address class="vcard body">
+                    Proudly powered by <a href="http://getpelican.com/">Pelican</a>,
+                    which takes great advantage of <a href="http://python.org">Python</a>.
+                </address>
+            </div>
+        </footer>
+
+        <script>
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+        </script>
+        <script>
+            try {
+                var pageTracker = _gat._getTracker("UA-29554105-19");
+                pageTracker._trackPageview();
+            } catch(err) {}
+        </script>
+    </body>
+</html>

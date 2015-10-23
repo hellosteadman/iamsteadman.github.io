@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+                <title>code.steadman.io</title>
+            <meta charset="utf-8">
+<link href="http://code.steadman.io/feeds/all.xml" type="application/atom+xml" rel="alternate" title="code.steadman.io Full Atom Feed" /><link href="http://code.steadman.io/feeds/blog.xml" type="application/atom+xml" rel="alternate" title="code.steadman.io Categories Atom Feed" />
+
+        <meta name="tags" content="python" />
+        <link rel="stylesheet" href="http://code.steadman.io/theme/css/primer.css">
+        <link rel="stylesheet" href="http://code.steadman.io/theme/css/pygments.css">
+        <link rel="stylesheet" href="http://code.steadman.io/theme/css/octicons/octicons.css">
+        <link rel="stylesheet" href="http://code.steadman.io/theme/css/steadman.css">
+    </head>
+
+    <body class="single">
+        <header class="masthead">
+            <div class="container">
+                <img class="avatar" src="https://avatars1.githubusercontent.com/u/3310393?v=3&s=72" width="72" height="72">
+                <h1><a href="http://code.steadman.io/">code.steadman.io <strong></strong></a></h1>
+            </div>
+        </header>
+
+    <div class="about">
+        <div class="container">
+            <h1><a href="http://code.steadman.io/blog/declaring-properties-in-the-class-vs-the-initialiser-in-python">Declaring properties in the class vs the initialiser, in Python</a></h1>
+            <div class="lead">
+                <p>How I learned an important lesson about scoping properties</p>
+            </div>
+        </div>
+    </div>
+
+        <div class="container">
+            <div class="columns">
+                <div class="one-fourth column">
+                    <nav class="menu">
+
+
+                            <a class="menu-item selected" href="http://code.steadman.io/blog">Blog</a>
+                            <a class="menu-item " href="http://code.steadman.io/portfolio">Portfolio</a>
+                            <a class="menu-item " href="http://code.steadman.io/projects">Projects</a>
+                            <a class="menu-item " href="http://code.steadman.io/snippets">Snippets</a>
+                            <a class="menu-item " href="http://code.steadman.io/talks">Talks</a>
+                    </nav>
+
+                        <nav class="blogroll menu">
+                            <a class="menu-item" href="http://journal.steadman.io/" target="_blank">My journal</a>
+                            <a class="menu-item" href="http://substrakt.com/" target="_blank">My dayjob</a>
+                            <a class="menu-item" href="https://poddle.io/" target="_blank">My side project</a>
+                        </nav>
+
+                        <nav class="social menu">
+                            <a class="menu-item" href="https://github.com/iamsteadman/" target="_blank">GitHub</a>
+                            <a class="menu-item" href="https://twitter.com/iamsteadman/" target="_blank">Twitter</a>
+                        </nav>
+
+                    <span class="octicon octicon-mail"></span>
+                    <a href='mai&#108;to&#58;m%61&#37;7&#50;k%40%73te%&#54;1dman&#46;io'>mark&#64;steadman&#46;i&#111;</a>
+                </div>
+
+                <div class="three-fourths column">
+    <section id="content" class="body">
+        <div class="entry-content">
+            <p>I've just learned, to the tune of a wasted 50 minutes that properties defined in
+a Python class declaration are not treated the same as when they're set in the
+initialiser. For example, you can set the same values in both the below cases:</p>
+<div class="highlight"><pre><span class="k">class</span> <span class="nc">MyClass</span><span class="p">:</span>
+    <span class="n">foo</span> <span class="o">=</span> <span class="s">&#39;bar&#39;</span>
+</pre></div>
+
+
+<p>and</p>
+<div class="highlight"><pre><span class="k">class</span> <span class="nc">MyClass</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">foo</span> <span class="o">=</span> <span class="s">&#39;bar&#39;</span>
+</pre></div>
+
+
+<p>This means that in the first example, the value of foo is effectively shared
+between all instances of a class. If you changed that value in one instance, it
+would carry over til the next time you instantiated that class. It's basically a
+static property, but Python allows you to change it, 'cos Python doesn't judge
+(except on whitespace).</p>
+<p>The second one works when you need a property to be manageable for each specific
+instance of a class, not shared among the instances; the downside is that you
+have to create an object from the class in order to access the property, 'cos
+it's not static. This was confirmed in a
+<a href="http://stackoverflow.com/a/7809443">StackOverflow answer</a>.</p>
+<p>I guess there's no problem in doing both if you need it, but I got completely
+befuddled because I'd done method A, not B. If'd done B or both I'd have been
+fine, but basically I was constantly adding to a list of static properties and
+wondering why they were being shared between instances of a class. And now I
+know.</p>
+<p>I don't feel bad that this isn't something I know, 'cos I'm self-taught in
+pretty much everything I do, but when you look at the difference and spend a
+little time considering the logic, it's kind of silly to think that this would
+be a point of confusion, especially for an OOP fan like me.</p>
+<p>But hey, every day's a school day.</p>
+        </div>
+
+        <footer class="post-info">
+            Published on <abbr class="published" title="2013-04-10T00:00:00+01:00">
+                Wed 10 April 2013            </abbr>
+
+                by <address class="vcard author">
+                        <a class="url fn" href="http://code.steadman.io/@steadman">Steadman</a>
+                </address>
+        </footer>
+    </section>
+                </div>
+            </div>
+        </div>
+
+        <footer class="body">
+            <div class="container">
+                <address class="vcard body">
+                    Proudly powered by <a href="http://getpelican.com/">Pelican</a>,
+                    which takes great advantage of <a href="http://python.org">Python</a>.
+                </address>
+            </div>
+        </footer>
+
+        <script>
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+        </script>
+        <script>
+            try {
+                var pageTracker = _gat._getTracker("UA-29554105-19");
+                pageTracker._trackPageview();
+            } catch(err) {}
+        </script>
+    </body>
+</html>

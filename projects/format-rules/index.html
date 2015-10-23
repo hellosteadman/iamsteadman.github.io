@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+                <title>code.steadman.io</title>
+            <meta charset="utf-8">
+<link href="http://code.steadman.io/feeds/all.xml" type="application/atom+xml" rel="alternate" title="code.steadman.io Full Atom Feed" /><link href="http://code.steadman.io/feeds/projects.xml" type="application/atom+xml" rel="alternate" title="code.steadman.io Categories Atom Feed" />
+
+        <meta name="tags" content="django" />
+        <meta name="tags" content="markdown" />
+        <link rel="stylesheet" href="http://code.steadman.io/theme/css/primer.css">
+        <link rel="stylesheet" href="http://code.steadman.io/theme/css/pygments.css">
+        <link rel="stylesheet" href="http://code.steadman.io/theme/css/octicons/octicons.css">
+        <link rel="stylesheet" href="http://code.steadman.io/theme/css/steadman.css">
+    </head>
+
+    <body class="single">
+        <header class="masthead">
+            <div class="container">
+                <img class="avatar" src="https://avatars1.githubusercontent.com/u/3310393?v=3&s=72" width="72" height="72">
+                <h1><a href="http://code.steadman.io/">code.steadman.io <strong></strong></a></h1>
+            </div>
+        </header>
+
+    <div class="about">
+        <div class="container">
+            <h1><a href="http://code.steadman.io/projects/format-rules">Format-rules</a></h1>
+            <div class="lead">
+                <p>Syntactical sugar ontop of Markdown for adding extra formatting, expressed in a human-readable way</p>
+            </div>
+        </div>
+    </div>
+
+        <div class="container">
+            <div class="columns">
+                <div class="one-fourth column">
+                    <nav class="menu">
+
+
+                            <a class="menu-item " href="http://code.steadman.io/blog">Blog</a>
+                            <a class="menu-item " href="http://code.steadman.io/portfolio">Portfolio</a>
+                            <a class="menu-item selected" href="http://code.steadman.io/projects">Projects</a>
+                            <a class="menu-item " href="http://code.steadman.io/snippets">Snippets</a>
+                            <a class="menu-item " href="http://code.steadman.io/talks">Talks</a>
+                    </nav>
+
+                        <nav class="blogroll menu">
+                            <a class="menu-item" href="http://journal.steadman.io/" target="_blank">My journal</a>
+                            <a class="menu-item" href="http://substrakt.com/" target="_blank">My dayjob</a>
+                            <a class="menu-item" href="https://poddle.io/" target="_blank">My side project</a>
+                        </nav>
+
+                        <nav class="social menu">
+                            <a class="menu-item" href="https://github.com/iamsteadman/" target="_blank">GitHub</a>
+                            <a class="menu-item" href="https://twitter.com/iamsteadman/" target="_blank">Twitter</a>
+                        </nav>
+
+                    <span class="octicon octicon-mail"></span>
+                    <a href='mai&#108;to&#58;m%61&#37;7&#50;k%40%73te%&#54;1dman&#46;io'>mark&#64;steadman&#46;i&#111;</a>
+                </div>
+
+                <div class="three-fourths column">
+    <section id="content" class="body">
+        <div class="entry-content">
+            <p>In <a href="http://journal.steadman.io/the-designer-blog-post/">The designer blog post</a>,
+I wrote about updating the blogging app in my toolset to allow easy offline
+creation of blog posts. For standard pages I've gone a different direction, with
+a library I've started, called formatrules.</p>
+<p>With this Django app - which, for the uninitiated is the Django community's word
+for what most people might call a plugin - I've created the ability to define
+multi-column layouts in Markdown, without writing any complex HTML. Or any HTML
+at all, for that matter. Here's an example of the text of a page:</p>
+<div class="highlight"><pre>Donec id elit non mi porta gravida at eget metus.
+Donec sed odio dui. Nullam id dolor id nibh
+ultricies vehicula ut id elit. Praesent commodo
+cursus magna, vel scelerisque nisl consectetur et.
+
+// Block of three
+Aenean lacinia bibendum nulla sed consectetur.
+Maecenas sed diam eget risus varius blandit sit
+amet non magna. Cras mattis consectetur purus sit
+amet fermentum. Curabitur blandit tempus porttitor.
+
+// Block of three
+Cras mattis consectetur purus sit amet fermentum.
+Donec ullamcorper nulla non metus auctor fringilla.
+Donec id elit non mi porta gravida at eget metus.
+Cum sociis natoque penatibus et magnis dis parturient
+montes, nascetur ridiculus mus.
+
+// Block of three
+Cras justo odio, dapibus ac facilisis in, egestas
+eget quam. Nulla vitae elit libero, a pharetra augue.
+Donec id elit non mi porta gravida at eget metus.
+</pre></div>
+
+
+<p>The text is formatted so that it can be put through the Markdown filter. But
+where it gets fun is in those double-slashes. They're not just comments, but
+instructions to a filter which reads them and then wraps the proceeding content
+in Bootstrap columns. "Block of three" basically means "one third of a page".
+I could equally say "block of two", "four", "six" or "twelve". I can even get
+cleverer with "two-thirds block" and "half-block". So here's the process the
+code runs through:</p>
+<ol>
+<li>Use a regular expression to look for new lines starting with a double-slash
+  and an instruction.</li>
+<li>Check whether that instruction matches a given list of regular expressions</li>
+<li>Parse the text, taking everything from just past that // line, to the next
+// line (or the end the text if there are no more instructions)</li>
+<li>Pass that parsed text to the function we matched up in the second step</li>
+<li>Replace the parsed text with the result of that function</li>
+<li>Look for the next set of double-slashes
+Step three involves a third-party function. Well, it's actually a class, and it
+can do a couple of nice things. It can parse the text given to it, and also clean
+up after itself. I'll explain.</li>
+</ol>
+<p>The // comments aren't nested; one instruction is processed after another, so if
+there's no need for an explicit "end block" instruction. However, with Bootstrap
+you have to create columns inside a "row", so my class knows when its parsing
+function is being called for the first time, and it opens a <code>&lt;div&gt;</code> with a class
+of <code>row</code>. The formatrules filter runs the <code>cleanup</code> function on any class that's
+been used during the parsing of the text, so the cleanup function is run on my
+class and the "row" element is closed.</p>
+<p>The real-world example - being the only parser I've developed for the
+formatrules filter so far - is probably a bit overcomplicated, so let's
+simplify.</p>
+<p>What if I wanted a whole block of text to be bold? Rather than surrounding it in
+double asterisks in the Markdown way, I could have an instruction like so:</p>
+<div class="highlight"><pre>// Bold
+
+All of the rest of this text will be bold.
+</pre></div>
+
+
+<p>I'd create a class that responds to the regular expression <code>^Bold$</code>, and add a
+function that wraps the proceeding text in a &lt;<code>div&gt;</code> tag with a <code>style</code> or
+<code>class</code> attribute. I wouldn't, as that would be ghastly and antisemantic, but
+you get the idea.</p>
+<p>Any instructions that followed would override the bold instruction, because I
+figure simplicity is better than flexibility when you're dealing with a
+web-based text editor.</p>
+<p>As I mentioned, the "block" parser is the only one I've written so far as that's
+all I wanted to do, but you get an idea of how useful it is when you see the
+layout it produces, with very simplistic - and more-importantly, human
+readable - instructions.</p>
+<p><img alt="Screen Shot 2013-03-26 at 23.48.15" src="/images/2013/03/presenting-formatrules.png" /></p>
+<p>I love the uncluttered simplicity that Markdown provides, so I wanted to develop
+something that echoed that approach. There are loads of ways this can be
+extended and improved and made more flexible for developers - allowing the
+classes the parsers produce to be overridden for example - and I've made
+developing new parsers pretty simple. However the biggest limitation I've come
+across so far is that, because you're wrapping Markdown text in HTML elements,
+the Markdown parser - at least the Python one - ignores the paragraphs as it
+assumes that whatever is in that box is "raw" HTML, so I'm having to parse the
+text inside each "block" with Markdown, then parsing the whole lot through again (obviously the parser then ignores the bits inside HTML tags so it's not exactly
+doing the same thing twice). This is inefficient but hey, it's a start.</p>
+<p>If you like the idea, bambu-tools is a set of Django reusable apps that I've
+built and use in production environments. It's not well documented right now,
+but it's up on <a href="https://pypi.python.org/pypi/bambu-tools">PyPi</a> for your
+perusal, judgement, comments and suggestions. You'll also <a href="https://bitbucket.org/marksteadman/bambu-tools">find the code on BitBucket</a> (without some of the
+changes in the PyPi version. There's a reason for this, it's just not a good
+one).</p>
+<p>If you like the idea, feel free to steal it and build it into your next project.
+Just maybe gimme a credit and get in touch if you have any questions.</p>
+<p><a class="btn" href="https://github.com/iamsteadman/bambu-formatrules">
+    <span class="octicon octicon-git-branch"></span>
+    Fork it on GitHub
+</a></p>
+        </div>
+
+        <footer class="post-info">
+            Published on <abbr class="published" title="2014-05-03T00:00:00+01:00">
+                Sat 03 May 2014            </abbr>
+
+                by <address class="vcard author">
+                        <a class="url fn" href="http://code.steadman.io/@steadman">Steadman</a>
+                </address>
+        </footer>
+    </section>
+                </div>
+            </div>
+        </div>
+
+        <footer class="body">
+            <div class="container">
+                <address class="vcard body">
+                    Proudly powered by <a href="http://getpelican.com/">Pelican</a>,
+                    which takes great advantage of <a href="http://python.org">Python</a>.
+                </address>
+            </div>
+        </footer>
+
+        <script>
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+        </script>
+        <script>
+            try {
+                var pageTracker = _gat._getTracker("UA-29554105-19");
+                pageTracker._trackPageview();
+            } catch(err) {}
+        </script>
+    </body>
+</html>

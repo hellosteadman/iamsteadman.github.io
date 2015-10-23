@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+                <title>code.steadman.io</title>
+            <meta charset="utf-8">
+<link href="http://code.steadman.io/feeds/all.xml" type="application/atom+xml" rel="alternate" title="code.steadman.io Full Atom Feed" /><link href="http://code.steadman.io/feeds/blog.xml" type="application/atom+xml" rel="alternate" title="code.steadman.io Categories Atom Feed" />
+
+        <meta name="tags" content="django" />
+        <meta name="tags" content="blogging" />
+        <link rel="stylesheet" href="http://code.steadman.io/theme/css/primer.css">
+        <link rel="stylesheet" href="http://code.steadman.io/theme/css/pygments.css">
+        <link rel="stylesheet" href="http://code.steadman.io/theme/css/octicons/octicons.css">
+        <link rel="stylesheet" href="http://code.steadman.io/theme/css/steadman.css">
+    </head>
+
+    <body class="single">
+        <header class="masthead">
+            <div class="container">
+                <img class="avatar" src="https://avatars1.githubusercontent.com/u/3310393?v=3&s=72" width="72" height="72">
+                <h1><a href="http://code.steadman.io/">code.steadman.io <strong></strong></a></h1>
+            </div>
+        </header>
+
+    <div class="about">
+        <div class="container">
+            <h1><a href="http://code.steadman.io/blog/the-designer-blog-post">The designer blog post</a></h1>
+            <div class="lead">
+                <p>An update to my Django blogging app, to add the ability to import</p>
+            </div>
+        </div>
+    </div>
+
+        <div class="container">
+            <div class="columns">
+                <div class="one-fourth column">
+                    <nav class="menu">
+
+
+                            <a class="menu-item selected" href="http://code.steadman.io/blog">Blog</a>
+                            <a class="menu-item " href="http://code.steadman.io/portfolio">Portfolio</a>
+                            <a class="menu-item " href="http://code.steadman.io/projects">Projects</a>
+                            <a class="menu-item " href="http://code.steadman.io/snippets">Snippets</a>
+                            <a class="menu-item " href="http://code.steadman.io/talks">Talks</a>
+                    </nav>
+
+                        <nav class="blogroll menu">
+                            <a class="menu-item" href="http://journal.steadman.io/" target="_blank">My journal</a>
+                            <a class="menu-item" href="http://substrakt.com/" target="_blank">My dayjob</a>
+                            <a class="menu-item" href="https://poddle.io/" target="_blank">My side project</a>
+                        </nav>
+
+                        <nav class="social menu">
+                            <a class="menu-item" href="https://github.com/iamsteadman/" target="_blank">GitHub</a>
+                            <a class="menu-item" href="https://twitter.com/iamsteadman/" target="_blank">Twitter</a>
+                        </nav>
+
+                    <span class="octicon octicon-mail"></span>
+                    <a href='mai&#108;to&#58;m%61&#37;7&#50;k%40%73te%&#54;1dman&#46;io'>mark&#64;steadman&#46;i&#111;</a>
+                </div>
+
+                <div class="three-fourths column">
+    <section id="content" class="body">
+        <div class="entry-content">
+            <p>static, HTML files as posts</p>
+<p>It's been around for a while, but the concept of stylised blog posts - where
+each post is uniquely laid out - is increasingly popular, and attractive. I'm
+implementing a little of that over on the <a href="http://nymbol.co.uk/blog/">Nymblog</a>
+(the blog for my mobile CMS), but I've now just made the process of building and
+uploading stylised blog posts much easier. It's only in Django at the moment,
+but I'd like to port this over to WordPress. Here's how it works.</p>
+<h3>Every site is different</h3>
+<p>You download a boilerplate HTML file from the Django admin. This is generated
+from a template. In Django - a little like in WordPress - you can override
+templates, so the boilerplate file can come from my generic blog app (an app in
+Django is like a plugin in WordPress) or from the actual site itself. So I've
+created a boilerplate file specifically for the Nymbol blog.</p>
+<p>The idea is that, when downloaded, you get an HTML page that you can edit in a
+text editor and preview in a browser. All the references to stylesheets and
+JavaScript files are absolute, so as long as you're connected to the Internet
+your page will look and function pretty much like a normal blog post.</p>
+<p>So what's cool is that you're getting a boilerplate file tailored to that
+specific site. The same principle would work with a WordPress blog. WordPress
+would generate a fake blog post then export the HTML for the author to download.</p>
+<h3>Writing the post</h3>
+<p>There are a few HTML elements with special attributes, which the system uses to
+read your blog post. Here's a snippet:</p>
+<div class="highlight"><pre><span class="nt">&lt;h1&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span> <span class="na">data-bpfield=</span><span class="s">&quot;title&quot;</span><span class="nt">&gt;</span>This is my post<span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;small&gt;</span>Posted <span class="nt">&lt;span</span> <span class="na">data-bpfield=</span><span class="s">&quot;date&quot;</span><span class="nt">&gt;</span>March 8, 2013<span class="nt">&lt;/span&gt;</span> by
+    mark<span class="nt">&lt;/small&gt;</span>
+<span class="nt">&lt;/h1&gt;</span>
+</pre></div>
+
+
+<p>The <code>data-bgfield</code> attributes map to the title and date of the post. I can use
+lots of different date formats, and my app will convert that into a date that
+can be stored in the database. Then I look for a snippet like this:</p>
+<div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">data-bpfield=</span><span class="s">&quot;body&quot;</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
+</pre></div>
+
+
+<p>I put the HTML of my blog post where the ellipses go.</p>
+<h3>Styling it up and adding some spice</h3>
+<p>Of course the whole point of this exercise is to allow custom styling, so to do
+that I look for an HTML element like this:</p>
+<div class="highlight"><pre><span class="nt">&lt;style</span> <span class="na">data-bpfield=</span><span class="s">&quot;css&quot;</span><span class="nt">&gt;</span>...<span class="nt">&lt;/style&gt;</span>
+</pre></div>
+
+
+<p>I put the CSS for my blog post in here, which is stored in the database in a
+separate field, not embedded in the HTML. Usually all the CSS rules would have
+to be prefixed with a class that is only applied to single blog posts.</p>
+<p>Now here's where it gets cool. I can add images and other files to my blog post.
+I start by putting them in the same directory as my HTML file, then just
+reference them using a relative URL, like this:</p>
+<div class="highlight"><pre>&lt;img src=&quot;kitten.jpg&quot; /&gt;
+</pre></div>
+
+
+<h3>Zip it and upload!</h3>
+<p>Once I'm happy that my blog post looks great in the browser, I zip up the files
+I've created and upload them via the admin area. The blog app then unpacks the
+Zip file, extracts the HTML and looks for any files referenced (basically
+anything with an <code>src</code> attribute). If it finds a file with that name inside the
+zip, it extracts it, adds it as an attachment to the blog post (which naturally
+changes its URL), then replaces that URL within the HTML and CSS.</p>
+<p>I've added an option in my app which allows me to convert the HTML of the post
+body to Markdown (the syntax used by default within my blog app). The nice thing
+about Markdown is that it does allow HTML to be added to it, so if I untick that
+option, rather than converting the HTML to Markdown, it leaves it as it is. The
+first option is useful if you want to edit the post later on; the second is
+useful if it's very stylised, with lots of classes and other attributes which
+don't have a place within the Markdown syntax.</p>
+<h3>Limitations</h3>
+<p>Probably the biggest limitation so far is that, if you reference an image within
+your CSS but don't include it in your HTML, the find-and-replace thing won't
+work. That's an easy problem to fix; I just haven't yet.</p>
+<p>You can't provide styling for a blog post within a list, only for the single
+post page. This is because you don't know the ID of the blog post you're
+targeting when you write the HTML locally, so you can't target that specific
+element within a list. The way to get over this is to set an ID in the
+boilerplate HTML which you can use in your CSS, then replace that ID with the
+correct ID of the blog post when published.</p>
+<p>There are probably other limitations, but they don't spring to mind just yet.</p>
+<h3>Porting</h3>
+<p>If this doesn't exist already, I think it'd make a really nice WordPress plugin.
+Sometimes it's useful to have the designed approach alongside the might of the
+WordPress engine, to handle comments, trackbacks, RSS, that sort of thing.
+Adding custom CSS for each blog post is as simple as creating a hidden custom
+field, and using a plugin to spit out the CSS when needed.</p>
+<p>If it does already exist for WordPress, even better 'cos that means I don't have
+to write it! But I wanted it for my Django toolset, so now I have it.</p>
+        </div>
+
+        <footer class="post-info">
+            Published on <abbr class="published" title="2013-03-07T00:00:00+00:00">
+                Thu 07 March 2013            </abbr>
+
+                by <address class="vcard author">
+                        <a class="url fn" href="http://code.steadman.io/@steadman">Steadman</a>
+                </address>
+        </footer>
+    </section>
+                </div>
+            </div>
+        </div>
+
+        <footer class="body">
+            <div class="container">
+                <address class="vcard body">
+                    Proudly powered by <a href="http://getpelican.com/">Pelican</a>,
+                    which takes great advantage of <a href="http://python.org">Python</a>.
+                </address>
+            </div>
+        </footer>
+
+        <script>
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+        </script>
+        <script>
+            try {
+                var pageTracker = _gat._getTracker("UA-29554105-19");
+                pageTracker._trackPageview();
+            } catch(err) {}
+        </script>
+    </body>
+</html>

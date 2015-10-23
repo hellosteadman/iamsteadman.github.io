@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+                <title>code.steadman.io</title>
+            <meta charset="utf-8">
+<link href="http://code.steadman.io/feeds/all.xml" type="application/atom+xml" rel="alternate" title="code.steadman.io Full Atom Feed" /><link href="http://code.steadman.io/feeds/projects.xml" type="application/atom+xml" rel="alternate" title="code.steadman.io Categories Atom Feed" />
+
+        <link rel="stylesheet" href="http://code.steadman.io/theme/css/primer.css">
+        <link rel="stylesheet" href="http://code.steadman.io/theme/css/pygments.css">
+        <link rel="stylesheet" href="http://code.steadman.io/theme/css/octicons/octicons.css">
+        <link rel="stylesheet" href="http://code.steadman.io/theme/css/steadman.css">
+    </head>
+
+    <body class="single">
+        <header class="masthead">
+            <div class="container">
+                <img class="avatar" src="https://avatars1.githubusercontent.com/u/3310393?v=3&s=72" width="72" height="72">
+                <h1><a href="http://code.steadman.io/">code.steadman.io <strong></strong></a></h1>
+            </div>
+        </header>
+
+    <div class="about">
+        <div class="container">
+            <h1><a href="http://code.steadman.io/projects/droplet-map">Droplet Map</a></h1>
+            <div class="lead">
+                <p>Tracking the top companies taking money through Droplet, and the kinds</p>
+            </div>
+        </div>
+    </div>
+
+        <div class="container">
+            <div class="columns">
+                <div class="one-fourth column">
+                    <nav class="menu">
+
+
+                            <a class="menu-item " href="http://code.steadman.io/blog">Blog</a>
+                            <a class="menu-item " href="http://code.steadman.io/portfolio">Portfolio</a>
+                            <a class="menu-item selected" href="http://code.steadman.io/projects">Projects</a>
+                            <a class="menu-item " href="http://code.steadman.io/snippets">Snippets</a>
+                            <a class="menu-item " href="http://code.steadman.io/talks">Talks</a>
+                    </nav>
+
+                        <nav class="blogroll menu">
+                            <a class="menu-item" href="http://journal.steadman.io/" target="_blank">My journal</a>
+                            <a class="menu-item" href="http://substrakt.com/" target="_blank">My dayjob</a>
+                            <a class="menu-item" href="https://poddle.io/" target="_blank">My side project</a>
+                        </nav>
+
+                        <nav class="social menu">
+                            <a class="menu-item" href="https://github.com/iamsteadman/" target="_blank">GitHub</a>
+                            <a class="menu-item" href="https://twitter.com/iamsteadman/" target="_blank">Twitter</a>
+                        </nav>
+
+                    <span class="octicon octicon-mail"></span>
+                    <a href='mai&#108;to&#58;m%61&#37;7&#50;k%40%73te%&#54;1dman&#46;io'>mark&#64;steadman&#46;i&#111;</a>
+                </div>
+
+                <div class="three-fourths column">
+    <section id="content" class="body">
+        <div class="entry-content">
+            <p>of things people buy.
+Tags: django, twitter, dropletpay</p>
+<p>After seeing a few tweets over the past few months pointing to people's <a href="http://dropletpay.com/">Droplet</a> purchases (ala the example below), I thought
+I'd map out the kinds of things people buy, and the amounts of money they spend.</p>
+<blockquote>
+<p>I just paid <a href="https://twitter.com/urbancoffeeco">@urbancoffeeco</a> £1.50 via <a href="https://twitter.com/DropletPay">@dropletpay</a></p>
+<p>— Craig Edmunds (@craigtech) <a href="https://twitter.com/craigtech/statuses/347361214860505089">June 19, 2013</a></p>
+</blockquote>
+<p>For the uninitiated, Droplet is a way of paying for stuff using your phone. You
+charge up your phone with "credit" using your bank card, and you can pay for
+stuff simply and easily. I know a couple of the gents who founded the company
+who are based in my native Brum, so it's really cool to see the thing begin to
+spread.</p>
+<p>So, to the hack. Last night I set about using the Twitter search API to find
+tweets mentioning @<a href="http:/twitter.com/dropletpay">dropletpay</a>, and matching a
+particular pattern ("I just paid [company name or Twitter handle] £x via
+@dropletpay"). I then parsed the tweet, pulled out the relevant details and
+stored them in a database. I then use the Twitter users API to get a bit more
+info on each company, like their full name, location, URL and description. The
+resulting map looks something like this (it's interactive, so you can click, pan
+and zoom):</p>
+<p>(You'll need to read the article in full to see the map)</p>
+<p>The data's really sparse at the moment as tweets drop off the search index after
+a week, so I've only got the last few days to play with, but it should update
+fairly rapidly so hopefully the leaderboard will start to become a bit more
+interesting.</p>
+<p><a class="btn" href="https://github.com/iamsteadman/droplet-map">
+    <span class="octicon octicon-git-branch"></span>
+    Fork it on GitHub
+</a></p>
+        </div>
+
+        <footer class="post-info">
+            Published on <abbr class="published" title="2014-01-23T00:00:00+00:00">
+                Thu 23 January 2014            </abbr>
+
+                by <address class="vcard author">
+                        <a class="url fn" href="http://code.steadman.io/@steadman">Steadman</a>
+                </address>
+        </footer>
+    </section>
+                </div>
+            </div>
+        </div>
+
+        <footer class="body">
+            <div class="container">
+                <address class="vcard body">
+                    Proudly powered by <a href="http://getpelican.com/">Pelican</a>,
+                    which takes great advantage of <a href="http://python.org">Python</a>.
+                </address>
+            </div>
+        </footer>
+
+        <script>
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+        </script>
+        <script>
+            try {
+                var pageTracker = _gat._getTracker("UA-29554105-19");
+                pageTracker._trackPageview();
+            } catch(err) {}
+        </script>
+    </body>
+</html>

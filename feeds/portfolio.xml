@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>code.steadman.io</title><link href="http://code.steadman.io/" rel="alternate"></link><link href="http://code.steadman.io/feeds/portfolio.xml" rel="self"></link><id>http://code.steadman.io/</id><updated>2014-09-02T00:00:00+01:00</updated><entry><title>Trace</title><link href="http://code.steadman.io/trace.html" rel="alternate"></link><updated>2014-09-02T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:code.steadman.io,2014-09-02:trace.html</id><summary type="html">&lt;p&gt;Services for Education commissioned &lt;a href="http://substrakt.com/"&gt;Substrakt&lt;/a&gt;, my
+<feed xmlns="http://www.w3.org/2005/Atom"><title>code.steadman.io</title><link href="http://code.steadman.io/" rel="alternate"></link><link href="http://code.steadman.io/feeds/portfolio.xml" rel="self"></link><id>http://code.steadman.io/</id><updated>2014-09-02T00:00:00+01:00</updated><entry><title>Trace</title><link href="http://code.steadman.io/portfolio/trace" rel="alternate"></link><updated>2014-09-02T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:code.steadman.io,2014-09-02:portfolio/trace</id><summary type="html">&lt;p&gt;Services for Education commissioned &lt;a href="http://substrakt.com/"&gt;Substrakt&lt;/a&gt;, my
 employer to build a SaaS platform for the education sector, following changes in
 legislation.&lt;/p&gt;
 &lt;p&gt;The curriculum design, assessment and reporting tool allows teachers to create a
@@ -37,7 +37,7 @@ of iteration.&lt;/p&gt;
 &lt;p&gt;&lt;a class="btn" href="https://s4etrace.co.uk/" target="_blank"&gt;
     &lt;span class="octicon octicon-eye"&gt;&lt;/span&gt;
     Find out more about Trace
-&lt;/a&gt;&lt;/p&gt;</summary><category term="django"></category></entry><entry><title>ReelLearning</title><link href="http://code.steadman.io/reellearning.html" rel="alternate"></link><updated>2013-09-15T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:code.steadman.io,2013-09-15:reellearning.html</id><summary type="html">&lt;p&gt;ReelLearning is a video training project for primary school teachers,
+&lt;/a&gt;&lt;/p&gt;</summary><category term="django"></category></entry><entry><title>ReelLearning</title><link href="http://code.steadman.io/portfolio/reellearning" rel="alternate"></link><updated>2013-09-15T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:code.steadman.io,2013-09-15:portfolio/reellearning</id><summary type="html">&lt;p&gt;ReelLearning is a video training project for primary school teachers,
 built by me at &lt;a href="http://substrakt.com/"&gt;Substrakt&lt;/a&gt; in Django, using Bootstrap.&lt;/p&gt;
 &lt;p&gt;Originally a Drupal website, I was asked to rebuild it, first running on a
 Rackspace Red Hat server, then in 2014 we moved it to Amazon Web Services, using

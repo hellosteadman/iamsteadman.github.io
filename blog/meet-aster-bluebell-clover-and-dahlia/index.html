@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+                <title>code.steadman.io</title>
+            <meta charset="utf-8">
+<link href="http://code.steadman.io/feeds/all.xml" type="application/atom+xml" rel="alternate" title="code.steadman.io Full Atom Feed" /><link href="http://code.steadman.io/feeds/blog.xml" type="application/atom+xml" rel="alternate" title="code.steadman.io Categories Atom Feed" />
+
+        <meta name="tags" content="django" />
+        <meta name="tags" content="digitalocean" />
+        <meta name="tags" content="postgresql" />
+        <meta name="tags" content="nginx" />
+        <link rel="stylesheet" href="http://code.steadman.io/theme/css/primer.css">
+        <link rel="stylesheet" href="http://code.steadman.io/theme/css/pygments.css">
+        <link rel="stylesheet" href="http://code.steadman.io/theme/css/octicons/octicons.css">
+        <link rel="stylesheet" href="http://code.steadman.io/theme/css/steadman.css">
+    </head>
+
+    <body class="single">
+        <header class="masthead">
+            <div class="container">
+                <img class="avatar" src="https://avatars1.githubusercontent.com/u/3310393?v=3&s=72" width="72" height="72">
+                <h1><a href="http://code.steadman.io/">code.steadman.io <strong></strong></a></h1>
+            </div>
+        </header>
+
+    <div class="about">
+        <div class="container">
+            <h1><a href="http://code.steadman.io/blog/meet-aster-bluebell-clover-and-dahlia">Meet Aster, Bluebell, Clover and Dahlia</a></h1>
+            <div class="lead">
+                <p>Continuing my DigitalOcean adventure</p>
+            </div>
+        </div>
+    </div>
+
+        <div class="container">
+            <div class="columns">
+                <div class="one-fourth column">
+                    <nav class="menu">
+
+
+                            <a class="menu-item selected" href="http://code.steadman.io/blog">Blog</a>
+                            <a class="menu-item " href="http://code.steadman.io/portfolio">Portfolio</a>
+                            <a class="menu-item " href="http://code.steadman.io/projects">Projects</a>
+                            <a class="menu-item " href="http://code.steadman.io/snippets">Snippets</a>
+                            <a class="menu-item " href="http://code.steadman.io/talks">Talks</a>
+                    </nav>
+
+                        <nav class="blogroll menu">
+                            <a class="menu-item" href="http://journal.steadman.io/" target="_blank">My journal</a>
+                            <a class="menu-item" href="http://substrakt.com/" target="_blank">My dayjob</a>
+                            <a class="menu-item" href="https://poddle.io/" target="_blank">My side project</a>
+                        </nav>
+
+                        <nav class="social menu">
+                            <a class="menu-item" href="https://github.com/iamsteadman/" target="_blank">GitHub</a>
+                            <a class="menu-item" href="https://twitter.com/iamsteadman/" target="_blank">Twitter</a>
+                        </nav>
+
+                    <span class="octicon octicon-mail"></span>
+                    <a href='mai&#108;to&#58;m%61&#37;7&#50;k%40%73te%&#54;1dman&#46;io'>mark&#64;steadman&#46;i&#111;</a>
+                </div>
+
+                <div class="three-fourths column">
+    <section id="content" class="body">
+        <div class="entry-content">
+            <p>In May I wrote about finally
+"<a href="/blog/2014/05/24/finally-doing-django-right-after-all-these-years/">doing Django right</a>", but the missing piece was revealed to me by my Substrakt colleague <a href="http://maxehmookau.github.io/">Max Woolf</a>, who clued me into using <a href="http://www.ansible.com/home">Ansible</a> for development, provisioning and
+deployment.</p>
+<p>With this in mind I decided to rejig my setup a little, and move all of my major
+projects onto their own servers. So now, I have</p>
+<ul>
+<li>Aster, where this blog lives</li>
+<li>Bluebell, which is on <a href="https://getsentry.com/welcome/">Sentry</a> duty</li>
+<li>Clover, which hosts <a href="http://poddle.io/">Poddle</a></li>
+<li>Dahlia, where <a href="http://mynexthack.com/">My Next Hack</a> can be found</li>
+</ul>
+<p>For the moment this has meant that a couple of projects are homeless:</p>
+<ul>
+<li><a href="/play/whats-my-lat-lon/">What's My Lat-Lon</a> - This could be hosted
+  anywhere, I just haven't felt a burning need to get it up onto Aster yet</li>
+<li><a href="/play/quickdraw/">Quickdraw</a> - This was a fun project, but basically only
+  inhabited by spammers and something I might roll into Poddle</li>
+</ul>
+<p>Digital Ocean lets me scale things up and down as I need to, and now due to this product-led setup I've got a good handle on what resources are being used where.</p>
+<p>It's not everyone's ideal setup, as many would prefer to keep code, database and
+media separate, but for the moment I like this neat approach to devops.</p>
+<p>You'll probably have noticed that all my servers are named after flowers. I like
+to stick to a naming convention when creating a server setup, and these names
+are pretty. When I was with Bytemark I was using cheese names, because I'm a
+silly person, and when I used Amazon they were named after characters from
+<a href="http://en.wikipedia.org/wiki/Millennium_series">Stieg Larsson's Millennium trilogy</a>.</p>
+<p>Poddle will at some point outgrow Clover (in space requirements if nothing
+    else), but I'm hoping by then, Digital Ocean will have a handle on
+    expandable storage.</p>
+<p>So there you go. Clean setup, easy deployment, happy Steadman.</p>
+        </div>
+
+        <footer class="post-info">
+            Published on <abbr class="published" title="2014-08-10T00:00:00+01:00">
+                Sun 10 August 2014            </abbr>
+
+                by <address class="vcard author">
+                        <a class="url fn" href="http://code.steadman.io/@steadman">Steadman</a>
+                </address>
+        </footer>
+    </section>
+                </div>
+            </div>
+        </div>
+
+        <footer class="body">
+            <div class="container">
+                <address class="vcard body">
+                    Proudly powered by <a href="http://getpelican.com/">Pelican</a>,
+                    which takes great advantage of <a href="http://python.org">Python</a>.
+                </address>
+            </div>
+        </footer>
+
+        <script>
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+        </script>
+        <script>
+            try {
+                var pageTracker = _gat._getTracker("UA-29554105-19");
+                pageTracker._trackPageview();
+            } catch(err) {}
+        </script>
+    </body>
+</html>

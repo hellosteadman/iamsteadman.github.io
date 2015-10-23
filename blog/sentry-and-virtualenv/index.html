@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+                <title>code.steadman.io</title>
+            <meta charset="utf-8">
+<link href="http://code.steadman.io/feeds/all.xml" type="application/atom+xml" rel="alternate" title="code.steadman.io Full Atom Feed" /><link href="http://code.steadman.io/feeds/blog.xml" type="application/atom+xml" rel="alternate" title="code.steadman.io Categories Atom Feed" />
+
+        <meta name="tags" content="virtualenv" />
+        <link rel="stylesheet" href="http://code.steadman.io/theme/css/primer.css">
+        <link rel="stylesheet" href="http://code.steadman.io/theme/css/pygments.css">
+        <link rel="stylesheet" href="http://code.steadman.io/theme/css/octicons/octicons.css">
+        <link rel="stylesheet" href="http://code.steadman.io/theme/css/steadman.css">
+    </head>
+
+    <body class="single">
+        <header class="masthead">
+            <div class="container">
+                <img class="avatar" src="https://avatars1.githubusercontent.com/u/3310393?v=3&s=72" width="72" height="72">
+                <h1><a href="http://code.steadman.io/">code.steadman.io <strong></strong></a></h1>
+            </div>
+        </header>
+
+    <div class="about">
+        <div class="container">
+            <h1><a href="http://code.steadman.io/blog/sentry-and-virtualenv">Sentry and Virtualenv</a></h1>
+            <div class="lead">
+                <p>My first adventure with Virtualenv</p>
+            </div>
+        </div>
+    </div>
+
+        <div class="container">
+            <div class="columns">
+                <div class="one-fourth column">
+                    <nav class="menu">
+
+
+                            <a class="menu-item selected" href="http://code.steadman.io/blog">Blog</a>
+                            <a class="menu-item " href="http://code.steadman.io/portfolio">Portfolio</a>
+                            <a class="menu-item " href="http://code.steadman.io/projects">Projects</a>
+                            <a class="menu-item " href="http://code.steadman.io/snippets">Snippets</a>
+                            <a class="menu-item " href="http://code.steadman.io/talks">Talks</a>
+                    </nav>
+
+                        <nav class="blogroll menu">
+                            <a class="menu-item" href="http://journal.steadman.io/" target="_blank">My journal</a>
+                            <a class="menu-item" href="http://substrakt.com/" target="_blank">My dayjob</a>
+                            <a class="menu-item" href="https://poddle.io/" target="_blank">My side project</a>
+                        </nav>
+
+                        <nav class="social menu">
+                            <a class="menu-item" href="https://github.com/iamsteadman/" target="_blank">GitHub</a>
+                            <a class="menu-item" href="https://twitter.com/iamsteadman/" target="_blank">Twitter</a>
+                        </nav>
+
+                    <span class="octicon octicon-mail"></span>
+                    <a href='mai&#108;to&#58;m%61&#37;7&#50;k%40%73te%&#54;1dman&#46;io'>mark&#64;steadman&#46;i&#111;</a>
+                </div>
+
+                <div class="three-fourths column">
+    <section id="content" class="body">
+        <div class="entry-content">
+            <p>This weekend I had my first real dalliance with Virtualenv, the system that
+basically allows you to run different versions of Python modules for different
+environments (ie: different websites). Some people like to go a bit overboard
+and think that you should have a virtualenv for each website. I think this is
+overkill and not sensibly maintainable, but then I base a lot of my decisions on
+the fact that I have to be a Jack of all trades, not solely a developer or a
+system admin.</p>
+<p>Anyway, I'd never needed them so I've never used them, until this weekend when I
+tried to get Sentry working on a server running Django 1.5. For whatever reason,
+Sentry's requirements are at the moment frozen at 1.4, so I did what the guide
+suggested and installed Virtualenv plus Sentry. Which then overwrote my Django installation. But hang on, isn't it not supposed to do that?</p>
+<p>To which the answer is "yes, unless you specifically state the environment you
+want your package installed into". I use
+<a href="https://pypi.python.org/pypi/pip">PIP</a>, so I needed to add an <code>-E</code> argument
+followed by the directory of my Sentry environment. Once done, I needed MySQL
+installed in the same environment. I'd previously installed the Python MySQL
+wrapper via Ubuntu's package manager, but that wouldn't work for my virtualenv
+so I downloaded a package that would give me access to the <code>mysql_config</code>
+program Python needed, then built the MySQL module from source. Pretty easy
+really.</p>
+<p>Once done I had a fully-working installation of Sentry. But I'd been here
+before, only a few days ago, except without virtualenv. Every time I sent a test
+message to Sentry, the client (the site sending the message) would time out.
+Every friggin' time. And it wasn't until a few hours ago that I thought "Oh hang
+on, I've not installed sendmail". Suffice it to say, that sorted all my
+problems, and I'm an idiot for the second time this weekend (I can't remember
+what Saturday's one was).</p>
+<p>I often find myself frustrated when everyone else seems to think that something
+works, when it clearly doesn't. Usually this is because of a small piece of
+knowledge <em>everyone else</em> takes for granted. That's not a slam, but it is a fact
+of the Internet, so hopefully this post will serve as a friendly note to anyone
+who's having difficulties. If you're dealing with a virtual environment, you've
+activated it (via the <code>source</code> command or similar) but your packages don't seem
+to install into that environment, check whatever system you're installing that
+it knows which environment you want.</p>
+<ul>
+<li>If using <code>python setup.py install</code>, make sure you've activated the
+  environment so that the <code>python</code> binary you're referring to is the virtualised
+  one.</li>
+<li>If you're using <code>pip</code>, make sure to specify <code>-E /path/to/env</code> at the end of
+  the command, because PIP is a system-wide command and it doesn't automatically
+  recognise that you're in a specific virtualenv, so by default it'll put its
+  packages in the "global" <code>dist-packages</code> directory (or equivalent).</li>
+</ul>
+<p>Happy coding!</p>
+        </div>
+
+        <footer class="post-info">
+            Published on <abbr class="published" title="2013-06-02T00:00:00+01:00">
+                Sun 02 June 2013            </abbr>
+
+                by <address class="vcard author">
+                        <a class="url fn" href="http://code.steadman.io/@steadman">Steadman</a>
+                </address>
+        </footer>
+    </section>
+                </div>
+            </div>
+        </div>
+
+        <footer class="body">
+            <div class="container">
+                <address class="vcard body">
+                    Proudly powered by <a href="http://getpelican.com/">Pelican</a>,
+                    which takes great advantage of <a href="http://python.org">Python</a>.
+                </address>
+            </div>
+        </footer>
+
+        <script>
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+        </script>
+        <script>
+            try {
+                var pageTracker = _gat._getTracker("UA-29554105-19");
+                pageTracker._trackPageview();
+            } catch(err) {}
+        </script>
+    </body>
+</html>

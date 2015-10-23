@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+                <title>code.steadman.io</title>
+            <meta charset="utf-8">
+<link href="http://code.steadman.io/feeds/all.xml" type="application/atom+xml" rel="alternate" title="code.steadman.io Full Atom Feed" /><link href="http://code.steadman.io/feeds/blog.xml" type="application/atom+xml" rel="alternate" title="code.steadman.io Categories Atom Feed" />
+
+        <meta name="tags" content="newrelic" />
+        <meta name="tags" content="django" />
+        <link rel="stylesheet" href="http://code.steadman.io/theme/css/primer.css">
+        <link rel="stylesheet" href="http://code.steadman.io/theme/css/pygments.css">
+        <link rel="stylesheet" href="http://code.steadman.io/theme/css/octicons/octicons.css">
+        <link rel="stylesheet" href="http://code.steadman.io/theme/css/steadman.css">
+    </head>
+
+    <body class="single">
+        <header class="masthead">
+            <div class="container">
+                <img class="avatar" src="https://avatars1.githubusercontent.com/u/3310393?v=3&s=72" width="72" height="72">
+                <h1><a href="http://code.steadman.io/">code.steadman.io <strong></strong></a></h1>
+            </div>
+        </header>
+
+    <div class="about">
+        <div class="container">
+            <h1><a href="http://code.steadman.io/blog/new-relic-to-the-rescue">New Relic to the rescue!</a></h1>
+            <div class="lead">
+                <p>I get to grips with the New Relic app monitoring site</p>
+            </div>
+        </div>
+    </div>
+
+        <div class="container">
+            <div class="columns">
+                <div class="one-fourth column">
+                    <nav class="menu">
+
+
+                            <a class="menu-item selected" href="http://code.steadman.io/blog">Blog</a>
+                            <a class="menu-item " href="http://code.steadman.io/portfolio">Portfolio</a>
+                            <a class="menu-item " href="http://code.steadman.io/projects">Projects</a>
+                            <a class="menu-item " href="http://code.steadman.io/snippets">Snippets</a>
+                            <a class="menu-item " href="http://code.steadman.io/talks">Talks</a>
+                    </nav>
+
+                        <nav class="blogroll menu">
+                            <a class="menu-item" href="http://journal.steadman.io/" target="_blank">My journal</a>
+                            <a class="menu-item" href="http://substrakt.com/" target="_blank">My dayjob</a>
+                            <a class="menu-item" href="https://poddle.io/" target="_blank">My side project</a>
+                        </nav>
+
+                        <nav class="social menu">
+                            <a class="menu-item" href="https://github.com/iamsteadman/" target="_blank">GitHub</a>
+                            <a class="menu-item" href="https://twitter.com/iamsteadman/" target="_blank">Twitter</a>
+                        </nav>
+
+                    <span class="octicon octicon-mail"></span>
+                    <a href='mai&#108;to&#58;m%61&#37;7&#50;k%40%73te%&#54;1dman&#46;io'>mark&#64;steadman&#46;i&#111;</a>
+                </div>
+
+                <div class="three-fourths column">
+    <section id="content" class="body">
+        <div class="entry-content">
+            <h3>Update</h3>
+<p>I made a speculation about New Relic which was refuted (politely) on Twitter. I
+just wanted to set the record straight :)</p>
+<blockquote>
+<p>Great success story by <a href="https://twitter.com/iamsteadman">@iamsteadman</a> on our free plan. To clarify we will NEVER sell ANY customer data to ANYONE. <a href="http://t.co/l3O8zat61r">http://t.co/l3O8zat61r</a></p>
+<p>— Lew Cirne (@sweetlew) <a href="https://twitter.com/sweetlew/statuses/402262409890385920">November 18, 2013</a></p>
+</blockquote>
+<p>As <a href="http://nymbol.co.uk/">Nymbol</a> slowly gains more traction and my personal
+server groans under the weight of my flights-of-fancy, I gathered it was about
+time I got my monitoring shit together.</p>
+<p>I'd heard of a thing called <a href="http://newrelic.com/">New Relic</a> but couldn't
+remember what it was, and was convinced that whatever it did it was overpriced.
+But when searching for server monitoring solutions it was the first one that
+caught my eye, and to my wide-eyed surprise I discovered I could use it for
+free.</p>
+<p>It was ridiculously easy to install for the Django sites I host on my two
+servers. Each application can be monitored separately, but I can also see how
+the servers are doing overall. IT's already helped me fix memory leaks, overcome
+speedbumps and more importantly gin a much better understanding of how my
+machinery works, so that the next time there's an outage, I'll be more likely to
+know whether it was down to my host or - more likely - a loose bit of code
+rattling around somewhere.</p>
+<p>So you can consider this a recommendation. I reckon we'll be using it at <a href="http://substrakt.co.uk/">Substrakt</a> soon, as although our hosting partners have
+given us near-100% uptime, it's always good to gauge the health of your servers,
+when those boxes are your livelihood.</p>
+<p>So, <a href="http://newrelic.com/">check them out</a>. Their paid plans are very expensive
+but you probably won't need them. If a server goes down you probably won't need
+more than 24 hours of data retention - which is what you get for free - and
+there's so much great documentation available that you shouldn't need their
+support.</p>
+<p>My guess is that server data is being sold on to third parties, but I haven't
+checked this. That's the only reason I can imagine for why so much is available
+for free and why there's such a jump between that and the paid account. This
+doesn't bother me particularly, but it might be worth looking into T&amp;Cs if
+you're worried. Like I say, that's <em>pure speculation</em> on my part; I'm just
+trying to figure out the catch.</p>
+        </div>
+
+        <footer class="post-info">
+            Published on <abbr class="published" title="2013-11-17T00:00:00+00:00">
+                Sun 17 November 2013            </abbr>
+
+                by <address class="vcard author">
+                        <a class="url fn" href="http://code.steadman.io/@steadman">Steadman</a>
+                </address>
+        </footer>
+    </section>
+                </div>
+            </div>
+        </div>
+
+        <footer class="body">
+            <div class="container">
+                <address class="vcard body">
+                    Proudly powered by <a href="http://getpelican.com/">Pelican</a>,
+                    which takes great advantage of <a href="http://python.org">Python</a>.
+                </address>
+            </div>
+        </footer>
+
+        <script>
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+        </script>
+        <script>
+            try {
+                var pageTracker = _gat._getTracker("UA-29554105-19");
+                pageTracker._trackPageview();
+            } catch(err) {}
+        </script>
+    </body>
+</html>

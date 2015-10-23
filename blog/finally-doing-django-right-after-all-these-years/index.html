@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+                <title>code.steadman.io</title>
+            <meta charset="utf-8">
+<link href="http://code.steadman.io/feeds/all.xml" type="application/atom+xml" rel="alternate" title="code.steadman.io Full Atom Feed" /><link href="http://code.steadman.io/feeds/blog.xml" type="application/atom+xml" rel="alternate" title="code.steadman.io Categories Atom Feed" />
+
+        <meta name="tags" content="django" />
+        <meta name="tags" content="digitalocean" />
+        <meta name="tags" content="postgresql" />
+        <meta name="tags" content="nginx" />
+        <meta name="tags" content="virtualenv" />
+        <link rel="stylesheet" href="http://code.steadman.io/theme/css/primer.css">
+        <link rel="stylesheet" href="http://code.steadman.io/theme/css/pygments.css">
+        <link rel="stylesheet" href="http://code.steadman.io/theme/css/octicons/octicons.css">
+        <link rel="stylesheet" href="http://code.steadman.io/theme/css/steadman.css">
+    </head>
+
+    <body class="single">
+        <header class="masthead">
+            <div class="container">
+                <img class="avatar" src="https://avatars1.githubusercontent.com/u/3310393?v=3&s=72" width="72" height="72">
+                <h1><a href="http://code.steadman.io/">code.steadman.io <strong></strong></a></h1>
+            </div>
+        </header>
+
+    <div class="about">
+        <div class="container">
+            <h1><a href="http://code.steadman.io/blog/finally-doing-django-right-after-all-these-years">Finally doing Django right after all these years</a></h1>
+            <div class="lead">
+                <p>Details of my new Django setup on DigitalOcean</p>
+            </div>
+        </div>
+    </div>
+
+        <div class="container">
+            <div class="columns">
+                <div class="one-fourth column">
+                    <nav class="menu">
+
+
+                            <a class="menu-item selected" href="http://code.steadman.io/blog">Blog</a>
+                            <a class="menu-item " href="http://code.steadman.io/portfolio">Portfolio</a>
+                            <a class="menu-item " href="http://code.steadman.io/projects">Projects</a>
+                            <a class="menu-item " href="http://code.steadman.io/snippets">Snippets</a>
+                            <a class="menu-item " href="http://code.steadman.io/talks">Talks</a>
+                    </nav>
+
+                        <nav class="blogroll menu">
+                            <a class="menu-item" href="http://journal.steadman.io/" target="_blank">My journal</a>
+                            <a class="menu-item" href="http://substrakt.com/" target="_blank">My dayjob</a>
+                            <a class="menu-item" href="https://poddle.io/" target="_blank">My side project</a>
+                        </nav>
+
+                        <nav class="social menu">
+                            <a class="menu-item" href="https://github.com/iamsteadman/" target="_blank">GitHub</a>
+                            <a class="menu-item" href="https://twitter.com/iamsteadman/" target="_blank">Twitter</a>
+                        </nav>
+
+                    <span class="octicon octicon-mail"></span>
+                    <a href='mai&#108;to&#58;m%61&#37;7&#50;k%40%73te%&#54;1dman&#46;io'>mark&#64;steadman&#46;i&#111;</a>
+                </div>
+
+                <div class="three-fourths column">
+    <section id="content" class="body">
+        <div class="entry-content">
+            <p>I first start making websites with some idea of professionalism in 2001. I was
+an old-school aSP then .NET guy up until a friend convinced me to use Django. In
+2008 I picked it up, and until recently have used MySQL and Apache.</p>
+<p><strong>And I don't feel guilty about that.</strong></p>
+<p>If a nerd tells you they can't be every bit as hipstery as anyone else, get them
+over to a developer conference. So many people sneer at MySQL as a database
+backend (I think, because it's used by PHP which isn't a sophisticated language,
+but is very portable and extremely flexible). I used it because it's what I
+knew, and since I was diving into two things I'd never used before (Django and
+Python) I wanted some sense of familiarity. </p>
+<p>I used Apache becuase it was, at the time the recommended server. But that was
+nearly 6 years ago, and a lot's changed.</p>
+<p>I do think there's an element of snobbery in many developers' choice of
+technology. They like what's new, what other developers they like ar eusing, and
+what has a good buzz about it. I always swim the other way, but that doesn't
+mean I'm blind to the benefits that these frameworks and apps' users extole.</p>
+<p>So why the change?</p>
+<p>Well, I saw an ad on Twitter for <a href="https://www.digitalocean.com/">Digital Ocean</a>.
+They run SSD on all their virtual boxes so I went, had a look and spun up two
+cheap servers, one for logic, the other for the database. This, I told myself,
+was my chance to setup the perfect Django environment, and finally learn what
+all the fuss was about.</p>
+<h2>virtualenv</h2>
+<p>virtualenv is a Python package that basically installs a version of \Python in a
+given directory with its own separate world. It comes with a package installer
+and the packages you choose are only valid inside that environment. The benefit
+here is that if one sites needs version Django 1.4 and another needs Django 1.6,
+and there's something that makes those two sites incompatible (like a
+third-party library that only works on one of those versions and not the other),
+both sites have their own separate version of Django.</p>
+<p>If it sounds overkill, it isn't. We're not talking massive files, and the setup
+doesn't take very long. And crucially it'll save you time in the long-run.</p>
+<p>So, following
+<a href="https://www.digitalocean.com/community/articles/how-to-install-and-configure-django-with-postgres-nginx-and-gunicorn">instructions from Digital Ocean</a>,
+I went about setting up an environment for <a href="http://poddle.fm/">Poddle.fm</a>, my
+podcasting network.</p>
+<h2>PostgreSQL</h2>
+<p>In truth I think PostgreSQL has been recommended since I started using Django,
+but support for MySQL feels like more of an afterthought now, as frankly
+PostgreSQL is growing and improving, and MySQL, sort of, isn't.</p>
+<p>I don't know nearly enough about PostgreSQL other than having installed it on
+the second box and hooked up both machines to talk to each-other. I don't have a
+way to browse the databases other than to use the command-line interface, and
+I'm not familiar with PostgreSQL's non-standard form of SQL.</p>
+<p>I used to think that Django's ORM could only go so far before you'd have to
+start writing custom SQL, but it turns out that there are some functions that
+only work within PostgreSQL and reduce the need for raw SQL. We'll see how far
+that extends though, as I've only migrated two projects that needed database
+access.</p>
+<p>So far though, I haven't had to worry about timezone data (a problem with MySQL)
+or fiddle with the settings too much. We'll see what happens when things start
+to break, further down the line... :)</p>
+<p>(Not that I'm suggesting a problem with PostgreSQL, but with my understanding of
+it.)</p>
+<h2>Gunicorn and Nginx</h2>
+<p>This is where things get a little nottier, for me. I'd played with PostgreSQL
+before but never really touched Gunicorn (pronounced "<em>g-unicorn</em>" I think) and
+was frankly a little afraid of Nginx ("<em>engine x</em>"). Within Apache, you install
+a handler that passes all requests directly through to a script that spins up an
+instance of your Django environment and gets running. Apache is big and heavy
+and runs in the background constantly, with lots of different processes taking
+up memory that can sit around for a good while.</p>
+<p>My understanding - which is probably worng - is that Nginx doesn't work in the
+same way. You don't pass requests to an application, instead you proxy from one
+server to another. Gunicorn is a server for Python applications that sits on a
+hidden port (8000, for example) and takes requests from Nginx. Presumably you
+could actually tell Gunicorn to use port 80 if you gave it the permissions, but
+that'd stop you from serving any other sites from the same server.</p>
+<p>The big change for me involves thinking of each website as a UNIX process, that
+sits in the background and has to be spun-up again if it fails. I manage that
+with the bundled Upstart application for Ubuntu, but there are lots of other
+methods of doing that, and monitoring processes to spin then back up again if
+they fall over. But I thought "let's not run before we can walk, eh?"</p>
+<p>So basically you create an Upstart configuration file for each site, start the
+process running and then leave it. If you ever have to reboot the machine, the
+processes should just start up again, along with Nginx.</p>
+<p>From what I understand, the benefits are in speed, processing power and memory
+savings, as you're using tools defined specifically for those tasks, rather than
+all-purpose machines like the Apache web server.</p>
+<h2>Bower</h2>
+<p>When I first saw <a href="http://bower.co/">Bower</a>, I couldn't quite understand the
+need. Why couldn't you just go and download what you needed - just the minified
+JavaScript or CSS file - and copy it to your app? Honestly there's absolutely no
+reason why not. But as I'm developing Django apps (as in "plugins" for Django)
+that would normally bundle third-party things in (like Tiwtter's own Bootstrap
+framework), it made sense to let something else take care of that process,
+rather than me having to bundle in the latest copy of a framework or update my
+package every time a new release came out.</p>
+<p>So the three projects I've moved over to Digital Ocean now all use Bower to
+handle third-party components like jQuery, ZeroClipboard and of course
+Bootstrap.</p>
+<p>But in order to get this running, I needed Node.js, and I liked ghe idea of
+having a separate copy of Node, NPM and Bower for each site, just like my Python
+virtualenv setup.
+<a href="http://calvinx.com/2013/07/11/python-virtualenv-with-node-environment-via-nodeenv/">Calvin Cheng to the rescue</a>,
+with a simple solution, <a href="https://github.com/ekalinin/nodeenv">nodeenv</a> by Eugene
+Kalinin.</p>
+<h2>Storage</h2>
+<p>This is the only remaining piece of the puzzle I don't have a setup for.
+Currently all my uploaded media (podcasts, images for blog posts etc) sit in a
+directory called /opt/media/, with each site having a separate subdirectory. I
+did that, rather than install them individually into their own respective
+environment directories because at some point I'll want to switch to a CDN or
+similar, and one of the simplest ways of making that work is via an NFS-enabled
+provider, so effectively /opt/media/ just because a shortcut to a cloud account
+(although I read that's not necessarily good practice).</p>
+<p>Either way though, keeping the /ope/media/ directory separate from /opt/env
+(where the logic sits) will make the decoupling a little easier I hope. I'm
+waiting to hear back from Nimbus.io to see if I can get in on their cloud
+hosting platform, as I can't use AWS for... reasons.</p>
+<h2>The second box</h2>
+<p>I decided to get my money's worth out of my database box and use that as a
+<a href="http://sentry.readthedocs.org/en/latest/">Sentry</a> and
+<a href="http://www.elasticsearch.org/">Elasticsearch</a> server.</p>
+<p>Sentry, if you don't know is an amazing error-reporting tool that began its life
+with Disqus. They're Django users so they built it to monitor Django apps and
+intercept errors, logging them and allowing you to reproduce them as well as see
+the full stack and bits of sourcecode that generated the errors. Now it supports
+lots of differentr languages and frameworks, and I can't recommend it highly
+enough.</p>
+<p>Elasticsearch is, for me interchangeable with lots of other search engines, as I
+only pick those supported by <a href="http://haystacksearch.org/">Haystack</a>. Haystack
+does for Django what its own ORM does for databases. You write a Haystack index,
+and Haystack converts it into an index readable by whatever provider you want to
+use (an over-simplification obviously). I've mostly only used file-based engines
+like Xapian and Whoosh, but thought, since I was trying to Do Things Right I
+should look into a slightly more powerful, and potentially more efficient
+engine. And although Java is horrible - sorry, that might be my own inner
+snobbery coming out - it seemed preferable to Solr, which I've used before and
+found pretty bloaty.</p>
+<p>Again though, both were easy setups on client and server side, thanks in no
+small part to good documentation.</p>
+<h2>Cloudflare</h2>
+<p>I was using Cloudflare before, just to take a little strain off my old servers,
+but even with it enabeld and pointing to the new server I can see the difference
+in speed.</p>
+<h2>Conclusion</h2>
+<p>Honestly, the only headaches I've had have been in converting my big Django
+toolset into separate packages and changing the namespaces, then going through
+and sorting all the Bower references out. And that's got nothing to do with the
+new setup, that was just something I've been doing alongside this.</p>
+<p>I had a minor moment of confusion last week when I couldn't get Django to allow
+me to upload files larger than 100mb, but it turned out that in that particular
+project, I'd set an arbitrary limit and had completely forgotten. (I still had
+to change the Nginx config, but the reason it wouldn't work for the next quarter
+of an hour is because I'm a dick, not becuase Nginx was ignoring me.)</p>
+<p>I'm still using MySQL and Apache in some major production projects and moving
+those over will not be a simple task, but I do see the benefit. Also, there's
+nothing wrong with trying to write better code to work on older kit, as it'll
+make it purr along on a more modern setup. That's just good practice.</p>
+<p>All in all it feels good to not only write code I can be proud of, but to run it
+in a way that doesn't make me blush. I'm not a sysadmin; I'm not a talented
+Django dev. What I'm good at is getting up-to-speed on enough to make good
+stuff. I'll never know the internals of half the things I use and will run
+straight to Google when they break, but I do understand the value of a good,
+solid setup.</p>
+<p>So, three down, three more sites to move...</p>
+        </div>
+
+        <footer class="post-info">
+            Published on <abbr class="published" title="2014-05-24T00:00:00+01:00">
+                Sat 24 May 2014            </abbr>
+
+                by <address class="vcard author">
+                        <a class="url fn" href="http://code.steadman.io/@steadman">Steadman</a>
+                </address>
+        </footer>
+    </section>
+                </div>
+            </div>
+        </div>
+
+        <footer class="body">
+            <div class="container">
+                <address class="vcard body">
+                    Proudly powered by <a href="http://getpelican.com/">Pelican</a>,
+                    which takes great advantage of <a href="http://python.org">Python</a>.
+                </address>
+            </div>
+        </footer>
+
+        <script>
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+        </script>
+        <script>
+            try {
+                var pageTracker = _gat._getTracker("UA-29554105-19");
+                pageTracker._trackPageview();
+            } catch(err) {}
+        </script>
+    </body>
+</html>
