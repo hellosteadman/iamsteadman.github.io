@@ -21,5 +21,5 @@ built with Django and hosted via Heroku.
 I also work daily with Sass, LESS, HTML5 and jQuery, and write microservices in
 Flask, and build websites and plugins using WordPress.
 
-I work for Substrakt in Birmingham, a passionate digital studio which
-focuses on user-experience.
+I work for [Substrakt](http://substrakt.com/) in Birmingham, a passionate
+digital studio which focuses on user-experience.
