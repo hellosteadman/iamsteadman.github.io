@@ -30,21 +30,14 @@
         </div>
 
         <footer class="post-info">
-            Published on <abbr class="published" title="{{ article.date.isoformat() }}">
-                {{ article.locale_date }}{% if article.modified %},
-                    modified on
-                    <abbr class="modified" title="{{ article.modified.isoformat() }}">
-                        {{ article.locale_modified }}
-                    </abbr>
-            	{% endif %}
-            </abbr>
-
-            {% if article.authors %}
-                by <address class="vcard author">
-                    {% for author in article.authors %}
-                        <a class="url fn" href="{{ SITEURL }}/{{ author.url }}">{{ author }}</a>
-                    {% endfor %}
-                </address>
+            Published on
+            <abbr class="published" title="{{ article.date.isoformat() }}">{{ article.locale_date }}</abbr>{% if article.modified %},
+                modified on
+                <abbr class="modified" title="{{ article.modified.isoformat() }}">{{ article.locale_modified }}</abbr>
+            {% endif %}{% if article.tags %}, tagged
+                {% for tag in article.tags %}
+                    <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag.name }}</a>{% if not loop.last %},{% endif %}
+                {% endfor %}.
             {% endif %}
         </footer>
     </section>
