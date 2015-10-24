@@ -6,7 +6,7 @@ Summary: A Pelican plugin for creating category-specific article and listing tem
 
 This site uses [Pelican](http://blog.getpelican.com/) to generate a blog from
 static files, maintained in a Github repo. (It's configured in s slightly
-unusual way so as to remove the `.html` extension from the RULs). It's hosted on
+unusual way so as to remove the `.html` extension from the URLs). It's hosted on
 Github Pages.
 
 I wanted each of my categories to have a specific title and description, and the
