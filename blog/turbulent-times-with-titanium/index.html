@@ -3,29 +3,29 @@
     <head>
                 <title>code.steadman.io</title>
             <meta charset="utf-8">
-<link href="http://code.steadman.io/feeds/all.xml" type="application/atom+xml" rel="alternate" title="code.steadman.io Full Atom Feed" /><link href="http://code.steadman.io/feeds/blog.xml" type="application/atom+xml" rel="alternate" title="code.steadman.io Categories Atom Feed" />
+<link href="/feeds/all.xml" type="application/atom+xml" rel="alternate" title="code.steadman.io Full Atom Feed" /><link href="/feeds/blog.xml" type="application/atom+xml" rel="alternate" title="code.steadman.io Categories Atom Feed" />
 
         <meta name="tags" content="appcelerator" />
         <meta name="tags" content="titanium" />
         <meta name="tags" content="javascript" />
         <meta name="tags" content="meegloo" />
-        <link rel="stylesheet" href="http://code.steadman.io/theme/css/primer.css">
-        <link rel="stylesheet" href="http://code.steadman.io/theme/css/pygments.css">
-        <link rel="stylesheet" href="http://code.steadman.io/theme/css/octicons/octicons.css">
-        <link rel="stylesheet" href="http://code.steadman.io/theme/css/steadman.css">
+        <link rel="stylesheet" href="/theme/css/primer.css">
+        <link rel="stylesheet" href="/theme/css/pygments.css">
+        <link rel="stylesheet" href="/theme/css/octicons/octicons.css">
+        <link rel="stylesheet" href="/theme/css/steadman.css">
     </head>
 
     <body class="single">
         <header class="masthead">
             <div class="container">
                 <img class="avatar" src="https://avatars1.githubusercontent.com/u/3310393?v=3&s=72" width="72" height="72">
-                <h1><a href="http://code.steadman.io/">code.steadman.io <strong></strong></a></h1>
+                <h1><a href="/">code.steadman.io <strong></strong></a></h1>
             </div>
         </header>
 
     <div class="about">
         <div class="container">
-            <h1><a href="http://code.steadman.io/blog/turbulent-times-with-titanium">Turbulent times with Titanium</a></h1>
+            <h1><a href="/blog/turbulent-times-with-titanium">Turbulent times with Titanium</a></h1>
             <div class="lead">
                 <p>My latest roundup of issues with Appcelerator Titanium</p>
             </div>
@@ -38,11 +38,11 @@
                     <nav class="menu">
 
 
-                            <a class="menu-item selected" href="http://code.steadman.io/blog">Blog</a>
-                            <a class="menu-item " href="http://code.steadman.io/portfolio">Portfolio</a>
-                            <a class="menu-item " href="http://code.steadman.io/projects">Projects</a>
-                            <a class="menu-item " href="http://code.steadman.io/snippets">Snippets</a>
-                            <a class="menu-item " href="http://code.steadman.io/talks">Talks</a>
+                            <a class="menu-item selected" href="/blog">Blog</a>
+                            <a class="menu-item " href="/portfolio">Portfolio</a>
+                            <a class="menu-item " href="/projects">Projects</a>
+                            <a class="menu-item " href="/snippets">Snippets</a>
+                            <a class="menu-item " href="/talks">Talks</a>
                     </nav>
 
                         <nav class="blogroll menu">
@@ -69,31 +69,31 @@ I've been something of an advocate, and have blogged about it previously too.
 But now I've hit a stumbling block, I want to do one of two things: get help on
 the issue if it's available, and warn others who are trying to use the
 functionality I'm using... which is broke.</p>
-<p>Meegloo, the app I've talked about muchly in my
-<a href="http://moxypark.com/videos/egotrip/">video diary</a>, will rely almost exclusively
-on users being able to upload content from their mobile. So tonight I got stuck
-into uploading audio recorded from the iPhone simulator to my local server. Not
-the simplest of processes as I needed to send metadata aswell, and Titanium
-doesn't have a way to do that out of the box. No fear though, as
+<p>Meegloo, the app I've talked about muchly in my video diary, will rely almost
+exclusively on users being able to upload content from their mobile. So tonight
+I got stuck into uploading audio recorded from the iPhone simulator to my local
+server. Not the simplest of processes as I needed to send metadata aswell, and
+Titanium doesn't have a way to do that out of the box. No fear though, as
 <a href="http://www.smokycogs.com/blog/titanium-tutorial-how-to-upload-a-file-to-a-server/">a very helpful post</a> got me most of the way there.</p>
 <p>So now I had a shiny MP4 file and a way to distribute it. Problem solved, you'd
 think, but in fact, it's a problem created. Titanium will <em>not</em> read that file
 as multipart form data (which is where you mix text with binary data in the same
-    request... the sort of thing your browser does when you submit a contact
-    form and attach a Word doc, for example). Whatever I did, I simply got back JavaScript's representation of the file, as a piece of text. I found
-    <a href="https://github.com/aaronksaunders/base64encodeUtil">a module for Titanium</a>
-    whose sole purpose is to get round the issue. That doesn't work, so I'm kind
-    of stuffed.</p>
+request... the sort of thing your browser does when you submit a contact form
+and attach a Word doc, for example). Whatever I did, I simply got back
+JavaScript's representation of the file, as a piece of text. I found
+<a href="https://github.com/aaronksaunders/base64encodeUtil">a module for Titanium</a>
+whose sole purpose is to get round the issue. That doesn't work, so I'm kind of
+stuffed.</p>
 <p>It's possible I might not be stuffed though, for two reasons. One is that I
 <em>might</em> be able to split my request in two: send the metadata first, get a file
 ID back from the server, then send the actual file across, using the ID so the
 server knows where to put it. But from the code samples I've seen online, I'm
 not convinced of that just yet. The other is a very helpful tweet I just
 received, from @<a href="http://twitter.com/mindelusions">mindelusions</a>:</p>
-<blockquote>
-<p>@moxypark email community@appcelerator.com and we'll help you out with any issues.</p>
-<p>— Anthony Decena (@mindelusions) <a href="https://twitter.com/mindelusions/statuses/114870331067469826">September 17, 2011</a></p>
-</blockquote>
+<blockquote class="twitter-tweet" lang="en"><p lang="en" dir="ltr">@moxypark email community@appcelerator.com and we&#39;ll help you out with any issues.</p>&mdash; Anthony Decena (@mindelusions) <a href="https://twitter.com/mindelusions/status/114870331067469826">September 17, 2011</a></blockquote>
+
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 <p>I reckon I'll take Anthony up on that offer, and see how far I get. I should say
 that this won't stop me using or recommending Titanium, but it is a blow for the
 "it can do virtually anything iOS can" argument. For instance, what's the point
@@ -108,7 +108,7 @@ enough (I don't think anyway) to do full-on video editing.</p>
                 Sat 17 September 2011            </abbr>
 
                 by <address class="vcard author">
-                        <a class="url fn" href="http://code.steadman.io/@steadman">Steadman</a>
+                        <a class="url fn" href="/@steadman">Steadman</a>
                 </address>
         </footer>
     </section>

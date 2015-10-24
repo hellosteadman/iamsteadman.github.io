@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>code.steadman.io</title><link href="http://code.steadman.io/" rel="alternate"></link><link href="http://code.steadman.io/feeds/all.xml" rel="self"></link><id>http://code.steadman.io/</id><updated>2015-05-31T00:00:00+01:00</updated><entry><title>A web framework for the creative mind</title><link href="http://code.steadman.io/talks/a-web-framework-for-the-creative-mind" rel="alternate"></link><updated>2015-05-31T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:code.steadman.io,2015-05-31:talks/a-web-framework-for-the-creative-mind</id><summary type="html">&lt;iframe src="https://player.vimeo.com/video/135740367" width="730" height="455" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;</summary><category term="django"></category><category term="djangocon"></category></entry><entry><title>Telestrap</title><link href="http://code.steadman.io/projects/telestrap" rel="alternate"></link><updated>2015-04-09T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:code.steadman.io,2015-04-09:projects/telestrap</id><summary type="html">&lt;p&gt;This is a Bootstrap theme with a &lt;a href="http://www.fonts2u.com/teletext-regular-regular.font"&gt;Teletext-style font&lt;/a&gt;,
+<feed xmlns="http://www.w3.org/2005/Atom"><title>code.steadman.io</title><link href="/" rel="alternate"></link><link href="/feeds/all.xml" rel="self"></link><id>/</id><updated>2015-05-31T00:00:00+01:00</updated><entry><title>A web framework for the creative mind</title><link href="/talks/a-web-framework-for-the-creative-mind" rel="alternate"></link><updated>2015-05-31T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:,2015-05-31:talks/a-web-framework-for-the-creative-mind</id><summary type="html">&lt;iframe src="https://player.vimeo.com/video/135740367" width="730" height="455" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;</summary><category term="django"></category><category term="djangocon"></category></entry><entry><title>Telestrap</title><link href="/projects/telestrap" rel="alternate"></link><updated>2015-04-09T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:,2015-04-09:projects/telestrap</id><summary type="html">&lt;p&gt;This is a Bootstrap theme with a &lt;a href="http://www.fonts2u.com/teletext-regular-regular.font"&gt;Teletext-style font&lt;/a&gt;,
 inspired by the text services we used to get before the Web and digital TV
 ruined everything.&lt;/p&gt;
 &lt;p&gt;It's pretty much just a novely project, so don't expect much support :)&lt;/p&gt;
 &lt;p&gt;&lt;a class="btn" href="https://github.com/iamsteadman/telestrap"&gt;
     &lt;span class="octicon octicon-git-branch"&gt;&lt;/span&gt;
     Fork it on GitHub
-&lt;/a&gt;&lt;/p&gt;</summary><category term="bootstrap"></category><category term="teletext"></category></entry><entry><title>Using nginx, Icecast and MPC to create a cross-platform radio station</title><link href="http://code.steadman.io/blog/using-nginx-icecast-and-mpc-to-create-a-cross-platform-radio-station" rel="alternate"></link><updated>2015-04-01T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:code.steadman.io,2015-04-01:blog/using-nginx-icecast-and-mpc-to-create-a-cross-platform-radio-station</id><summary type="html">&lt;h2&gt;What is Poddle?&lt;/h2&gt;
+&lt;/a&gt;&lt;/p&gt;</summary><category term="bootstrap"></category><category term="teletext"></category></entry><entry><title>Using nginx, Icecast and MPC to create a cross-platform radio station</title><link href="/blog/using-nginx-icecast-and-mpc-to-create-a-cross-platform-radio-station" rel="alternate"></link><updated>2015-04-01T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:,2015-04-01:blog/using-nginx-icecast-and-mpc-to-create-a-cross-platform-radio-station</id><summary type="html">&lt;h2&gt;What is Poddle?&lt;/h2&gt;
 &lt;p&gt;&lt;a href="https://poddle.io/"&gt;Poddle is my podcasting network&lt;/a&gt;. I want it to look, feel and work awesome...ly? Anyway, I'm proud of what we've built so far and want to continue to make a platform that people can enjoy being a part of, and that feels frictionless to interact with.&lt;/p&gt;
 &lt;p&gt;Hence I spend too much time setting things up and hosting them myself so that I can control the user experience. But hey-ho, here we go.&lt;/p&gt;
 &lt;h2&gt;Icecast&lt;/h2&gt;
@@ -139,7 +139,7 @@ audio_output {
 &lt;h2&gt;Why do all this?&lt;/h2&gt;
 &lt;p&gt;I'm not entirely sure, but I have the idea of Poddle being as friction-free for listeners as possible. I think to a degree this goes against the spit-and-sawdust mentality of the web that many older podcasters grew up using, and still use to this day.&lt;/p&gt;
 &lt;p&gt;But I run the technical side of a &lt;a href="http://substrakt.co.uk/"&gt;design-focused web agency&lt;/a&gt;, so I care about user experience. I'd rather spend ages figuring out how to get something installed and running on a server than have an ugly, clunky button on my website that makes the radio happen.&lt;/p&gt;
-&lt;p&gt;Plus, this shit makes me feel proud. It's nice to achieve something techie, even if it's largely by copying, pasting, searing and Googling.&lt;/p&gt;</summary></entry><entry><title>ansible-ffmpeg</title><link href="http://code.steadman.io/snippets/ansible-ffmpeg" rel="alternate"></link><updated>2015-01-30T00:00:00+00:00</updated><author><name>Steadman</name></author><id>tag:code.steadman.io,2015-01-30:snippets/ansible-ffmpeg</id><summary type="html">&lt;script src="https://gist.github.com/iamsteadman/1072bcd768e967cf66f3.js"&gt;&lt;/script&gt;</summary></entry><entry><title>Trace</title><link href="http://code.steadman.io/portfolio/trace" rel="alternate"></link><updated>2014-09-02T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:code.steadman.io,2014-09-02:portfolio/trace</id><summary type="html">&lt;p&gt;Services for Education commissioned &lt;a href="http://substrakt.com/"&gt;Substrakt&lt;/a&gt;, my
+&lt;p&gt;Plus, this shit makes me feel proud. It's nice to achieve something techie, even if it's largely by copying, pasting, searing and Googling.&lt;/p&gt;</summary></entry><entry><title>ansible-ffmpeg</title><link href="/snippets/ansible-ffmpeg" rel="alternate"></link><updated>2015-01-30T00:00:00+00:00</updated><author><name>Steadman</name></author><id>tag:,2015-01-30:snippets/ansible-ffmpeg</id><summary type="html">&lt;script src="https://gist.github.com/iamsteadman/1072bcd768e967cf66f3.js"&gt;&lt;/script&gt;</summary></entry><entry><title>Trace</title><link href="/portfolio/trace" rel="alternate"></link><updated>2014-09-02T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:,2014-09-02:portfolio/trace</id><summary type="html">&lt;p&gt;Services for Education commissioned &lt;a href="http://substrakt.com/"&gt;Substrakt&lt;/a&gt;, my
 employer to build a SaaS platform for the education sector, following changes in
 legislation.&lt;/p&gt;
 &lt;p&gt;The curriculum design, assessment and reporting tool allows teachers to create a
@@ -177,7 +177,7 @@ of iteration.&lt;/p&gt;
 &lt;p&gt;&lt;a class="btn" href="https://s4etrace.co.uk/" target="_blank"&gt;
     &lt;span class="octicon octicon-eye"&gt;&lt;/span&gt;
     Find out more about Trace
-&lt;/a&gt;&lt;/p&gt;</summary><category term="django"></category></entry><entry><title>Meet Aster, Bluebell, Clover and Dahlia</title><link href="http://code.steadman.io/blog/meet-aster-bluebell-clover-and-dahlia" rel="alternate"></link><updated>2014-08-10T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:code.steadman.io,2014-08-10:blog/meet-aster-bluebell-clover-and-dahlia</id><summary type="html">&lt;p&gt;In May I wrote about finally
+&lt;/a&gt;&lt;/p&gt;</summary><category term="django"></category></entry><entry><title>Meet Aster, Bluebell, Clover and Dahlia</title><link href="/blog/meet-aster-bluebell-clover-and-dahlia" rel="alternate"></link><updated>2014-08-10T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:,2014-08-10:blog/meet-aster-bluebell-clover-and-dahlia</id><summary type="html">&lt;p&gt;In May I wrote about finally
 "&lt;a href="/blog/2014/05/24/finally-doing-django-right-after-all-these-years/"&gt;doing Django right&lt;/a&gt;", but the missing piece was revealed to me by my Substrakt colleague &lt;a href="http://maxehmookau.github.io/"&gt;Max Woolf&lt;/a&gt;, who clued me into using &lt;a href="http://www.ansible.com/home"&gt;Ansible&lt;/a&gt; for development, provisioning and
 deployment.&lt;/p&gt;
 &lt;p&gt;With this in mind I decided to rejig my setup a little, and move all of my major
@@ -206,7 +206,7 @@ silly person, and when I used Amazon they were named after characters from
 &lt;p&gt;Poddle will at some point outgrow Clover (in space requirements if nothing
     else), but I'm hoping by then, Digital Ocean will have a handle on
     expandable storage.&lt;/p&gt;
-&lt;p&gt;So there you go. Clean setup, easy deployment, happy Steadman.&lt;/p&gt;</summary><category term="django"></category><category term="digitalocean"></category><category term="postgresql"></category><category term="nginx"></category></entry><entry><title>Django data provisioner</title><link href="http://code.steadman.io/projects/django-data-provisioner" rel="alternate"></link><updated>2014-07-14T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:code.steadman.io,2014-07-14:projects/django-data-provisioner</id><summary type="html">&lt;p&gt;I need to do a bunch of frontend development for a site I'm working on, and I
+&lt;p&gt;So there you go. Clean setup, easy deployment, happy Steadman.&lt;/p&gt;</summary><category term="django"></category><category term="digitalocean"></category><category term="postgresql"></category><category term="nginx"></category></entry><entry><title>Django data provisioner</title><link href="/projects/django-data-provisioner" rel="alternate"></link><updated>2014-07-14T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:,2014-07-14:projects/django-data-provisioner</id><summary type="html">&lt;p&gt;I need to do a bunch of frontend development for a site I'm working on, and I
 needed a simple way to generate sample data that is sane.&lt;/p&gt;
 &lt;p&gt;So, inspired by &lt;a href="http://ansible.com/"&gt;Ansible&lt;/a&gt; I knocked up a data provisioning
 system as a Django management command, that takes a YAML file defining the data
@@ -228,7 +228,7 @@ from the filesystem. It does this intelligently, as it knows which model you're 
 &lt;p&gt;&lt;a class="btn" href="https://github.com/iamsteadman/bambu-gensite"&gt;
     &lt;span class="octicon octicon-git-branch"&gt;&lt;/span&gt;
     Fork it on GitHub
-&lt;/a&gt;&lt;/p&gt;</summary><category term="django"></category><category term="ansible"></category></entry><entry><title>Plunja.js</title><link href="http://code.steadman.io/projects/plunjajs" rel="alternate"></link><updated>2014-07-01T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:code.steadman.io,2014-07-01:projects/plunjajs</id><summary type="html">&lt;p&gt;Plunja is a simple JavaScript templating system that takes blocks of HTML stored
+&lt;/a&gt;&lt;/p&gt;</summary><category term="django"></category><category term="ansible"></category></entry><entry><title>Plunja.js</title><link href="/projects/plunjajs" rel="alternate"></link><updated>2014-07-01T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:,2014-07-01:projects/plunjajs</id><summary type="html">&lt;p&gt;Plunja is a simple JavaScript templating system that takes blocks of HTML stored
 in &lt;code&gt;&amp;lt;script&amp;gt;&lt;/code&gt; tags and renders them with context objects. It was inspired by
 &lt;a href="http://jinja.pocoo.org/docs/"&gt;Jinja2&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;You don’t need a JavaScript framework to use it, as you can define your own
@@ -237,7 +237,7 @@ locator uses jQuery, but it’s really simple to define your own.&lt;/p&gt;
 &lt;p&gt;&lt;a class="btn" href="https://github.com/iamsteadman/plunja"&gt;
     &lt;span class="octicon octicon-git-branch"&gt;&lt;/span&gt;
     Fork it on GitHub
-&lt;/a&gt;&lt;/p&gt;</summary><category term="javascript"></category></entry><entry><title>Finally doing Django right after all these years</title><link href="http://code.steadman.io/blog/finally-doing-django-right-after-all-these-years" rel="alternate"></link><updated>2014-05-24T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:code.steadman.io,2014-05-24:blog/finally-doing-django-right-after-all-these-years</id><summary type="html">&lt;p&gt;I first start making websites with some idea of professionalism in 2001. I was
+&lt;/a&gt;&lt;/p&gt;</summary><category term="javascript"></category></entry><entry><title>Finally doing Django right after all these years</title><link href="/blog/finally-doing-django-right-after-all-these-years" rel="alternate"></link><updated>2014-05-24T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:,2014-05-24:blog/finally-doing-django-right-after-all-these-years</id><summary type="html">&lt;p&gt;I first start making websites with some idea of professionalism in 2001. I was
 an old-school aSP then .NET guy up until a friend convinced me to use Django. In
 2008 I picked it up, and until recently have used MySQL and Apache.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;And I don't feel guilty about that.&lt;/strong&gt;&lt;/p&gt;
@@ -393,7 +393,7 @@ Django dev. What I'm good at is getting up-to-speed on enough to make good
 stuff. I'll never know the internals of half the things I use and will run
 straight to Google when they break, but I do understand the value of a good,
 solid setup.&lt;/p&gt;
-&lt;p&gt;So, three down, three more sites to move...&lt;/p&gt;</summary><category term="django"></category><category term="digitalocean"></category><category term="postgresql"></category><category term="nginx"></category><category term="virtualenv"></category></entry><entry><title>Format-rules</title><link href="http://code.steadman.io/projects/format-rules" rel="alternate"></link><updated>2014-05-03T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:code.steadman.io,2014-05-03:projects/format-rules</id><summary type="html">&lt;p&gt;In &lt;a href="http://journal.steadman.io/the-designer-blog-post/"&gt;The designer blog post&lt;/a&gt;,
+&lt;p&gt;So, three down, three more sites to move...&lt;/p&gt;</summary><category term="django"></category><category term="digitalocean"></category><category term="postgresql"></category><category term="nginx"></category><category term="virtualenv"></category></entry><entry><title>Format-rules</title><link href="/projects/format-rules" rel="alternate"></link><updated>2014-05-03T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:,2014-05-03:projects/format-rules</id><summary type="html">&lt;p&gt;In &lt;a href="http://journal.steadman.io/the-designer-blog-post/"&gt;The designer blog post&lt;/a&gt;,
 I wrote about updating the blogging app in my toolset to allow easy offline
 creation of blog posts. For standard pages I've gone a different direction, with
 a library I've started, called formatrules.&lt;/p&gt;
@@ -497,7 +497,7 @@ Just maybe gimme a credit and get in touch if you have any questions.&lt;/p&gt;
 &lt;p&gt;&lt;a class="btn" href="https://github.com/iamsteadman/bambu-formatrules"&gt;
     &lt;span class="octicon octicon-git-branch"&gt;&lt;/span&gt;
     Fork it on GitHub
-&lt;/a&gt;&lt;/p&gt;</summary><category term="django"></category><category term="markdown"></category></entry><entry><title>twopy</title><link href="http://code.steadman.io/snippets/twopy" rel="alternate"></link><updated>2014-03-04T00:00:00+00:00</updated><author><name>Steadman</name></author><id>tag:code.steadman.io,2014-03-04:snippets/twopy</id><summary type="html">&lt;script src="https://gist.github.com/iamsteadman/9343536.js"&gt;&lt;/script&gt;</summary></entry><entry><title>Droplet Map</title><link href="http://code.steadman.io/projects/droplet-map" rel="alternate"></link><updated>2014-01-23T00:00:00+00:00</updated><author><name>Steadman</name></author><id>tag:code.steadman.io,2014-01-23:projects/droplet-map</id><summary type="html">&lt;p&gt;of things people buy.
+&lt;/a&gt;&lt;/p&gt;</summary><category term="django"></category><category term="markdown"></category></entry><entry><title>twopy</title><link href="/snippets/twopy" rel="alternate"></link><updated>2014-03-04T00:00:00+00:00</updated><author><name>Steadman</name></author><id>tag:,2014-03-04:snippets/twopy</id><summary type="html">&lt;script src="https://gist.github.com/iamsteadman/9343536.js"&gt;&lt;/script&gt;</summary></entry><entry><title>Droplet Map</title><link href="/projects/droplet-map" rel="alternate"></link><updated>2014-01-23T00:00:00+00:00</updated><author><name>Steadman</name></author><id>tag:,2014-01-23:projects/droplet-map</id><summary type="html">&lt;p&gt;of things people buy.
 Tags: django, twitter, dropletpay&lt;/p&gt;
 &lt;p&gt;After seeing a few tweets over the past few months pointing to people's &lt;a href="http://dropletpay.com/"&gt;Droplet&lt;/a&gt; purchases (ala the example below), I thought
 I'd map out the kinds of things people buy, and the amounts of money they spend.&lt;/p&gt;
@@ -526,7 +526,7 @@ interesting.&lt;/p&gt;
 &lt;p&gt;&lt;a class="btn" href="https://github.com/iamsteadman/droplet-map"&gt;
     &lt;span class="octicon octicon-git-branch"&gt;&lt;/span&gt;
     Fork it on GitHub
-&lt;/a&gt;&lt;/p&gt;</summary></entry><entry><title>New Relic to the rescue!</title><link href="http://code.steadman.io/blog/new-relic-to-the-rescue" rel="alternate"></link><updated>2013-11-17T00:00:00+00:00</updated><author><name>Steadman</name></author><id>tag:code.steadman.io,2013-11-17:blog/new-relic-to-the-rescue</id><summary type="html">&lt;h3&gt;Update&lt;/h3&gt;
+&lt;/a&gt;&lt;/p&gt;</summary></entry><entry><title>New Relic to the rescue!</title><link href="/blog/new-relic-to-the-rescue" rel="alternate"></link><updated>2013-11-17T00:00:00+00:00</updated><author><name>Steadman</name></author><id>tag:,2013-11-17:blog/new-relic-to-the-rescue</id><summary type="html">&lt;h3&gt;Update&lt;/h3&gt;
 &lt;p&gt;I made a speculation about New Relic which was refuted (politely) on Twitter. I
 just wanted to set the record straight :)&lt;/p&gt;
 &lt;blockquote&gt;
@@ -561,7 +561,7 @@ checked this. That's the only reason I can imagine for why so much is available
 for free and why there's such a jump between that and the paid account. This
 doesn't bother me particularly, but it might be worth looking into T&amp;amp;Cs if
 you're worried. Like I say, that's &lt;em&gt;pure speculation&lt;/em&gt; on my part; I'm just
-trying to figure out the catch.&lt;/p&gt;</summary><category term="newrelic"></category><category term="django"></category></entry><entry><title>Media imports fail on self-hosted WordPress sites on the same network</title><link href="http://code.steadman.io/blog/media-imports-fail-on-self-hosted-wordpress-sites-on-the-same-network" rel="alternate"></link><updated>2013-10-31T00:00:00+00:00</updated><author><name>Steadman</name></author><id>tag:code.steadman.io,2013-10-31:blog/media-imports-fail-on-self-hosted-wordpress-sites-on-the-same-network</id><summary type="html">&lt;p&gt;At Substrakt I help maintain WordPress sites and networks. We have two big
+trying to figure out the catch.&lt;/p&gt;</summary><category term="newrelic"></category><category term="django"></category></entry><entry><title>Media imports fail on self-hosted WordPress sites on the same network</title><link href="/blog/media-imports-fail-on-self-hosted-wordpress-sites-on-the-same-network" rel="alternate"></link><updated>2013-10-31T00:00:00+00:00</updated><author><name>Steadman</name></author><id>tag:,2013-10-31:blog/media-imports-fail-on-self-hosted-wordpress-sites-on-the-same-network</id><summary type="html">&lt;p&gt;At Substrakt I help maintain WordPress sites and networks. We have two big
 WordPress networks, one for development and another for production. When we put
 a site live, we export the development site into a newly-created production site
 on the live network.&lt;/p&gt;
@@ -600,7 +600,7 @@ an hour or so of pain.&lt;/p&gt;
 &lt;p&gt;A+ for the WordPress team for continuing to make security their watchword, but
 minus several marks for forgetting not to break stuff that works, in order to
 fix an edge case. (This is just my opinion as a grizzled developer, so &lt;a href="http://twitter.com/iamsteadman"&gt;shout at
-me on Twitter&lt;/a&gt; if you feel differently.)&lt;/p&gt;</summary><category term="wordpress"></category><category term="php"></category></entry><entry><title>I just built my own Buffer in an hour</title><link href="http://code.steadman.io/blog/i-just-built-my-own-buffer-in-an-hour" rel="alternate"></link><updated>2013-10-19T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:code.steadman.io,2013-10-19:blog/i-just-built-my-own-buffer-in-an-hour</id><summary type="html">&lt;p&gt;Quick disclaimer: I really like &lt;a href="https://bufferapp.com/"&gt;Buffer&lt;/a&gt;; I think it's a
+me on Twitter&lt;/a&gt; if you feel differently.)&lt;/p&gt;</summary><category term="wordpress"></category><category term="php"></category></entry><entry><title>I just built my own Buffer in an hour</title><link href="/blog/i-just-built-my-own-buffer-in-an-hour" rel="alternate"></link><updated>2013-10-19T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:,2013-10-19:blog/i-just-built-my-own-buffer-in-an-hour</id><summary type="html">&lt;p&gt;Quick disclaimer: I really like &lt;a href="https://bufferapp.com/"&gt;Buffer&lt;/a&gt;; I think it's a
 great service and I like the people behind it, so the title is kind of
 tongue-in-cheek and in no way connotes that I think Buffer can be replicated in
 next to no time. Everyone I've dealt with there, either over email or in person
@@ -681,7 +681,7 @@ to flock to me but because I thought I could write that very simply and hook it
 up to a public Google Calendar. Often the challenge is the reason, so when the
 idea came to me to build a cheap Buffer knock-off for myself, it seemed a good
 use of a little spare time.&lt;/p&gt;
-&lt;p&gt;So there :)&lt;/p&gt;</summary><category term="django"></category><category term="buffer"></category></entry><entry><title>Primus</title><link href="http://code.steadman.io/projects/primus" rel="alternate"></link><updated>2013-09-30T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:code.steadman.io,2013-09-30:projects/primus</id><summary type="html">&lt;p&gt;Features:&lt;/p&gt;
+&lt;p&gt;So there :)&lt;/p&gt;</summary><category term="django"></category><category term="buffer"></category></entry><entry><title>Primus</title><link href="/projects/primus" rel="alternate"></link><updated>2013-09-30T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:,2013-09-30:projects/primus</id><summary type="html">&lt;p&gt;Features:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Customise the header image, background colours and navbar&lt;/li&gt;
 &lt;li&gt;Converts WordPress menu classes into Bootstrap classes, rather than fiddle with Bootstrap's CSS&lt;/li&gt;
@@ -690,7 +690,7 @@ use of a little spare time.&lt;/p&gt;
 &lt;p&gt;&lt;a class="btn" href="https://github.com/iamsteadman/primus"&gt;
     &lt;span class="octicon octicon-git-branch"&gt;&lt;/span&gt;
     Fork it on GitHub
-&lt;/a&gt;&lt;/p&gt;</summary><category term="wordpress"></category><category term="bootstrap"></category></entry><entry><title>ReelLearning</title><link href="http://code.steadman.io/portfolio/reellearning" rel="alternate"></link><updated>2013-09-15T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:code.steadman.io,2013-09-15:portfolio/reellearning</id><summary type="html">&lt;p&gt;ReelLearning is a video training project for primary school teachers,
+&lt;/a&gt;&lt;/p&gt;</summary><category term="wordpress"></category><category term="bootstrap"></category></entry><entry><title>ReelLearning</title><link href="/portfolio/reellearning" rel="alternate"></link><updated>2013-09-15T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:,2013-09-15:portfolio/reellearning</id><summary type="html">&lt;p&gt;ReelLearning is a video training project for primary school teachers,
 built by me at &lt;a href="http://substrakt.com/"&gt;Substrakt&lt;/a&gt; in Django, using Bootstrap.&lt;/p&gt;
 &lt;p&gt;Originally a Drupal website, I was asked to rebuild it, first running on a
 Rackspace Red Hat server, then in 2014 we moved it to Amazon Web Services, using
@@ -719,7 +719,7 @@ other users together, such as teachers in a specific year or subject.&lt;/p&gt;
 &lt;p&gt;&lt;a class="btn" href="http://reellearning.co.uk/" target="_blank"&gt;
     &lt;span class="octicon octicon-eye"&gt;&lt;/span&gt;
     Find out more about ReelLearning
-&lt;/a&gt;&lt;/p&gt;</summary><category term="django"></category></entry><entry><title>Keep calm and clean all the things</title><link href="http://code.steadman.io/blog/keep-calm-and-clean-all-the-things" rel="alternate"></link><updated>2013-07-03T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:code.steadman.io,2013-07-03:blog/keep-calm-and-clean-all-the-things</id><summary type="html">&lt;p&gt;I struggled for about three hours today, trying to build and distribute a
+&lt;/a&gt;&lt;/p&gt;</summary><category term="django"></category></entry><entry><title>Keep calm and clean all the things</title><link href="/blog/keep-calm-and-clean-all-the-things" rel="alternate"></link><updated>2013-07-03T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:,2013-07-03:blog/keep-calm-and-clean-all-the-things</id><summary type="html">&lt;p&gt;I struggled for about three hours today, trying to build and distribute a
 Titanium project for testing. The project built and uploaded to &lt;a href="http://hockeyapp.net/"&gt;HockeyApp&lt;/a&gt; (the distribution platform we use at &lt;a href="http://substrakt.co.uk/"&gt;Substrakt&lt;/a&gt;) fine, but failed to install on every
 device I tried, every time.&lt;/p&gt;
 &lt;p&gt;Incorrectly and unfairly I railed at @&lt;a href="http://twitter.com/hockeyapp/"&gt;hockeyapp&lt;/a&gt;
@@ -747,7 +747,7 @@ ass over to Git), followed by a rebuild made everything fine again.&lt;/p&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;So this serves as a reminder to me and anyone else in a similar boat. If the app won't install, keep calm and &lt;code&gt;./clean&lt;/code&gt;.&lt;/p&gt;</summary><category term="appcelerator"></category><category term="titanium"></category><category term="javascript"></category></entry><entry><title>Social Comments</title><link href="http://code.steadman.io/projects/social-comments" rel="alternate"></link><updated>2013-06-24T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:code.steadman.io,2013-06-24:projects/social-comments</id><summary type="html">&lt;h2&gt;Setup&lt;/h2&gt;
+&lt;p&gt;So this serves as a reminder to me and anyone else in a similar boat. If the app won't install, keep calm and &lt;code&gt;./clean&lt;/code&gt;.&lt;/p&gt;</summary><category term="appcelerator"></category><category term="titanium"></category><category term="javascript"></category></entry><entry><title>Social Comments</title><link href="/projects/social-comments" rel="alternate"></link><updated>2013-06-24T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:,2013-06-24:projects/social-comments</id><summary type="html">&lt;h2&gt;Setup&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;Install from the Python Package Index:&lt;br /&gt;
@@ -799,7 +799,7 @@ chosen (you should be able to choose any prefix in your URLconf).&lt;/p&gt;
 &lt;p&gt;&lt;a class="btn" href="https://github.com/iamsteadman/social-comments"&gt;
     &lt;span class="octicon octicon-git-branch"&gt;&lt;/span&gt;
     Fork it on GitHub
-&lt;/a&gt;&lt;/p&gt;</summary><category term="django"></category></entry><entry><title>MVC structures in WordPress plugins</title><link href="http://code.steadman.io/talks/mvc-structures-in-wordpress-plugins" rel="alternate"></link><updated>2013-06-14T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:code.steadman.io,2013-06-14:talks/mvc-structures-in-wordpress-plugins</id><summary type="html">&lt;iframe src="https://player.vimeo.com/video/68363968" width="730" height="455" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;</summary><category term="wordpress"></category><category term="mvc"></category></entry><entry><title>Sentry and Virtualenv</title><link href="http://code.steadman.io/blog/sentry-and-virtualenv" rel="alternate"></link><updated>2013-06-02T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:code.steadman.io,2013-06-02:blog/sentry-and-virtualenv</id><summary type="html">&lt;p&gt;This weekend I had my first real dalliance with Virtualenv, the system that
+&lt;/a&gt;&lt;/p&gt;</summary><category term="django"></category></entry><entry><title>MVC structures in WordPress plugins</title><link href="/talks/mvc-structures-in-wordpress-plugins" rel="alternate"></link><updated>2013-06-14T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:,2013-06-14:talks/mvc-structures-in-wordpress-plugins</id><summary type="html">&lt;iframe src="https://player.vimeo.com/video/68363968" width="730" height="455" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;</summary><category term="wordpress"></category><category term="mvc"></category></entry><entry><title>Sentry and Virtualenv</title><link href="/blog/sentry-and-virtualenv" rel="alternate"></link><updated>2013-06-02T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:,2013-06-02:blog/sentry-and-virtualenv</id><summary type="html">&lt;p&gt;This weekend I had my first real dalliance with Virtualenv, the system that
 basically allows you to run different versions of Python modules for different
 environments (ie: different websites). Some people like to go a bit overboard
 and think that you should have a virtualenv for each website. I think this is
@@ -843,7 +843,7 @@ it knows which environment you want.&lt;/p&gt;
   recognise that you're in a specific virtualenv, so by default it'll put its
   packages in the "global" &lt;code&gt;dist-packages&lt;/code&gt; directory (or equivalent).&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Happy coding!&lt;/p&gt;</summary><category term="virtualenv"></category></entry><entry><title>A deer on ice</title><link href="http://code.steadman.io/talks/a-deer-on-ice" rel="alternate"></link><updated>2013-05-17T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:code.steadman.io,2013-05-17:talks/a-deer-on-ice</id><summary type="html">&lt;iframe src="https://player.vimeo.com/video/66555533" width="730" height="455" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
+&lt;p&gt;Happy coding!&lt;/p&gt;</summary><category term="virtualenv"></category></entry><entry><title>A deer on ice</title><link href="/talks/a-deer-on-ice" rel="alternate"></link><updated>2013-05-17T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:,2013-05-17:talks/a-deer-on-ice</id><summary type="html">&lt;iframe src="https://player.vimeo.com/video/66555533" width="730" height="455" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
 
 &lt;h3&gt;Transcript&lt;/h3&gt;
 &lt;p&gt;Hello.&lt;/p&gt;
@@ -897,7 +897,7 @@ Python communities are fantastic and inclusive and there are great things we
 can do and I want to really be a part of that, so obviously I've signed up for
 the introduction to committing tomorrow, at the sprints, so I'm going to do my
 utmost to be a real, functioning, valuable member of the community. So thank you
-very much.&lt;/p&gt;</summary><category term="django"></category><category term="djangocon"></category></entry><entry><title>Declaring properties in the class vs the initialiser, in Python</title><link href="http://code.steadman.io/blog/declaring-properties-in-the-class-vs-the-initialiser-in-python" rel="alternate"></link><updated>2013-04-10T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:code.steadman.io,2013-04-10:blog/declaring-properties-in-the-class-vs-the-initialiser-in-python</id><summary type="html">&lt;p&gt;I've just learned, to the tune of a wasted 50 minutes that properties defined in
+very much.&lt;/p&gt;</summary><category term="django"></category><category term="djangocon"></category></entry><entry><title>Declaring properties in the class vs the initialiser, in Python</title><link href="/blog/declaring-properties-in-the-class-vs-the-initialiser-in-python" rel="alternate"></link><updated>2013-04-10T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:,2013-04-10:blog/declaring-properties-in-the-class-vs-the-initialiser-in-python</id><summary type="html">&lt;p&gt;I've just learned, to the tune of a wasted 50 minutes that properties defined in
 a Python class declaration are not treated the same as when they're set in the
 initialiser. For example, you can set the same values in both the below cases:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;MyClass&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
@@ -931,7 +931,7 @@ know.&lt;/p&gt;
 pretty much everything I do, but when you look at the difference and spend a
 little time considering the logic, it's kind of silly to think that this would
 be a point of confusion, especially for an OOP fan like me.&lt;/p&gt;
-&lt;p&gt;But hey, every day's a school day.&lt;/p&gt;</summary><category term="python"></category></entry><entry><title>The designer blog post</title><link href="http://code.steadman.io/blog/the-designer-blog-post" rel="alternate"></link><updated>2013-03-07T00:00:00+00:00</updated><author><name>Steadman</name></author><id>tag:code.steadman.io,2013-03-07:blog/the-designer-blog-post</id><summary type="html">&lt;p&gt;static, HTML files as posts&lt;/p&gt;
+&lt;p&gt;But hey, every day's a school day.&lt;/p&gt;</summary><category term="python"></category></entry><entry><title>The designer blog post</title><link href="/blog/the-designer-blog-post" rel="alternate"></link><updated>2013-03-07T00:00:00+00:00</updated><author><name>Steadman</name></author><id>tag:,2013-03-07:blog/the-designer-blog-post</id><summary type="html">&lt;p&gt;static, HTML files as posts&lt;/p&gt;
 &lt;p&gt;It's been around for a while, but the concept of stylised blog posts - where
 each post is uniquely laid out - is increasingly popular, and attractive. I'm
 implementing a little of that over on the &lt;a href="http://nymbol.co.uk/blog/"&gt;Nymblog&lt;/a&gt;
@@ -1019,7 +1019,7 @@ WordPress engine, to handle comments, trackbacks, RSS, that sort of thing.
 Adding custom CSS for each blog post is as simple as creating a hidden custom
 field, and using a plugin to spit out the CSS when needed.&lt;/p&gt;
 &lt;p&gt;If it does already exist for WordPress, even better 'cos that means I don't have
-to write it! But I wanted it for my Django toolset, so now I have it.&lt;/p&gt;</summary><category term="django"></category><category term="blogging"></category></entry><entry><title>Including iPad-specific resources in an Appcelerator app</title><link href="http://code.steadman.io/blog/including-ipad-specific-resources-in-an-appcelerator-app" rel="alternate"></link><updated>2013-01-02T00:00:00+00:00</updated><author><name>Steadman</name></author><id>tag:code.steadman.io,2013-01-02:blog/including-ipad-specific-resources-in-an-appcelerator-app</id><summary type="html">&lt;p&gt;I'm building an app with
+to write it! But I wanted it for my Django toolset, so now I have it.&lt;/p&gt;</summary><category term="django"></category><category term="blogging"></category></entry><entry><title>Including iPad-specific resources in an Appcelerator app</title><link href="/blog/including-ipad-specific-resources-in-an-appcelerator-app" rel="alternate"></link><updated>2013-01-02T00:00:00+00:00</updated><author><name>Steadman</name></author><id>tag:,2013-01-02:blog/including-ipad-specific-resources-in-an-appcelerator-app</id><summary type="html">&lt;p&gt;I'm building an app with
 &lt;a href="http://www.appcelerator.com/platform/titanium-sdk"&gt;Appcelerator Titanium&lt;/a&gt; that
 will run on iPhone, iPad and Android. With Titanium it's quite easy to
 distribute iPhone- and Android-specific images - custom map pins, native-looking
@@ -1032,7 +1032,7 @@ extension (so &lt;code&gt;mapmarker.png&lt;/code&gt; becomes &lt;code&gt;mapmark
 (-).&lt;/p&gt;
 &lt;p&gt;This is inline with the iOS guidelines, but slightly at odds with the (incorrect
 but understandable) assumption that you'd put iPad-specific images in a
-directory called &lt;code&gt;Resources/ipad&lt;/code&gt;.&lt;/p&gt;</summary><category term="appcelerator"></category><category term="titanium"></category><category term="javascript"></category></entry><entry><title>The end of an Amazon adventure</title><link href="http://code.steadman.io/blog/the-end-of-an-amazon-adventure" rel="alternate"></link><updated>2012-08-06T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:code.steadman.io,2012-08-06:blog/the-end-of-an-amazon-adventure</id><summary type="html">&lt;p&gt;I spent much of this weekend moving my websites from the two Amazon EC2 servers
+directory called &lt;code&gt;Resources/ipad&lt;/code&gt;.&lt;/p&gt;</summary><category term="appcelerator"></category><category term="titanium"></category><category term="javascript"></category></entry><entry><title>The end of an Amazon adventure</title><link href="/blog/the-end-of-an-amazon-adventure" rel="alternate"></link><updated>2012-08-06T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:,2012-08-06:blog/the-end-of-an-amazon-adventure</id><summary type="html">&lt;p&gt;I spent much of this weekend moving my websites from the two Amazon EC2 servers
 I had, over to a hosting company I've used before and trust immensely, &lt;a href="http://www.bytemark.co.uk"&gt;Bytemark&lt;/a&gt;. I thought it might be useful to share
 some of the things I've learned from using Amazon for the last 18 months.&lt;/p&gt;
 &lt;h3&gt;Amazon is slow.&lt;/h3&gt;
@@ -1126,10 +1126,10 @@ booted up, then your'e into a terminal window and on familiar ground.&lt;/p&gt;
 &lt;p&gt;After i tweeted my thoughts on Bytemark last week, I got a reply from their MD
 asking if I wanted to check out their cloud solution. I'll definitely be
 checking it out once the dust has settled on my new server. Cloud hosting works,
-but you do have to keep an eye on the money.&lt;/p&gt;</summary><category term="amazon"></category><category term="aws"></category><category term="hosting"></category></entry><entry><title>A 180 on Bootstrap?</title><link href="http://code.steadman.io/blog/a-180-on-bootstrap" rel="alternate"></link><updated>2012-02-12T00:00:00+00:00</updated><author><name>Steadman</name></author><id>tag:code.steadman.io,2012-02-12:blog/a-180-on-bootstrap</id><summary type="html">&lt;p&gt;In
-&lt;a href="http://moxypark.com/2012/01/17/do-we-need-another-grid-framework/"&gt;a previous post&lt;/a&gt;
+but you do have to keep an eye on the money.&lt;/p&gt;</summary><category term="amazon"></category><category term="aws"></category><category term="hosting"></category></entry><entry><title>A 180 on Bootstrap?</title><link href="/blog/a-180-on-bootstrap" rel="alternate"></link><updated>2012-02-12T00:00:00+00:00</updated><author><name>Steadman</name></author><id>tag:,2012-02-12:blog/a-180-on-bootstrap</id><summary type="html">&lt;p&gt;In
+&lt;a href="http://code.steadman.io/blog/do-we-need-another-grid-framework"&gt;a previous post&lt;/a&gt;
 I questioned the need for Twitter's CSS framework, &lt;a href="http://twitter.github.com/bootstrap/"&gt;Bootstrap&lt;/a&gt;. Today I put it to use in my
-&lt;a href="http://moxypark.com/category/next-big-thing/"&gt;Next Big Thing&lt;/a&gt;, for a couple of
+&lt;a href="http://journal.steadman.io/nbt007-nymbol/"&gt;Next Big Thing&lt;/a&gt;, for a couple of
 reasons.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;I wanted a working prototype built quickly, so for now the UI isn't as
@@ -1142,16 +1142,16 @@ reasons.&lt;/p&gt;
 it's pretty brilliant. With the absolute minimum of custom-written CSS, I have a
 beautiful and super-functional app. All the stuff you'd think of has been
 considered: forms, buttons, pagination, even modal dialogue boxes, breadcrumb
- trails, alert messages... it's all there. And it looks lovely.&lt;/p&gt;
+trails, alert messages... it's all there. And it looks lovely.&lt;/p&gt;
 &lt;p&gt;If I were building something consumer-facing, I might shy away from it, or add
 so much of my own styling (to cover its origins) as to negate the time I'd saved
 in using it. But as what I'm building is essentially a CMS, it's the best
- framework I've used.&lt;/p&gt;
+framework I've used.&lt;/p&gt;
 &lt;p&gt;It's not an everyday case, and the issues I mentioned in that post still stand:
 it's got a degree of flexibility but isn't what you'd call responsive, but it's
 let me build something attractive and functional, quickly.&lt;/p&gt;
 &lt;p&gt;So, in answer to the question "do we need another grid framework?" No, but now
-and again it's bloody useful to have one.&lt;/p&gt;</summary><category term="bootstrap"></category><category term="html"></category><category term="css"></category></entry><entry><title>Buffer for WordPress</title><link href="http://code.steadman.io/projects/buffer-for-wordpress" rel="alternate"></link><updated>2012-02-01T00:00:00+00:00</updated><author><name>Steadman</name></author><id>tag:code.steadman.io,2012-02-01:projects/buffer-for-wordpress</id><summary type="html">&lt;p&gt;With this plugin, you can easily add your WordPress posts to Facebook, Twitter
+and again it's bloody useful to have one.&lt;/p&gt;</summary><category term="bootstrap"></category><category term="html"></category><category term="css"></category></entry><entry><title>Buffer for WordPress</title><link href="/projects/buffer-for-wordpress" rel="alternate"></link><updated>2012-02-01T00:00:00+00:00</updated><author><name>Steadman</name></author><id>tag:,2012-02-01:projects/buffer-for-wordpress</id><summary type="html">&lt;p&gt;With this plugin, you can easily add your WordPress posts to Facebook, Twitter
 or LinkedIn, via your &lt;a href="http://bufferapp.com"&gt;bufferapp.com&lt;/a&gt; account.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Easy to setup&lt;/li&gt;
@@ -1163,7 +1163,7 @@ or LinkedIn, via your &lt;a href="http://bufferapp.com"&gt;bufferapp.com&lt;/a&g
 &lt;p&gt;&lt;a class="btn" href="https://wordpress.org/plugins/post-to-buffer/"&gt;
     &lt;span class="octicon octicon-cloud-download"&gt;&lt;/span&gt;
     Install it from WordPress
-&lt;/a&gt;&lt;/p&gt;</summary><category term="wordpress"></category><category term="buffer"></category></entry><entry><title>Do we need another grid framework?</title><link href="http://code.steadman.io/blog/do-we-need-another-grid-framework" rel="alternate"></link><updated>2012-01-17T00:00:00+00:00</updated><author><name>Steadman</name></author><id>tag:code.steadman.io,2012-01-17:blog/do-we-need-another-grid-framework</id><summary type="html">&lt;p&gt;I've just been taking a look at
+&lt;/a&gt;&lt;/p&gt;</summary><category term="wordpress"></category><category term="buffer"></category></entry><entry><title>Do we need another grid framework?</title><link href="/blog/do-we-need-another-grid-framework" rel="alternate"></link><updated>2012-01-17T00:00:00+00:00</updated><author><name>Steadman</name></author><id>tag:,2012-01-17:blog/do-we-need-another-grid-framework</id><summary type="html">&lt;p&gt;I've just been taking a look at
 &lt;a href="http://twitter.github.com/bootstrap/"&gt;Boostrap&lt;/a&gt;, a CSS framework developed by
 the folks at Twitter. The examples look lovely: crisp, clean and well thought
 out, but it's unfortunately yet another non-semantic CSS framework that relies
@@ -1191,44 +1191,44 @@ forms, to tabs, sexy dropdown menus and alert messages. It works with IE7 and up
 more popular as a way to write more human-readable CSS.&lt;/p&gt;
 &lt;p&gt;I just wish the team had thought about ditching the grid and letting us plug our
 own in. But this is nigh-on impossible when producing a generic framework for
-the masses. I know: I've tried, and I tied myself in knots!&lt;/p&gt;</summary><category term="bootstrap"></category><category term="html"></category><category term="css"></category></entry><entry><title>Turbulent times with Titanium</title><link href="http://code.steadman.io/blog/turbulent-times-with-titanium" rel="alternate"></link><updated>2011-09-17T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:code.steadman.io,2011-09-17:blog/turbulent-times-with-titanium</id><summary type="html">&lt;p&gt;Ever since &lt;a href="http://twitter.com/chrisunitt"&gt;Chris Unitt&lt;/a&gt; introduced me to
+the masses. I know: I've tried, and I tied myself in knots!&lt;/p&gt;</summary><category term="bootstrap"></category><category term="html"></category><category term="css"></category></entry><entry><title>Turbulent times with Titanium</title><link href="/blog/turbulent-times-with-titanium" rel="alternate"></link><updated>2011-09-17T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:,2011-09-17:blog/turbulent-times-with-titanium</id><summary type="html">&lt;p&gt;Ever since &lt;a href="http://twitter.com/chrisunitt"&gt;Chris Unitt&lt;/a&gt; introduced me to
 Appcelerator's JavaScript solution to multiple mobile platform woes, &lt;a href="http://www.appcelerator.com/products/titanium-cross-platform-application-development/"&gt;Titanium&lt;/a&gt;,
 I've been something of an advocate, and have blogged about it previously too.
 But now I've hit a stumbling block, I want to do one of two things: get help on
 the issue if it's available, and warn others who are trying to use the
 functionality I'm using... which is broke.&lt;/p&gt;
-&lt;p&gt;Meegloo, the app I've talked about muchly in my
-&lt;a href="http://moxypark.com/videos/egotrip/"&gt;video diary&lt;/a&gt;, will rely almost exclusively
-on users being able to upload content from their mobile. So tonight I got stuck
-into uploading audio recorded from the iPhone simulator to my local server. Not
-the simplest of processes as I needed to send metadata aswell, and Titanium
-doesn't have a way to do that out of the box. No fear though, as
+&lt;p&gt;Meegloo, the app I've talked about muchly in my video diary, will rely almost
+exclusively on users being able to upload content from their mobile. So tonight
+I got stuck into uploading audio recorded from the iPhone simulator to my local
+server. Not the simplest of processes as I needed to send metadata aswell, and
+Titanium doesn't have a way to do that out of the box. No fear though, as
 &lt;a href="http://www.smokycogs.com/blog/titanium-tutorial-how-to-upload-a-file-to-a-server/"&gt;a very helpful post&lt;/a&gt; got me most of the way there.&lt;/p&gt;
 &lt;p&gt;So now I had a shiny MP4 file and a way to distribute it. Problem solved, you'd
 think, but in fact, it's a problem created. Titanium will &lt;em&gt;not&lt;/em&gt; read that file
 as multipart form data (which is where you mix text with binary data in the same
-    request... the sort of thing your browser does when you submit a contact
-    form and attach a Word doc, for example). Whatever I did, I simply got back JavaScript's representation of the file, as a piece of text. I found
-    &lt;a href="https://github.com/aaronksaunders/base64encodeUtil"&gt;a module for Titanium&lt;/a&gt;
-    whose sole purpose is to get round the issue. That doesn't work, so I'm kind
-    of stuffed.&lt;/p&gt;
+request... the sort of thing your browser does when you submit a contact form
+and attach a Word doc, for example). Whatever I did, I simply got back
+JavaScript's representation of the file, as a piece of text. I found
+&lt;a href="https://github.com/aaronksaunders/base64encodeUtil"&gt;a module for Titanium&lt;/a&gt;
+whose sole purpose is to get round the issue. That doesn't work, so I'm kind of
+stuffed.&lt;/p&gt;
 &lt;p&gt;It's possible I might not be stuffed though, for two reasons. One is that I
 &lt;em&gt;might&lt;/em&gt; be able to split my request in two: send the metadata first, get a file
 ID back from the server, then send the actual file across, using the ID so the
 server knows where to put it. But from the code samples I've seen online, I'm
 not convinced of that just yet. The other is a very helpful tweet I just
 received, from @&lt;a href="http://twitter.com/mindelusions"&gt;mindelusions&lt;/a&gt;:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;@moxypark email community@appcelerator.com and we'll help you out with any issues.&lt;/p&gt;
-&lt;p&gt;— Anthony Decena (@mindelusions) &lt;a href="https://twitter.com/mindelusions/statuses/114870331067469826"&gt;September 17, 2011&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;blockquote class="twitter-tweet" lang="en"&gt;&lt;p lang="en" dir="ltr"&gt;@moxypark email community@appcelerator.com and we&amp;#39;ll help you out with any issues.&lt;/p&gt;&amp;mdash; Anthony Decena (@mindelusions) &lt;a href="https://twitter.com/mindelusions/status/114870331067469826"&gt;September 17, 2011&lt;/a&gt;&lt;/blockquote&gt;
+
+&lt;script async src="//platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
+
 &lt;p&gt;I reckon I'll take Anthony up on that offer, and see how far I get. I should say
 that this won't stop me using or recommending Titanium, but it is a blow for the
 "it can do virtually anything iOS can" argument. For instance, what's the point
 of having the facility to record video if you can't upload it somewhere? It's
 not like other apps can make use of those files, and Titanium isn't powerful
 enough (I don't think anyway) to do full-on video editing.&lt;/p&gt;
-&lt;p&gt;Anyway, it all remains to be seen.&lt;/p&gt;</summary><category term="appcelerator"></category><category term="titanium"></category><category term="javascript"></category><category term="meegloo"></category></entry><entry><title>Django hashbangs</title><link href="http://code.steadman.io/blog/django-hashbangs" rel="alternate"></link><updated>2011-08-10T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:code.steadman.io,2011-08-10:blog/django-hashbangs</id><summary type="html">&lt;p&gt;Hashbangs (basically URLs starting with the #! code) are a useful way of serving
+&lt;p&gt;Anyway, it all remains to be seen.&lt;/p&gt;</summary><category term="appcelerator"></category><category term="titanium"></category><category term="javascript"></category><category term="meegloo"></category></entry><entry><title>Django hashbangs</title><link href="/blog/django-hashbangs" rel="alternate"></link><updated>2011-08-10T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:,2011-08-10:blog/django-hashbangs</id><summary type="html">&lt;p&gt;Hashbangs (basically URLs starting with the #! code) are a useful way of serving
 web pages in sites where only a certain portion of a page is likely to update.
 Facebook and Twitter use them throughout their sites to update their main
 content panels, while leaving the remainder of the page unchanged. It can save
@@ -1312,7 +1312,7 @@ the links). If you can see a hole in this methodology, or you have any
 questions, &lt;a href="http://twitter.com/iamsteadman/"&gt;just shout&lt;/a&gt;!&lt;/p&gt;
 &lt;p&gt;Unfortunately, Twitter doesn't seem to implement hashbangs in such an accessible
 way, and actually doesn't work at all with JavaScript turned off, whereas
-Facebook does.&lt;/p&gt;</summary><category term="django"></category><category term="javascript"></category></entry><entry><title>CSS frameworks: it's time we had a talk</title><link href="http://code.steadman.io/blog/css-frameworks-its-time-we-had-a-talk" rel="alternate"></link><updated>2011-06-19T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:code.steadman.io,2011-06-19:blog/css-frameworks-its-time-we-had-a-talk</id><summary type="html">&lt;p&gt;&lt;a href="http://www.blueprintcss.org/"&gt;Blueprint&lt;/a&gt;, we've had some laughs, you and me.
+Facebook does.&lt;/p&gt;</summary><category term="django"></category><category term="javascript"></category></entry><entry><title>CSS frameworks: it's time we had a talk</title><link href="/blog/css-frameworks-its-time-we-had-a-talk" rel="alternate"></link><updated>2011-06-19T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:,2011-06-19:blog/css-frameworks-its-time-we-had-a-talk</id><summary type="html">&lt;p&gt;&lt;a href="http://www.blueprintcss.org/"&gt;Blueprint&lt;/a&gt;, we've had some laughs, you and me.
 You too, &lt;a href="http://960.gs/"&gt;960&lt;/a&gt; (although I never liked your underscores), but
 now there's something new in my life, and there just isn't room for you anymore.
 It's not you... well, it &lt;em&gt;is&lt;/em&gt; you. Y'see, you're just not... flexible enough.&lt;/p&gt;
@@ -1325,32 +1325,29 @@ hit a brick wall really quickly when I realised that the framework I was using
 was simply inflexible.&lt;/p&gt;
 &lt;p&gt;CSS frameworks are really great for knocking up sites quickly: but they're for
 the desktop, really. They confine you to a 960(ish) width (although you can
-    change that... but that means creating a whole new stylesheet) and use
-    classes within your HTML to determin how many columns wide a block of
-    content should be (ie: Blueprint divides its page into 24 columns, so a main
-        section might be 16 columns, with 8 left over for a sidebar). It's not
-        semantic - but that doesn't bother me because I use other classes (and
-            markup) that are.&lt;/p&gt;
+change that... but that means creating a whole new stylesheet) and use classes
+within your HTML to determin how many columns wide a block of content should be
+(ie: Blueprint divides its page into 24 columns, so a main section might be 16
+columns, with 8 left over for a sidebar). It's not semantic - but that doesn't
+bother me because I use other classes (and markup) that are.&lt;/p&gt;
 &lt;p&gt;Smartphones are really good at rendering web pages, but any site that isn't mobile-optimised in some way will have readers itching to pinch, so they can
 actually read the stuff that's been rendered in tiny font, or they'll be forever
 running their finger back and forth, back and forth, back and forth as they
 scroll horizontally through your too-wide page.&lt;/p&gt;
-&lt;p&gt;So, using my portfolio site and playground,
-&lt;a href="http://moxypark.co.uk"&gt;moxypark.co.uk&lt;/a&gt; as a guinea pig, my first job was to
-replace all my &lt;code&gt;span-_xx_&lt;/code&gt; classes (where &lt;em&gt;xx&lt;/em&gt; is a number of columns, not a
-    dull hipster band) with more useful, semantic words, and combinations of
-    words (&lt;code&gt;module&lt;/code&gt;, for standard-size columns, then &lt;code&gt;module headliner&lt;/code&gt; for
-        double-width ones [they're completely arbitrary really, as the HTML
-        markup is more semantic]). In Ethan's book, he built a site from
-        scratch, whereas I had a load of legacy grot to get rid of, so it took
-        me a bit of time.&lt;/p&gt;
+&lt;p&gt;So, using my portfolio site and playground, moxypark.co.uk as a guinea pig, my
+first job was to replace all my &lt;code&gt;span-_xx_&lt;/code&gt; classes (where &lt;em&gt;xx&lt;/em&gt; is a number of
+columns, not a dull hipster band) with more useful, semantic words, and
+combinations of words (&lt;code&gt;module&lt;/code&gt;, for standard-size columns, then &lt;code&gt;module
+headliner&lt;/code&gt; for double-width ones [they're completely arbitrary really, as the
+HTML markup is more semantic]). In Ethan's book, he built a site from scratch,
+whereas I had a load of legacy grot to get rid of, so it took me a bit of time.&lt;/p&gt;
 &lt;p&gt;I looked back through the Blueprint source, got the widths of those &lt;code&gt;span-xx&lt;/code&gt;
 elements and did some calculations to express those as percentages of 950 (the
-    maximum width in a Blueprint-styled page). Then, instead of having a
-    container that was 950px wide, I made it 90% of the page width, thus giving
-    me a fluid layout with no pixels (except for the logo and pullout sections,
-        which float absolute left and absolute right, respectively, and &lt;em&gt;need&lt;/em&gt;
-        to be measured in pixels).&lt;/p&gt;
+maximum width in a Blueprint-styled page). Then, instead of having a container
+that was 950px wide, I made it 90% of the page width, thus giving me a fluid
+layout with no pixels (except for the logo and pullout sections, which float
+absolute left and absolute right, respectively, and &lt;em&gt;need&lt;/em&gt; to be measured
+in pixels).&lt;/p&gt;
 &lt;p&gt;You could, if you were inclined, argue that it is possible to make a fluid CSS
 framework - and I'm fairly sure they already exist - but the problem is,
 although they're flexible, they're not &lt;em&gt;responsive&lt;/em&gt;: they don't give a monkey's
@@ -1369,20 +1366,19 @@ layout of my site, I started big, with a browser width of 1600px, and shrank all
 the way down to a 360px iPhone screen.&lt;/p&gt;
 &lt;p&gt;A useful note that was mentioned in the book is that iPhones render pages at
 980px wide, then shrink them down to fit the screen, so all your width and font measurements are still relative to that 980px context (Ethan talks in detail
-    about using percentages, not pixels to measure items in a grid). A simple
-    meta tag tells the device to render at its device width, 360px. thus making
-    the measurements for the mobile version of your style sheet much more
-    sensible, as they're a percentage of 360, not 980. Confused? Ah, don't worry
-    about it ;)&lt;/p&gt;
+about using percentages, not pixels to measure items in a grid). A simple meta
+tag tells the device to render at its device width, 360px. thus making the
+measurements for the mobile version of your style sheet much more sensible, as
+they're a percentage of 360, not 980. Confused? Ah, don't worry about it ;)&lt;/p&gt;
 &lt;p&gt;There are a few stress points in the design: the left-hand logo overlaps the
 text in a particular width range, but then as you get smaller the logo backs
 away, then completely disappears (as do the social icons in the top-right, in
-    order to make room for the full menu).&lt;/p&gt;
+order to make room for the full menu).&lt;/p&gt;
 &lt;p&gt;A nice touch - well I thought so - was the menu. It's quite long for a mobile
 site, and would split into two lines, but with an ellipses, a bit of absolute
 positioning and a couple of lines of jQuery I was able to make an overflow menu
 that put the blog, writing and podcast lists one tap away. (That might not be to
-    everyone's tastes, but I prefer as small a menu as possible).&lt;/p&gt;
+everyone's tastes, but I prefer as small a menu as possible).&lt;/p&gt;
 &lt;p&gt;I've also put Ethan's wise words about image resizing to use, but there's more
 work to be done here, as mobiles currently are having to download images at a
 size they'll never need to deal with, in order to improve the quality for
@@ -1411,7 +1407,7 @@ device.&lt;/p&gt;
 the board, and are really nice to establish as a bedrock, so I'll definitely
 keep using those kinds of rules in my CSS.&lt;/p&gt;
 &lt;p&gt;So, here's to the future of responsive web design, and bless you for reading
-this far! :)&lt;/p&gt;</summary><category term="css"></category></entry><entry><title>PHP and Django on a Mac, the easiest way I know how</title><link href="http://code.steadman.io/blog/php-and-django-on-a-mac-the-easiest-way-i-know-how" rel="alternate"></link><updated>2010-10-03T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:code.steadman.io,2010-10-03:blog/php-and-django-on-a-mac-the-easiest-way-i-know-how</id><summary type="html">&lt;p&gt;on my Mac&lt;/p&gt;
+this far! :)&lt;/p&gt;</summary><category term="css"></category></entry><entry><title>PHP and Django on a Mac, the easiest way I know how</title><link href="/blog/php-and-django-on-a-mac-the-easiest-way-i-know-how" rel="alternate"></link><updated>2010-10-03T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:,2010-10-03:blog/php-and-django-on-a-mac-the-easiest-way-i-know-how</id><summary type="html">&lt;p&gt;on my Mac&lt;/p&gt;
 &lt;p&gt;I work primarily with two frameworks: WordPress (if you can call it a framework)
 and Django. Therefore I want my Mac to be able to handle both, and preferably via
 the same machinery. The Django development server's pretty good, but has some
@@ -1669,14 +1665,14 @@ place.&lt;/p&gt;
 &lt;p&gt;I wrote this a while ago and have only got round to publishing it now, so there
 may be inaccuracies, missing steps and outdated advice. But if you have any
 trouble, please leave me a comment, as it's likely something I've missed that
-I'll remember fairly quickly, and can add to the guide for future readers.&lt;/p&gt;</summary><category term="php"></category><category term="django"></category><category term="osx"></category><category term="mysql"></category></entry><entry><title>WordPress Markdown widget</title><link href="http://code.steadman.io/projects/wordpress-markdown-widget" rel="alternate"></link><updated>2009-10-11T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:code.steadman.io,2009-10-11:projects/wordpress-markdown-widget</id><summary type="html">&lt;p&gt;This plugin allows users familiar with the Markdown syntax to use it from within
+I'll remember fairly quickly, and can add to the guide for future readers.&lt;/p&gt;</summary><category term="php"></category><category term="django"></category><category term="osx"></category><category term="mysql"></category></entry><entry><title>WordPress Markdown widget</title><link href="/projects/wordpress-markdown-widget" rel="alternate"></link><updated>2009-10-11T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:,2009-10-11:projects/wordpress-markdown-widget</id><summary type="html">&lt;p&gt;This plugin allows users familiar with the Markdown syntax to use it from within
 the sidebar. Its chief benefit is that it allows users who are unfamiliar with
 HTML, to get many of the benefits of a robust markup language, which is easier
 to learn and read back.&lt;/p&gt;
 &lt;p&gt;&lt;a class="btn" href="https://wordpress.org/plugins/markdown-widget/"&gt;
     &lt;span class="octicon octicon-cloud-download"&gt;&lt;/span&gt;
     Install it from WordPress
-&lt;/a&gt;&lt;/p&gt;</summary><category term="wordpress"></category><category term="php"></category><category term="markdown"></category></entry><entry><title>“Headers already sent” error</title><link href="http://code.steadman.io/blog/headers-already-sent-error" rel="alternate"></link><updated>2009-09-20T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:code.steadman.io,2009-09-20:blog/headers-already-sent-error</id><summary type="html">&lt;p&gt;If you receive a PHP error similar to that above, you’ll need to enable output
+&lt;/a&gt;&lt;/p&gt;</summary><category term="wordpress"></category><category term="php"></category><category term="markdown"></category></entry><entry><title>“Headers already sent” error</title><link href="/blog/headers-already-sent-error" rel="alternate"></link><updated>2009-09-20T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:,2009-09-20:blog/headers-already-sent-error</id><summary type="html">&lt;p&gt;If you receive a PHP error similar to that above, you’ll need to enable output
 buffering if you can. This can be done fairly simply by adding the following
 line to your .htaccess file. (That lives in the root folder of your website:
     often named &lt;em&gt;/htdocs&lt;/em&gt;, &lt;em&gt;/httpdocs&lt;/em&gt; or &lt;em&gt;/public_html&lt;/em&gt;.)&lt;/p&gt;
@@ -1691,7 +1687,7 @@ read by the server. (Usually, PHP sends HTML to the browser, processes a PHP
 unless the instruction is right at the beginning, it’ll be too late, because the
 browser’s already receiving data. Using the &lt;code&gt;output_buffering&lt;/code&gt; setting means PHP
 waits for the entire HTML page to be parsed before sending the resulting HTML to
-the browser, with any instructions at the beginning of the page.)&lt;/p&gt;</summary><category term="wordpress"></category><category term="php"></category></entry><entry><title>Weekday redirect</title><link href="http://code.steadman.io/projects/weekday-redirect" rel="alternate"></link><updated>2009-09-19T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:code.steadman.io,2009-09-19:projects/weekday-redirect</id><summary type="html">&lt;p&gt;This is a WordPress plugin created to redirect to a given page on a particular
+the browser, with any instructions at the beginning of the page.)&lt;/p&gt;</summary><category term="wordpress"></category><category term="php"></category></entry><entry><title>Weekday redirect</title><link href="/projects/weekday-redirect" rel="alternate"></link><updated>2009-09-19T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:,2009-09-19:projects/weekday-redirect</id><summary type="html">&lt;p&gt;This is a WordPress plugin created to redirect to a given page on a particular
 day. Let’s say you want certain information to be available on a certain day,
 like a list of events. Users could go to &lt;code&gt;http://yoursite.com/events&lt;/code&gt;, which
 would then redirect to &lt;code&gt;http://yoursite.com/events/&amp;lt;day&amp;gt;&lt;/code&gt;, where &lt;code&gt;&amp;lt;day&amp;gt;&lt;/code&gt; is
