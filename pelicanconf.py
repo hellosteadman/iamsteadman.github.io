@@ -61,3 +61,9 @@ EXTRA_PATH_METADATA = {
 
 # Google Analytics
 GOOGLE_ANALYTICS = 'UA-29554105-19'
+
+# Plugins
+PLUGIN_PATHS = ('plugins/',)
+PLUGINS = (
+    'category_template',
+)
