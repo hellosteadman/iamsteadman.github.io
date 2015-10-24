@@ -1,6 +1,7 @@
 Title: Using nginx, Icecast and MPC to create a cross-platform radio station
 Category: Blog
 Date: 2015-04-01
+Tags: nginx, icecast, mpc, poddle
 Summary: How I setup my Poddle server to handle live broadcasts with an off-air fallback stream, in a manner that works on desktop and mobile.
 
 ## What is Poddle?
