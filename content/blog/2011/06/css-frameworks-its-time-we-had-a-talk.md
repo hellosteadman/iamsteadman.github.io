@@ -19,35 +19,32 @@ was simply inflexible.
 
 CSS frameworks are really great for knocking up sites quickly: but they're for
 the desktop, really. They confine you to a 960(ish) width (although you can
-    change that... but that means creating a whole new stylesheet) and use
-    classes within your HTML to determin how many columns wide a block of
-    content should be (ie: Blueprint divides its page into 24 columns, so a main
-        section might be 16 columns, with 8 left over for a sidebar). It's not
-        semantic - but that doesn't bother me because I use other classes (and
-            markup) that are.
+change that... but that means creating a whole new stylesheet) and use classes
+within your HTML to determin how many columns wide a block of content should be
+(ie: Blueprint divides its page into 24 columns, so a main section might be 16
+columns, with 8 left over for a sidebar). It's not semantic - but that doesn't
+bother me because I use other classes (and markup) that are.
 
 Smartphones are really good at rendering web pages, but any site that isn't mobile-optimised in some way will have readers itching to pinch, so they can
 actually read the stuff that's been rendered in tiny font, or they'll be forever
 running their finger back and forth, back and forth, back and forth as they
 scroll horizontally through your too-wide page.
 
-So, using my portfolio site and playground,
-[moxypark.co.uk](http://moxypark.co.uk) as a guinea pig, my first job was to
-replace all my `span-_xx_` classes (where _xx_ is a number of columns, not a
-    dull hipster band) with more useful, semantic words, and combinations of
-    words (`module`, for standard-size columns, then `module headliner` for
-        double-width ones [they're completely arbitrary really, as the HTML
-        markup is more semantic]). In Ethan's book, he built a site from
-        scratch, whereas I had a load of legacy grot to get rid of, so it took
-        me a bit of time.
+So, using my portfolio site and playground, moxypark.co.uk as a guinea pig, my
+first job was to replace all my `span-_xx_` classes (where _xx_ is a number of
+columns, not a dull hipster band) with more useful, semantic words, and
+combinations of words (`module`, for standard-size columns, then `module
+headliner` for double-width ones [they're completely arbitrary really, as the
+HTML markup is more semantic]). In Ethan's book, he built a site from scratch,
+whereas I had a load of legacy grot to get rid of, so it took me a bit of time.
 
 I looked back through the Blueprint source, got the widths of those `span-xx`
 elements and did some calculations to express those as percentages of 950 (the
-    maximum width in a Blueprint-styled page). Then, instead of having a
-    container that was 950px wide, I made it 90% of the page width, thus giving
-    me a fluid layout with no pixels (except for the logo and pullout sections,
-        which float absolute left and absolute right, respectively, and _need_
-        to be measured in pixels).
+maximum width in a Blueprint-styled page). Then, instead of having a container
+that was 950px wide, I made it 90% of the page width, thus giving me a fluid
+layout with no pixels (except for the logo and pullout sections, which float
+absolute left and absolute right, respectively, and _need_ to be measured
+in pixels).
 
 You could, if you were inclined, argue that it is possible to make a fluid CSS
 framework - and I'm fairly sure they already exist - but the problem is,
@@ -69,22 +66,21 @@ the way down to a 360px iPhone screen.
 
 A useful note that was mentioned in the book is that iPhones render pages at
 980px wide, then shrink them down to fit the screen, so all your width and font measurements are still relative to that 980px context (Ethan talks in detail
-    about using percentages, not pixels to measure items in a grid). A simple
-    meta tag tells the device to render at its device width, 360px. thus making
-    the measurements for the mobile version of your style sheet much more
-    sensible, as they're a percentage of 360, not 980. Confused? Ah, don't worry
-    about it ;)
+about using percentages, not pixels to measure items in a grid). A simple meta
+tag tells the device to render at its device width, 360px. thus making the
+measurements for the mobile version of your style sheet much more sensible, as
+they're a percentage of 360, not 980. Confused? Ah, don't worry about it ;)
 
 There are a few stress points in the design: the left-hand logo overlaps the
 text in a particular width range, but then as you get smaller the logo backs
 away, then completely disappears (as do the social icons in the top-right, in
-    order to make room for the full menu).
+order to make room for the full menu).
 
 A nice touch - well I thought so - was the menu. It's quite long for a mobile
 site, and would split into two lines, but with an ellipses, a bit of absolute
 positioning and a couple of lines of jQuery I was able to make an overflow menu
 that put the blog, writing and podcast lists one tap away. (That might not be to
-    everyone's tastes, but I prefer as small a menu as possible).
+everyone's tastes, but I prefer as small a menu as possible).
 
 I've also put Ethan's wise words about image resizing to use, but there's more
 work to be done here, as mobiles currently are having to download images at a
