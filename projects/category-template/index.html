@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+                <title>code.steadman.io</title>
+            <meta charset="utf-8">
+<link href="/feeds/all.xml" type="application/atom+xml" rel="alternate" title="code.steadman.io Full Atom Feed" /><link href="/feeds/projects.xml" type="application/atom+xml" rel="alternate" title="code.steadman.io Categories Atom Feed" />
+
+        <meta name="tags" content="pelican" />
+        <meta name="tags" content="python" />
+        <link rel="stylesheet" href="/theme/css/primer.css">
+        <link rel="stylesheet" href="/theme/css/pygments.css">
+        <link rel="stylesheet" href="/theme/css/octicons/octicons.css">
+        <link rel="stylesheet" href="/theme/css/steadman.css">
+    </head>
+
+    <body class="single">
+        <header class="masthead">
+            <div class="container">
+                <img class="avatar" src="https://avatars1.githubusercontent.com/u/3310393?v=3&s=72" width="72" height="72">
+                <h1><a href="/">code.steadman.io <strong></strong></a></h1>
+            </div>
+        </header>
+
+    <div class="about">
+        <div class="container">
+            <h1><a href="/projects/category-template">Category Template</a></h1>
+            <div class="lead">
+                <p>A Pelican plugin for creating category-specific article and listing templates</p>
+            </div>
+        </div>
+    </div>
+
+        <div class="container">
+            <div class="columns">
+                <div class="one-fourth column">
+                    <nav class="menu">
+
+
+                            <a class="menu-item " href="/blog">Blog</a>
+                            <a class="menu-item " href="/portfolio">Portfolio</a>
+                            <a class="menu-item selected" href="/projects">Projects</a>
+                            <a class="menu-item " href="/snippets">Snippets</a>
+                            <a class="menu-item " href="/talks">Talks</a>
+                    </nav>
+
+                        <nav class="blogroll menu">
+                            <a class="menu-item" href="http://journal.steadman.io/" target="_blank">My journal</a>
+                            <a class="menu-item" href="http://substrakt.com/" target="_blank">My dayjob</a>
+                            <a class="menu-item" href="https://poddle.io/" target="_blank">My side project</a>
+                        </nav>
+
+                        <nav class="social menu">
+                            <a class="menu-item" href="https://github.com/iamsteadman/" target="_blank">GitHub</a>
+                            <a class="menu-item" href="https://twitter.com/iamsteadman/" target="_blank">Twitter</a>
+                        </nav>
+
+                    <span class="octicon octicon-mail"></span>
+                    <a href='mai&#108;to&#58;m%61&#37;7&#50;k%40%73te%&#54;1dman&#46;io'>mark&#64;steadman&#46;i&#111;</a>
+                </div>
+
+                <div class="three-fourths column">
+    <section id="content" class="body">
+        <div class="entry-content">
+            <p>This site uses <a href="http://blog.getpelican.com/">Pelican</a> to generate a blog from
+static files, maintained in a Github repo. (It's configured in s slightly
+unusual way so as to remove the <code>.html</code> extension from the RULs). It's hosted on
+Github Pages.</p>
+<p>I wanted each of my categories to have a specific title and description, and the
+only way I thought I could do this was by creating category-specific templates,
+similar to how WordPress works (and using the same kind of fallbacks we have
+for locating templates in Django).</p>
+<p>The plugin mechanism for Pelican is quite simple to get to grips with, and is
+based on signals (in much the same way as WordPress plugins are based on
+'actions' and 'filters'). Specifying a template for a specific article isn't too
+hard, as there's a signal that the plugin can receive, to change the template
+for a specific article (falling back to the original template if the
+category-specific one can't be found).</p>
+<p>We do that like this:</p>
+<div class="highlight"><pre><span class="k">if</span> <span class="n">content</span><span class="o">.</span><span class="n">category</span><span class="p">:</span>
+    <span class="n">template</span> <span class="o">=</span> <span class="s">&#39;category/</span><span class="si">%s</span><span class="s">/article&#39;</span> <span class="o">%</span> <span class="n">content</span><span class="o">.</span><span class="n">category</span><span class="o">.</span><span class="n">slug</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">article_generator</span><span class="o">.</span><span class="n">get_template</span><span class="p">(</span><span class="n">template</span><span class="p">)</span>
+    <span class="k">except</span> <span class="n">PelicanTemplateNotFound</span><span class="p">:</span>
+        <span class="k">pass</span> <span class="c"># No category-specific templates exists</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">content</span><span class="o">.</span><span class="n">template</span> <span class="o">=</span> <span class="n">template</span> <span class="c"># Use the category-specific template found</span>
+</pre></div>
+
+
+<p>The problem with the listing pages (/blog/, /projects/ etc) is that Pelican
+doesn't have a signal to specifically handle the output of this type of page (or
+at least, I couldn't find one that fit).</p>
+<p>So I had to monkeypatch the <code>generate_categories</code> method of the
+<code>ArticlesGenerator</code> class, which is the file that outputs all the HTML for
+articles and their listings pages. It will only use the 'articles' template,
+and there's no way to override that behaviour in a hookable way.</p>
+<p>Hence the monkeypatching, which is problematic of course because, if this
+function gets refactored, this plugin won't work any more. but for now, it's a
+working solution.</p>
+<p>The issue I had with monkeypatching is that I wasn't familiar with doing that
+with instance methods (functions in a class, rather than standalone ones just
+sitting in a module), but a quick bit of Google fu got me what I needed.</p>
+<p>I hook into the <code>generator_init</code> signal, then replace the built-in
+<code>ArticlesGenerator.generate_categories</code> method with my own, by passing the
+new method and the old class to the <code>types.MethodType</code> function. So my new
+monkeypatched version of the method looks like this:</p>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">generate_categories</span><span class="p">(</span><span class="n">instance</span><span class="p">,</span> <span class="n">writer</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">cat</span><span class="p">,</span> <span class="n">articles</span> <span class="ow">in</span> <span class="n">instance</span><span class="o">.</span><span class="n">categories</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c"># Use the category-specific template if it exists</span>
+            <span class="n">category_template</span> <span class="o">=</span> <span class="n">instance</span><span class="o">.</span><span class="n">get_template</span><span class="p">(</span>
+                <span class="s">&#39;category/</span><span class="si">%s</span><span class="s">/index&#39;</span> <span class="o">%</span> <span class="n">cat</span><span class="o">.</span><span class="n">slug</span>
+            <span class="p">)</span>
+        <span class="k">except</span> <span class="n">PelicanTemplateNotFound</span><span class="p">:</span>
+            <span class="c"># Fallback to the &#39;category&#39; template if it doesn&#39;t</span>
+            <span class="n">category_template</span> <span class="o">=</span> <span class="n">instance</span><span class="o">.</span><span class="n">get_template</span><span class="p">(</span><span class="s">&#39;category&#39;</span><span class="p">)</span>
+
+        <span class="c"># The rest is the same function as originally in Pelican</span>
+        <span class="n">articles</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span> <span class="o">=</span> <span class="n">attrgetter</span><span class="p">(</span><span class="s">&#39;date&#39;</span><span class="p">),</span> <span class="n">reverse</span> <span class="o">=</span> <span class="bp">True</span><span class="p">)</span>
+        <span class="o">...</span>
+</pre></div>
+
+
+<p>What I might do next, time permitting is contribute a signal to the Prelican
+project that this plugin can hook into, so no more monkeypatching.</p>
+<p><a class="btn" href="https://github.com/iamsteadman/pelican-category-template">
+    <span class="octicon octicon-git-branch"></span>
+    Fork it on GitHub
+</a></p>
+        </div>
+
+        <footer class="post-info">
+            Published on <abbr class="published" title="2015-10-24T00:00:00+01:00">
+                Sat 24 October 2015            </abbr>
+
+                by <address class="vcard author">
+                        <a class="url fn" href="/@steadman">Steadman</a>
+                </address>
+        </footer>
+    </section>
+                </div>
+            </div>
+        </div>
+
+        <footer class="body">
+            <div class="container">
+                <address class="vcard body">
+                    Proudly powered by <a href="http://getpelican.com/">Pelican</a>,
+                    which takes great advantage of <a href="http://python.org">Python</a>.
+                </address>
+            </div>
+        </footer>
+
+        <script>
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+        </script>
+        <script>
+            try {
+                var pageTracker = _gat._getTracker("UA-29554105-19");
+                pageTracker._trackPageview();
+            } catch(err) {}
+        </script>
+    </body>
+</html>

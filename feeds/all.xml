@@ -1,5 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>code.steadman.io</title><link href="/" rel="alternate"></link><link href="/feeds/all.xml" rel="self"></link><id>/</id><updated>2015-05-31T00:00:00+01:00</updated><entry><title>A web framework for the creative mind</title><link href="/talks/a-web-framework-for-the-creative-mind" rel="alternate"></link><updated>2015-05-31T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:,2015-05-31:talks/a-web-framework-for-the-creative-mind</id><summary type="html">&lt;iframe src="https://player.vimeo.com/video/135740367" width="730" height="455" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;</summary><category term="django"></category><category term="djangocon"></category></entry><entry><title>Telestrap</title><link href="/projects/telestrap" rel="alternate"></link><updated>2015-04-09T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:,2015-04-09:projects/telestrap</id><summary type="html">&lt;p&gt;This is a Bootstrap theme with a &lt;a href="http://www.fonts2u.com/teletext-regular-regular.font"&gt;Teletext-style font&lt;/a&gt;,
+<feed xmlns="http://www.w3.org/2005/Atom"><title>code.steadman.io</title><link href="/" rel="alternate"></link><link href="/feeds/all.xml" rel="self"></link><id>/</id><updated>2015-10-24T00:00:00+01:00</updated><entry><title>Category Template</title><link href="/projects/category-template" rel="alternate"></link><updated>2015-10-24T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:,2015-10-24:projects/category-template</id><summary type="html">&lt;p&gt;This site uses &lt;a href="http://blog.getpelican.com/"&gt;Pelican&lt;/a&gt; to generate a blog from
+static files, maintained in a Github repo. (It's configured in s slightly
+unusual way so as to remove the &lt;code&gt;.html&lt;/code&gt; extension from the RULs). It's hosted on
+Github Pages.&lt;/p&gt;
+&lt;p&gt;I wanted each of my categories to have a specific title and description, and the
+only way I thought I could do this was by creating category-specific templates,
+similar to how WordPress works (and using the same kind of fallbacks we have
+for locating templates in Django).&lt;/p&gt;
+&lt;p&gt;The plugin mechanism for Pelican is quite simple to get to grips with, and is
+based on signals (in much the same way as WordPress plugins are based on
+'actions' and 'filters'). Specifying a template for a specific article isn't too
+hard, as there's a signal that the plugin can receive, to change the template
+for a specific article (falling back to the original template if the
+category-specific one can't be found).&lt;/p&gt;
+&lt;p&gt;We do that like this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;content&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;category&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;template&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;category/&lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s"&gt;/article&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="n"&gt;content&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;category&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;slug&lt;/span&gt;
+
+    &lt;span class="k"&gt;try&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;article_generator&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get_template&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;template&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;except&lt;/span&gt; &lt;span class="n"&gt;PelicanTemplateNotFound&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="k"&gt;pass&lt;/span&gt; &lt;span class="c"&gt;# No category-specific templates exists&lt;/span&gt;
+    &lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;content&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;template&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;template&lt;/span&gt; &lt;span class="c"&gt;# Use the category-specific template found&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The problem with the listing pages (/blog/, /projects/ etc) is that Pelican
+doesn't have a signal to specifically handle the output of this type of page (or
+at least, I couldn't find one that fit).&lt;/p&gt;
+&lt;p&gt;So I had to monkeypatch the &lt;code&gt;generate_categories&lt;/code&gt; method of the
+&lt;code&gt;ArticlesGenerator&lt;/code&gt; class, which is the file that outputs all the HTML for
+articles and their listings pages. It will only use the 'articles' template,
+and there's no way to override that behaviour in a hookable way.&lt;/p&gt;
+&lt;p&gt;Hence the monkeypatching, which is problematic of course because, if this
+function gets refactored, this plugin won't work any more. but for now, it's a
+working solution.&lt;/p&gt;
+&lt;p&gt;The issue I had with monkeypatching is that I wasn't familiar with doing that
+with instance methods (functions in a class, rather than standalone ones just
+sitting in a module), but a quick bit of Google fu got me what I needed.&lt;/p&gt;
+&lt;p&gt;I hook into the &lt;code&gt;generator_init&lt;/code&gt; signal, then replace the built-in
+&lt;code&gt;ArticlesGenerator.generate_categories&lt;/code&gt; method with my own, by passing the
+new method and the old class to the &lt;code&gt;types.MethodType&lt;/code&gt; function. So my new
+monkeypatched version of the method looks like this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;generate_categories&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;instance&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;writer&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;cat&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;articles&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;instance&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;categories&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="k"&gt;try&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+            &lt;span class="c"&gt;# Use the category-specific template if it exists&lt;/span&gt;
+            &lt;span class="n"&gt;category_template&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;instance&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get_template&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
+                &lt;span class="s"&gt;&amp;#39;category/&lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s"&gt;/index&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="n"&gt;cat&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;slug&lt;/span&gt;
+            &lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="k"&gt;except&lt;/span&gt; &lt;span class="n"&gt;PelicanTemplateNotFound&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+            &lt;span class="c"&gt;# Fallback to the &amp;#39;category&amp;#39; template if it doesn&amp;#39;t&lt;/span&gt;
+            &lt;span class="n"&gt;category_template&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;instance&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get_template&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;category&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+        &lt;span class="c"&gt;# The rest is the same function as originally in Pelican&lt;/span&gt;
+        &lt;span class="n"&gt;articles&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sort&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;attrgetter&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;date&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;reverse&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="o"&gt;...&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;What I might do next, time permitting is contribute a signal to the Prelican
+project that this plugin can hook into, so no more monkeypatching.&lt;/p&gt;
+&lt;p&gt;&lt;a class="btn" href="https://github.com/iamsteadman/pelican-category-template"&gt;
+    &lt;span class="octicon octicon-git-branch"&gt;&lt;/span&gt;
+    Fork it on GitHub
+&lt;/a&gt;&lt;/p&gt;</summary><category term="pelican"></category><category term="python"></category></entry><entry><title>A web framework for the creative mind</title><link href="/talks/a-web-framework-for-the-creative-mind" rel="alternate"></link><updated>2015-05-31T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:,2015-05-31:talks/a-web-framework-for-the-creative-mind</id><summary type="html">&lt;iframe src="https://player.vimeo.com/video/135740367" width="730" height="455" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;</summary><category term="django"></category><category term="djangocon"></category></entry><entry><title>Telestrap</title><link href="/projects/telestrap" rel="alternate"></link><updated>2015-04-09T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:,2015-04-09:projects/telestrap</id><summary type="html">&lt;p&gt;This is a Bootstrap theme with a &lt;a href="http://www.fonts2u.com/teletext-regular-regular.font"&gt;Teletext-style font&lt;/a&gt;,
 inspired by the text services we used to get before the Web and digital TV
 ruined everything.&lt;/p&gt;
 &lt;p&gt;It's pretty much just a novely project, so don't expect much support :)&lt;/p&gt;
