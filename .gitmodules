@@ -1,0 +1,3 @@
+[submodule "plugins/category_template"]
+	path = plugins/category_template
+	url = git@github.com:iamsteadman/pelican-category-template.git
