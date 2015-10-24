@@ -89,6 +89,7 @@ def publish():
 
 def gh_pages():
     """Publish to GitHub Pages"""
-    rebuild()
+    clean()
+    local('pelican -s publishconf.py')
     local("ghp-import -b master {deploy_path}".format(**env))
     local("git push origin master:master".format(**env))
