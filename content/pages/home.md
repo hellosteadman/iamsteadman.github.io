@@ -18,7 +18,7 @@ reusable apps it relies upon - was written by me.
 I also run a podcasting network called [Poddle](https://poddle.io/), which is
 built with Django and hosted via Heroku.
 
-I also work daily with Sass, LESS, HTML5 and jQuery, and write microservices in
+I also work daily with Sass, LESS, HTML5 and jQuery, write microservices in
 Flask, and build websites and plugins using WordPress.
 
 I work for [Substrakt](http://substrakt.com/) in Birmingham, a passionate
