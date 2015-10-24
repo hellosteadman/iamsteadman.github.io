@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"><title>code.steadman.io</title><link href="http://code.steadman.io/" rel="alternate"></link><link href="http://code.steadman.io/feeds/projects.xml" rel="self"></link><id>http://code.steadman.io/</id><updated>2015-10-24T00:00:00+01:00</updated><entry><title>Category Template</title><link href="http://code.steadman.io/projects/category-template" rel="alternate"></link><updated>2015-10-24T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:code.steadman.io,2015-10-24:projects/category-template</id><summary type="html">&lt;p&gt;This site uses &lt;a href="http://blog.getpelican.com/"&gt;Pelican&lt;/a&gt; to generate a blog from
 static files, maintained in a Github repo. (It's configured in s slightly
-unusual way so as to remove the &lt;code&gt;.html&lt;/code&gt; extension from the RULs). It's hosted on
+unusual way so as to remove the &lt;code&gt;.html&lt;/code&gt; extension from the URLs). It's hosted on
 Github Pages.&lt;/p&gt;
 &lt;p&gt;I wanted each of my categories to have a specific title and description, and the
 only way I thought I could do this was by creating category-specific templates,
