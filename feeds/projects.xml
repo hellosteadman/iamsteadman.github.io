@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>code.steadman.io</title><link href="/" rel="alternate"></link><link href="/feeds/projects.xml" rel="self"></link><id>/</id><updated>2015-10-24T00:00:00+01:00</updated><entry><title>Category Template</title><link href="/projects/category-template" rel="alternate"></link><updated>2015-10-24T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:,2015-10-24:projects/category-template</id><summary type="html">&lt;p&gt;This site uses &lt;a href="http://blog.getpelican.com/"&gt;Pelican&lt;/a&gt; to generate a blog from
+<feed xmlns="http://www.w3.org/2005/Atom"><title>code.steadman.io</title><link href="http://code.steadman.io/" rel="alternate"></link><link href="http://code.steadman.io/feeds/projects.xml" rel="self"></link><id>http://code.steadman.io/</id><updated>2015-10-24T00:00:00+01:00</updated><entry><title>Category Template</title><link href="http://code.steadman.io/projects/category-template" rel="alternate"></link><updated>2015-10-24T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:code.steadman.io,2015-10-24:projects/category-template</id><summary type="html">&lt;p&gt;This site uses &lt;a href="http://blog.getpelican.com/"&gt;Pelican&lt;/a&gt; to generate a blog from
 static files, maintained in a Github repo. (It's configured in s slightly
 unusual way so as to remove the &lt;code&gt;.html&lt;/code&gt; extension from the RULs). It's hosted on
 Github Pages.&lt;/p&gt;
@@ -65,14 +65,14 @@ project that this plugin can hook into, so no more monkeypatching.&lt;/p&gt;
 &lt;p&gt;&lt;a class="btn" href="https://github.com/iamsteadman/pelican-category-template"&gt;
     &lt;span class="octicon octicon-git-branch"&gt;&lt;/span&gt;
     Fork it on GitHub
-&lt;/a&gt;&lt;/p&gt;</summary><category term="pelican"></category><category term="python"></category></entry><entry><title>Telestrap</title><link href="/projects/telestrap" rel="alternate"></link><updated>2015-04-09T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:,2015-04-09:projects/telestrap</id><summary type="html">&lt;p&gt;This is a Bootstrap theme with a &lt;a href="http://www.fonts2u.com/teletext-regular-regular.font"&gt;Teletext-style font&lt;/a&gt;,
+&lt;/a&gt;&lt;/p&gt;</summary><category term="pelican"></category><category term="python"></category></entry><entry><title>Telestrap</title><link href="http://code.steadman.io/projects/telestrap" rel="alternate"></link><updated>2015-04-09T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:code.steadman.io,2015-04-09:projects/telestrap</id><summary type="html">&lt;p&gt;This is a Bootstrap theme with a &lt;a href="http://www.fonts2u.com/teletext-regular-regular.font"&gt;Teletext-style font&lt;/a&gt;,
 inspired by the text services we used to get before the Web and digital TV
 ruined everything.&lt;/p&gt;
 &lt;p&gt;It's pretty much just a novely project, so don't expect much support :)&lt;/p&gt;
 &lt;p&gt;&lt;a class="btn" href="https://github.com/iamsteadman/telestrap"&gt;
     &lt;span class="octicon octicon-git-branch"&gt;&lt;/span&gt;
     Fork it on GitHub
-&lt;/a&gt;&lt;/p&gt;</summary><category term="bootstrap"></category><category term="teletext"></category></entry><entry><title>Django data provisioner</title><link href="/projects/django-data-provisioner" rel="alternate"></link><updated>2014-07-14T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:,2014-07-14:projects/django-data-provisioner</id><summary type="html">&lt;p&gt;I need to do a bunch of frontend development for a site I'm working on, and I
+&lt;/a&gt;&lt;/p&gt;</summary><category term="bootstrap"></category><category term="teletext"></category></entry><entry><title>Django data provisioner</title><link href="http://code.steadman.io/projects/django-data-provisioner" rel="alternate"></link><updated>2014-07-14T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:code.steadman.io,2014-07-14:projects/django-data-provisioner</id><summary type="html">&lt;p&gt;I need to do a bunch of frontend development for a site I'm working on, and I
 needed a simple way to generate sample data that is sane.&lt;/p&gt;
 &lt;p&gt;So, inspired by &lt;a href="http://ansible.com/"&gt;Ansible&lt;/a&gt; I knocked up a data provisioning
 system as a Django management command, that takes a YAML file defining the data
@@ -94,7 +94,7 @@ from the filesystem. It does this intelligently, as it knows which model you're 
 &lt;p&gt;&lt;a class="btn" href="https://github.com/iamsteadman/bambu-gensite"&gt;
     &lt;span class="octicon octicon-git-branch"&gt;&lt;/span&gt;
     Fork it on GitHub
-&lt;/a&gt;&lt;/p&gt;</summary><category term="django"></category><category term="ansible"></category></entry><entry><title>Plunja.js</title><link href="/projects/plunjajs" rel="alternate"></link><updated>2014-07-01T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:,2014-07-01:projects/plunjajs</id><summary type="html">&lt;p&gt;Plunja is a simple JavaScript templating system that takes blocks of HTML stored
+&lt;/a&gt;&lt;/p&gt;</summary><category term="django"></category><category term="ansible"></category></entry><entry><title>Plunja.js</title><link href="http://code.steadman.io/projects/plunjajs" rel="alternate"></link><updated>2014-07-01T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:code.steadman.io,2014-07-01:projects/plunjajs</id><summary type="html">&lt;p&gt;Plunja is a simple JavaScript templating system that takes blocks of HTML stored
 in &lt;code&gt;&amp;lt;script&amp;gt;&lt;/code&gt; tags and renders them with context objects. It was inspired by
 &lt;a href="http://jinja.pocoo.org/docs/"&gt;Jinja2&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;You don’t need a JavaScript framework to use it, as you can define your own
@@ -103,7 +103,7 @@ locator uses jQuery, but it’s really simple to define your own.&lt;/p&gt;
 &lt;p&gt;&lt;a class="btn" href="https://github.com/iamsteadman/plunja"&gt;
     &lt;span class="octicon octicon-git-branch"&gt;&lt;/span&gt;
     Fork it on GitHub
-&lt;/a&gt;&lt;/p&gt;</summary><category term="javascript"></category></entry><entry><title>Format-rules</title><link href="/projects/format-rules" rel="alternate"></link><updated>2014-05-03T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:,2014-05-03:projects/format-rules</id><summary type="html">&lt;p&gt;In &lt;a href="http://journal.steadman.io/the-designer-blog-post/"&gt;The designer blog post&lt;/a&gt;,
+&lt;/a&gt;&lt;/p&gt;</summary><category term="javascript"></category></entry><entry><title>Format-rules</title><link href="http://code.steadman.io/projects/format-rules" rel="alternate"></link><updated>2014-05-03T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:code.steadman.io,2014-05-03:projects/format-rules</id><summary type="html">&lt;p&gt;In &lt;a href="http://journal.steadman.io/the-designer-blog-post/"&gt;The designer blog post&lt;/a&gt;,
 I wrote about updating the blogging app in my toolset to allow easy offline
 creation of blog posts. For standard pages I've gone a different direction, with
 a library I've started, called formatrules.&lt;/p&gt;
@@ -207,7 +207,7 @@ Just maybe gimme a credit and get in touch if you have any questions.&lt;/p&gt;
 &lt;p&gt;&lt;a class="btn" href="https://github.com/iamsteadman/bambu-formatrules"&gt;
     &lt;span class="octicon octicon-git-branch"&gt;&lt;/span&gt;
     Fork it on GitHub
-&lt;/a&gt;&lt;/p&gt;</summary><category term="django"></category><category term="markdown"></category></entry><entry><title>Droplet Map</title><link href="/projects/droplet-map" rel="alternate"></link><updated>2014-01-23T00:00:00+00:00</updated><author><name>Steadman</name></author><id>tag:,2014-01-23:projects/droplet-map</id><summary type="html">&lt;p&gt;of things people buy.
+&lt;/a&gt;&lt;/p&gt;</summary><category term="django"></category><category term="markdown"></category></entry><entry><title>Droplet Map</title><link href="http://code.steadman.io/projects/droplet-map" rel="alternate"></link><updated>2014-01-23T00:00:00+00:00</updated><author><name>Steadman</name></author><id>tag:code.steadman.io,2014-01-23:projects/droplet-map</id><summary type="html">&lt;p&gt;of things people buy.
 Tags: django, twitter, dropletpay&lt;/p&gt;
 &lt;p&gt;After seeing a few tweets over the past few months pointing to people's &lt;a href="http://dropletpay.com/"&gt;Droplet&lt;/a&gt; purchases (ala the example below), I thought
 I'd map out the kinds of things people buy, and the amounts of money they spend.&lt;/p&gt;
@@ -236,7 +236,7 @@ interesting.&lt;/p&gt;
 &lt;p&gt;&lt;a class="btn" href="https://github.com/iamsteadman/droplet-map"&gt;
     &lt;span class="octicon octicon-git-branch"&gt;&lt;/span&gt;
     Fork it on GitHub
-&lt;/a&gt;&lt;/p&gt;</summary></entry><entry><title>Primus</title><link href="/projects/primus" rel="alternate"></link><updated>2013-09-30T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:,2013-09-30:projects/primus</id><summary type="html">&lt;p&gt;Features:&lt;/p&gt;
+&lt;/a&gt;&lt;/p&gt;</summary></entry><entry><title>Primus</title><link href="http://code.steadman.io/projects/primus" rel="alternate"></link><updated>2013-09-30T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:code.steadman.io,2013-09-30:projects/primus</id><summary type="html">&lt;p&gt;Features:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Customise the header image, background colours and navbar&lt;/li&gt;
 &lt;li&gt;Converts WordPress menu classes into Bootstrap classes, rather than fiddle with Bootstrap's CSS&lt;/li&gt;
@@ -245,7 +245,7 @@ interesting.&lt;/p&gt;
 &lt;p&gt;&lt;a class="btn" href="https://github.com/iamsteadman/primus"&gt;
     &lt;span class="octicon octicon-git-branch"&gt;&lt;/span&gt;
     Fork it on GitHub
-&lt;/a&gt;&lt;/p&gt;</summary><category term="wordpress"></category><category term="bootstrap"></category></entry><entry><title>Social Comments</title><link href="/projects/social-comments" rel="alternate"></link><updated>2013-06-24T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:,2013-06-24:projects/social-comments</id><summary type="html">&lt;h2&gt;Setup&lt;/h2&gt;
+&lt;/a&gt;&lt;/p&gt;</summary><category term="wordpress"></category><category term="bootstrap"></category></entry><entry><title>Social Comments</title><link href="http://code.steadman.io/projects/social-comments" rel="alternate"></link><updated>2013-06-24T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:code.steadman.io,2013-06-24:projects/social-comments</id><summary type="html">&lt;h2&gt;Setup&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;Install from the Python Package Index:&lt;br /&gt;
@@ -297,7 +297,7 @@ chosen (you should be able to choose any prefix in your URLconf).&lt;/p&gt;
 &lt;p&gt;&lt;a class="btn" href="https://github.com/iamsteadman/social-comments"&gt;
     &lt;span class="octicon octicon-git-branch"&gt;&lt;/span&gt;
     Fork it on GitHub
-&lt;/a&gt;&lt;/p&gt;</summary><category term="django"></category></entry><entry><title>Buffer for WordPress</title><link href="/projects/buffer-for-wordpress" rel="alternate"></link><updated>2012-02-01T00:00:00+00:00</updated><author><name>Steadman</name></author><id>tag:,2012-02-01:projects/buffer-for-wordpress</id><summary type="html">&lt;p&gt;With this plugin, you can easily add your WordPress posts to Facebook, Twitter
+&lt;/a&gt;&lt;/p&gt;</summary><category term="django"></category></entry><entry><title>Buffer for WordPress</title><link href="http://code.steadman.io/projects/buffer-for-wordpress" rel="alternate"></link><updated>2012-02-01T00:00:00+00:00</updated><author><name>Steadman</name></author><id>tag:code.steadman.io,2012-02-01:projects/buffer-for-wordpress</id><summary type="html">&lt;p&gt;With this plugin, you can easily add your WordPress posts to Facebook, Twitter
 or LinkedIn, via your &lt;a href="http://bufferapp.com"&gt;bufferapp.com&lt;/a&gt; account.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Easy to setup&lt;/li&gt;
@@ -309,14 +309,14 @@ or LinkedIn, via your &lt;a href="http://bufferapp.com"&gt;bufferapp.com&lt;/a&g
 &lt;p&gt;&lt;a class="btn" href="https://wordpress.org/plugins/post-to-buffer/"&gt;
     &lt;span class="octicon octicon-cloud-download"&gt;&lt;/span&gt;
     Install it from WordPress
-&lt;/a&gt;&lt;/p&gt;</summary><category term="wordpress"></category><category term="buffer"></category></entry><entry><title>WordPress Markdown widget</title><link href="/projects/wordpress-markdown-widget" rel="alternate"></link><updated>2009-10-11T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:,2009-10-11:projects/wordpress-markdown-widget</id><summary type="html">&lt;p&gt;This plugin allows users familiar with the Markdown syntax to use it from within
+&lt;/a&gt;&lt;/p&gt;</summary><category term="wordpress"></category><category term="buffer"></category></entry><entry><title>WordPress Markdown widget</title><link href="http://code.steadman.io/projects/wordpress-markdown-widget" rel="alternate"></link><updated>2009-10-11T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:code.steadman.io,2009-10-11:projects/wordpress-markdown-widget</id><summary type="html">&lt;p&gt;This plugin allows users familiar with the Markdown syntax to use it from within
 the sidebar. Its chief benefit is that it allows users who are unfamiliar with
 HTML, to get many of the benefits of a robust markup language, which is easier
 to learn and read back.&lt;/p&gt;
 &lt;p&gt;&lt;a class="btn" href="https://wordpress.org/plugins/markdown-widget/"&gt;
     &lt;span class="octicon octicon-cloud-download"&gt;&lt;/span&gt;
     Install it from WordPress
-&lt;/a&gt;&lt;/p&gt;</summary><category term="wordpress"></category><category term="php"></category><category term="markdown"></category></entry><entry><title>Weekday redirect</title><link href="/projects/weekday-redirect" rel="alternate"></link><updated>2009-09-19T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:,2009-09-19:projects/weekday-redirect</id><summary type="html">&lt;p&gt;This is a WordPress plugin created to redirect to a given page on a particular
+&lt;/a&gt;&lt;/p&gt;</summary><category term="wordpress"></category><category term="php"></category><category term="markdown"></category></entry><entry><title>Weekday redirect</title><link href="http://code.steadman.io/projects/weekday-redirect" rel="alternate"></link><updated>2009-09-19T00:00:00+01:00</updated><author><name>Steadman</name></author><id>tag:code.steadman.io,2009-09-19:projects/weekday-redirect</id><summary type="html">&lt;p&gt;This is a WordPress plugin created to redirect to a given page on a particular
 day. Let’s say you want certain information to be available on a certain day,
 like a list of events. Users could go to &lt;code&gt;http://yoursite.com/events&lt;/code&gt;, which
 would then redirect to &lt;code&gt;http://yoursite.com/events/&amp;lt;day&amp;gt;&lt;/code&gt;, where &lt;code&gt;&amp;lt;day&amp;gt;&lt;/code&gt; is
