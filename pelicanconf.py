@@ -10,13 +10,6 @@ PATH = 'content'
 TIMEZONE = 'Europe/London'
 DEFAULT_LANG = u'en'
 
-# Feed generation is usually not desired when developing
-FEED_ALL_ATOM = 'feeds/all.xml'
-CATEGORY_FEED_ATOM = 'feeds/%s.xml'
-TRANSLATION_FEED_ATOM = None
-AUTHOR_FEED_ATOM = None
-AUTHOR_FEED_RSS = None
-
 # Blogroll
 LINKS = (
     ('My journal', 'http://journal.steadman.io/'),
@@ -58,9 +51,6 @@ EXTRA_PATH_METADATA = {
         'path': 'CNAME'
     }
 }
-
-# Google Analytics
-GOOGLE_ANALYTICS = 'UA-29554105-19'
 
 # Plugins
 PLUGIN_PATHS = ('plugins/',)

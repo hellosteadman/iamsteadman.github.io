@@ -12,13 +12,14 @@ from pelicanconf import *
 
 SITEURL = 'http://code.steadman.io'
 RELATIVE_URLS = False
-
-FEED_ALL_ATOM = 'feeds/all.atom.xml'
-CATEGORY_FEED_ATOM = 'feeds/%s.atom.xml'
-
 DELETE_OUTPUT_DIRECTORY = True
 
-# Following items are often useful when publishing
+# Feed generation is usually not desired when developing
+FEED_ALL_ATOM = 'feeds/all.xml'
+CATEGORY_FEED_ATOM = 'feeds/%s.xml'
+TRANSLATION_FEED_ATOM = None
+AUTHOR_FEED_ATOM = None
+AUTHOR_FEED_RSS = None
 
-#DISQUS_SITENAME = ""
-#GOOGLE_ANALYTICS = ""
+# Google Analytics
+GOOGLE_ANALYTICS = 'UA-29554105-19'
